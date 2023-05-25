@@ -33,6 +33,7 @@
 		C67D03BE2A1EAFE20005132D /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03BD2A1EAFE20005132D /* FilledButton.swift */; };
 		C67D03C02A1ED1800005132D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03BF2A1ED1800005132D /* AppCoordinator.swift */; };
 		C67D03C22A1ED2550005132D /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03C12A1ED2550005132D /* AppNavigation.swift */; };
+		C67D03C42A1EEFBD0005132D /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03C32A1EEFBD0005132D /* TextField.swift */; };
 		C6A22CC92A1E439400189B2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CC82A1E439400189B2C /* AppDelegate.swift */; };
 		C6A22CCD2A1E439400189B2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CCC2A1E439400189B2C /* LoginViewController.swift */; };
 		C6A22CD22A1E439500189B2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A22CD12A1E439500189B2C /* Assets.xcassets */; };
@@ -82,6 +83,7 @@
 		C67D03BD2A1EAFE20005132D /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
 		C67D03BF2A1ED1800005132D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		C67D03C12A1ED2550005132D /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
+		C67D03C32A1EEFBD0005132D /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		C6A22CC52A1E439400189B2C /* AuthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A22CC82A1E439400189B2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6A22CCC2A1E439400189B2C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				C67D03BD2A1EAFE20005132D /* FilledButton.swift */,
+				C67D03C32A1EEFBD0005132D /* TextField.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				C67D03C02A1ED1800005132D /* AppCoordinator.swift in Sources */,
 				C67D03922A1E9CBF0005132D /* BaseViewController.swift in Sources */,
 				C6A22CCD2A1E439400189B2C /* LoginViewController.swift in Sources */,
+				C67D03C42A1EEFBD0005132D /* TextField.swift in Sources */,
 				C6A22CE62A1E466300189B2C /* AboutViewController.swift in Sources */,
 				C67D03BE2A1EAFE20005132D /* FilledButton.swift in Sources */,
 				C67D03BC2A1EA1AD0005132D /* UIColor + Extension.swift in Sources */,

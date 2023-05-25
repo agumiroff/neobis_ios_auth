@@ -12,15 +12,18 @@ class FilledButton: UIButton {
     var hexColor: String
     var cornerRadius: CGFloat
     var title: String
+    var textColor: String
     
     init(
         hexColor: String,
         cornerRadius: CGFloat,
-        title: String
+        title: String,
+        textColor: String
     ) {
         self.hexColor = hexColor
         self.cornerRadius = cornerRadius
         self.title = title
+        self.textColor = textColor
         
         super.init(frame: CGRect())
         setupAppearance()
@@ -34,6 +37,7 @@ class FilledButton: UIButton {
         backgroundColor = UIColor(hexString: hexColor)
         layer.cornerRadius = cornerRadius
         setTitle(title, for: .normal)
+        setTitleColor(UIColor(hexString: textColor), for: .normal)
         titleLabel?.font = UIFont(name: Constants.Font.gothamBold,
                                   size: Constants.Font.regular)
         contentEdgeInsets = UIEdgeInsets(top: 25,

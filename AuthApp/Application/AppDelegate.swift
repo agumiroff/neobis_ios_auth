@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func startApplication() {
-        let view = AboutViewController()
+        let view = LoginViewController()
         window?.rootViewController = view
     }
 }

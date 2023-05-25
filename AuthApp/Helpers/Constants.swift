@@ -10,6 +10,8 @@ import Foundation
 enum Constants {
     
     static let mainBlueColor = "#5D5FEF"
+    static let inactiveGray = "#F7F7F8"
+    static let neactiveGrayColor = "#9CA4AB"
     
     enum Font {
         static let gothamBold = "Gotham-Bold"
