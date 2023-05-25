@@ -19,7 +19,8 @@ class AboutViewController: BaseViewController {
     private let filledButton = FilledButton(
         hexColor: Constants.mainBlueColor,
         cornerRadius: Constants.filledButtonCornerRadius,
-        title: Constants.filledButtonTitle
+        title: Constants.filledButtonTitle,
+        textColor: "#FFFFFF"
     )
     private let transparentButton = UIButton()
     
