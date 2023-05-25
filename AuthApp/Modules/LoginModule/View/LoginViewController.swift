@@ -9,6 +9,7 @@ import UIKit
 
 class LoginViewController: BaseViewController {
 
+    let button = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
