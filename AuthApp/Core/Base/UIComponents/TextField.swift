@@ -17,7 +17,7 @@ class BaseTextField: UITextField, UITextFieldDelegate {
     private let paddingForText = UIEdgeInsets(top: 32,
                                       left: 10,
                                       bottom: 9,
-                                      right: 10)
+                                      right: 30)
     
     init(hexColor: String,
          title: String) {
@@ -62,8 +62,9 @@ extension BaseTextField {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         labelConstraint?.deactivate()
         label.snp.makeConstraints { make in
-            labelConstraint = make.top.equalToSuperview().offset(5).constraint
+            labelConstraint = make.top.equalToSuperview().inset(10).constraint
         }
+        label.font = UIFont(name: Constants.Font.gothamMedium, size: Constants.Font.small)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -72,6 +73,7 @@ extension BaseTextField {
             label.snp.makeConstraints { make in
                 labelConstraint = make.centerY.equalToSuperview().constraint
             }
+            label.font = UIFont(name: Constants.Font.gothamMedium, size: Constants.Font.regular)
         }
     }
     

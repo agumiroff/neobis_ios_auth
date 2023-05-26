@@ -14,9 +14,7 @@ class LoginViewController: BaseViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let smileImage = UIImageView()
-    private let transparentButton = UIButton()
     private let hidePasswordButton = UIButton()
-    
     private let loginField = BaseTextField(
         hexColor: Constants.inactiveGray,
         title: Constants.loginFieldText
@@ -31,6 +29,8 @@ class LoginViewController: BaseViewController {
         title: Constants.filledButtonTitle,
         textColor: Constants.neactiveGrayColor
     )
+    private let transparentButton = UIButton()
+    private let spacer = UIView()
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -51,6 +51,7 @@ class LoginViewController: BaseViewController {
         loginFieldSetup()
         passwordFieldSetup()
         filledButtonSetup()
+        spacerSetup()
         transparentButtonSetup()
     }
 }
@@ -75,7 +76,7 @@ extension LoginViewController {
         scrollView.addSubview(contentView)
         
         contentView.snp.makeConstraints { make in
-            make.leading.top.trailing.bottom.equalToSuperview()
+            make.edges.equalTo(scrollView.snp.edges)
             make.width.equalTo(scrollView.snp.width)
         }
     }
@@ -141,6 +142,16 @@ extension LoginViewController {
         }
     }
     
+    private func spacerSetup() {
+        contentView.addSubview(spacer)
+        
+        spacer.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview()
+            make.top.equalTo(filledButton.snp.bottom)
+            make.height.equalTo(Constants.transparentButtonTop)
+        }
+    }
+    
     private func transparentButtonSetup() {
         contentView.addSubview(transparentButton)
         
@@ -153,8 +164,9 @@ extension LoginViewController {
         transparentButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
                 .inset(Constants.horizontalInsets)
-            make.top.equalTo(filledButton.snp.bottom)
-                .offset(Constants.transparentButtonTop)
+            make.top.equalTo(spacer.snp.bottom)
+            make.bottom.equalToSuperview()
+                .inset(Constants.transparentButtonBottom)
         }
     }
 }

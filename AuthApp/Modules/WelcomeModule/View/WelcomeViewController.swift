@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class AboutViewController: BaseViewController {
+final class WelcomeViewController: BaseViewController {
     
     // MARK: - Properties
     private let scrollView = UIScrollView()
@@ -20,7 +20,7 @@ class AboutViewController: BaseViewController {
         hexColor: Constants.mainBlueColor,
         cornerRadius: Constants.filledButtonCornerRadius,
         title: Constants.filledButtonTitle,
-        textColor: "#FFFFFF"
+        textColor: Constants.filledButtonColor
     )
     private let transparentButton = UIButton()
     
@@ -46,7 +46,7 @@ class AboutViewController: BaseViewController {
 }
 
 // MARK: - SetupViews
-extension AboutViewController {
+extension WelcomeViewController {
     
     private func scrollViewSetup() {
         view.addSubview(scrollView)
@@ -131,7 +131,7 @@ extension AboutViewController {
 
 // MARK: - Constraints and constants
 fileprivate extension Constants {
-    
+    // Constraints
     static let horizontalInsets = 20.0
     static let smileImageVerticalInset = 100.0
     static let smileImageHorizontalInsets = 87.0
@@ -139,8 +139,9 @@ fileprivate extension Constants {
     static let filledButtonVertical = 64.0
     static let filledButtonCornerRadius = 16.0
     static let transparentButtonVertical = 41.0
-    
+    // String constants
     static let welcomeLabelText = "Смейся и улыбайся каждый день"
     static let filledButtonTitle = "Начать пользоваться"
     static let transparentButtonTitle = "Есть аккаунт? Войти"
+    static let filledButtonColor = "#FFFFFF"
 }
