@@ -24,12 +24,15 @@
 		C635117A2A20270E00D5CDA6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63511792A20270E00D5CDA6 /* Coordinator.swift */; };
 		C663BC912A202C3700431A64 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC902A202C3700431A64 /* WelcomeViewModel.swift */; };
 		C663BC932A202C5A00431A64 /* WelcomeViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC922A202C5A00431A64 /* WelcomeViewModelImpl.swift */; };
+		C663BC962A202E4000431A64 /* WelcomeModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC952A202E4000431A64 /* WelcomeModuleAssembly.swift */; };
+		C663BC982A202FC500431A64 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC972A202FC500431A64 /* MainFlowCoordinator.swift */; };
+		C663BCA22A204B9C00431A64 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BCA12A204B9C00431A64 /* AppNavigation.swift */; };
+		C663BCA42A204C2000431A64 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BCA32A204C2000431A64 /* Navigation.swift */; };
 		C67D03902A1E5D620005132D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D038F2A1E5D620005132D /* Constants.swift */; };
 		C67D03922A1E9CBF0005132D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03912A1E9CBF0005132D /* BaseViewController.swift */; };
 		C67D03BC2A1EA1AD0005132D /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03BB2A1EA1AD0005132D /* UIColor + Extension.swift */; };
 		C67D03BE2A1EAFE20005132D /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03BD2A1EAFE20005132D /* FilledButton.swift */; };
 		C67D03C02A1ED1800005132D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03BF2A1ED1800005132D /* AppCoordinator.swift */; };
-		C67D03C22A1ED2550005132D /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03C12A1ED2550005132D /* AppNavigation.swift */; };
 		C67D03C42A1EEFBD0005132D /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03C32A1EEFBD0005132D /* TextField.swift */; };
 		C6A22CC92A1E439400189B2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CC82A1E439400189B2C /* AppDelegate.swift */; };
 		C6A22CCD2A1E439400189B2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CCC2A1E439400189B2C /* LoginViewController.swift */; };
@@ -71,12 +74,15 @@
 		C63511792A20270E00D5CDA6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C663BC902A202C3700431A64 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		C663BC922A202C5A00431A64 /* WelcomeViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModelImpl.swift; sourceTree = "<group>"; };
+		C663BC952A202E4000431A64 /* WelcomeModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModuleAssembly.swift; sourceTree = "<group>"; };
+		C663BC972A202FC500431A64 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
+		C663BCA12A204B9C00431A64 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
+		C663BCA32A204C2000431A64 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		C67D038F2A1E5D620005132D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C67D03912A1E9CBF0005132D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C67D03BB2A1EA1AD0005132D /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		C67D03BD2A1EAFE20005132D /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
 		C67D03BF2A1ED1800005132D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		C67D03C12A1ED2550005132D /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
 		C67D03C32A1EEFBD0005132D /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		C6A22CC52A1E439400189B2C /* AuthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A22CC82A1E439400189B2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,30 +147,23 @@
 		C63511772A20260200D5CDA6 /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
-				C635117B2A202AC100D5CDA6 /* New Group */,
+				C635117B2A202AC100D5CDA6 /* Coordinator */,
 			);
 			path = MainFlow;
 			sourceTree = "<group>";
 		};
-		C63511782A20270500D5CDA6 /* Coordinator */ = {
+		C635117B2A202AC100D5CDA6 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				C63511792A20270E00D5CDA6 /* Coordinator.swift */,
-				C67D03BF2A1ED1800005132D /* AppCoordinator.swift */,
+				C663BC972A202FC500431A64 /* MainFlowCoordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		C635117B2A202AC100D5CDA6 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		C635117C2A202AF300D5CDA6 /* WelcomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				C663BC942A202E1E00431A64 /* Assembly */,
 				C635117E2A202B0500D5CDA6 /* ViewModel */,
 				C635117D2A202B0100D5CDA6 /* View */,
 			);
@@ -186,6 +185,14 @@
 				C663BC922A202C5A00431A64 /* WelcomeViewModelImpl.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C663BC942A202E1E00431A64 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				C663BC952A202E4000431A64 /* WelcomeModuleAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		C67D038E2A1E5D440005132D /* UIComponents */ = {
@@ -252,7 +259,9 @@
 		C6A22CDE2A1E458E00189B2C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C663BCA12A204B9C00431A64 /* AppNavigation.swift */,
 				C6A22CC82A1E439400189B2C /* AppDelegate.swift */,
+				C67D03BF2A1ED1800005132D /* AppCoordinator.swift */,
 				C6A22CE32A1E465200189B2C /* Base */,
 				C6A22CF42A1E48A700189B2C /* Models */,
 			);
@@ -297,20 +306,12 @@
 		C6A22CE32A1E465200189B2C /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				C67D03C12A1ED2550005132D /* AppNavigation.swift */,
-				C63511782A20270500D5CDA6 /* Coordinator */,
+				C67D03912A1E9CBF0005132D /* BaseViewController.swift */,
+				C63511792A20270E00D5CDA6 /* Coordinator.swift */,
+				C663BCA32A204C2000431A64 /* Navigation.swift */,
 				C67D038E2A1E5D440005132D /* UIComponents */,
-				C6A22CE42A1E465600189B2C /* View */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		C6A22CE42A1E465600189B2C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				C67D03912A1E9CBF0005132D /* BaseViewController.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		C6A22CEC2A1E47E300189B2C /* AuthAppTests */ = {
@@ -567,14 +568,17 @@
 				C635117A2A20270E00D5CDA6 /* Coordinator.swift in Sources */,
 				C663BC912A202C3700431A64 /* WelcomeViewModel.swift in Sources */,
 				C63511552A1FD9EF00D5CDA6 /* LoginViewModelImpl.swift in Sources */,
+				C663BCA22A204B9C00431A64 /* AppNavigation.swift in Sources */,
 				C63511532A1FD9DA00D5CDA6 /* LoginViewModel.swift in Sources */,
 				C6A22CCD2A1E439400189B2C /* LoginViewController.swift in Sources */,
+				C663BC962A202E4000431A64 /* WelcomeModuleAssembly.swift in Sources */,
 				C67D03C42A1EEFBD0005132D /* TextField.swift in Sources */,
 				C6A22CE62A1E466300189B2C /* WelcomeViewController.swift in Sources */,
 				C67D03BE2A1EAFE20005132D /* FilledButton.swift in Sources */,
 				C663BC932A202C5A00431A64 /* WelcomeViewModelImpl.swift in Sources */,
 				C67D03BC2A1EA1AD0005132D /* UIColor + Extension.swift in Sources */,
-				C67D03C22A1ED2550005132D /* AppNavigation.swift in Sources */,
+				C663BC982A202FC500431A64 /* MainFlowCoordinator.swift in Sources */,
+				C663BCA42A204C2000431A64 /* Navigation.swift in Sources */,
 				C6A22CC92A1E439400189B2C /* AppDelegate.swift in Sources */,
 				C67D03902A1E5D620005132D /* Constants.swift in Sources */,
 			);

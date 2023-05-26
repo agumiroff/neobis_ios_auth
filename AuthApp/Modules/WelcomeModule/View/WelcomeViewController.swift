@@ -8,10 +8,13 @@
 import Foundation
 import UIKit
 import SnapKit
+import RxSwift
 
 final class WelcomeViewController: BaseViewController {
     
     // MARK: - Properties
+    private let viewModel: any WelcomeViewModel
+    private let disposeBag = DisposeBag()
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let smileImage = UIImageView()
@@ -24,18 +27,24 @@ final class WelcomeViewController: BaseViewController {
     )
     private let transparentButton = UIButton()
     
+    init(viewModel: any WelcomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        
         view.backgroundColor = .white
     }
     
     // MARK: - SetupUI
     override func setupUI() {
         super.setupUI()
-        
         scrollViewSetup()
         contentViewSetup()
         smileImageSetup()
@@ -101,6 +110,13 @@ extension WelcomeViewController {
     private func filledButtonSetup() {
         contentView.addSubview(filledButton)
         
+        filledButton.rx.tap
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: ({[weak self] in
+                self?.viewModel.sendEvent(.loginButtonTapped)
+            }))
+            .disposed(by: disposeBag)
+        
         filledButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
                 .inset(Constants.horizontalInsets)
@@ -111,6 +127,13 @@ extension WelcomeViewController {
     
     private func transparentButtonSetup() {
         contentView.addSubview(transparentButton)
+        
+        transparentButton.rx.tap
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: ({[weak self] in
+                self?.viewModel.sendEvent(.registerButtonTapped)
+            }))
+            .disposed(by: disposeBag)
         
         transparentButton.setTitle(Constants.transparentButtonTitle, for: .normal)
         transparentButton.tintColor = .black
@@ -126,6 +149,13 @@ extension WelcomeViewController {
             make.bottom.equalToSuperview()
                 .inset(Constants.transparentButtonVertical)
         }
+    }
+}
+
+extension WelcomeViewController {
+    enum Event {
+        case loginButtonTapped
+        case registerButtonTapped
     }
 }
 

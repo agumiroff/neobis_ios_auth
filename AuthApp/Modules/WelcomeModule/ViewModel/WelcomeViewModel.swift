@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import RxSwift
 
-protocol WelcomeViewModel {
+typealias WelcomeOutput = WelcomeViewModelImpl.OutputEvent
+typealias WelcomeViewEvent = WelcomeViewController.Event
+
+protocol WelcomeViewModel: AnyObject {
     associatedtype InputType
-    associatedtype OutputType
     var input: InputType { get set }
-    var output: OutputType { get }
+    var output: Observable<WelcomeOutput> { get }
+    func sendEvent(_ event: WelcomeViewEvent)
 }
