@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func startApplication() {
-        let view = LoginViewController()
-        window?.rootViewController = view
+        let navigation = AppNavigation()
+        let coordinator = AppCoordinator(navigationController: navigation)
+        window?.rootViewController = navigation
     }
 }
