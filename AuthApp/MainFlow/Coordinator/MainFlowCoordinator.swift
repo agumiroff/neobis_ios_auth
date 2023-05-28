@@ -30,9 +30,9 @@ final class MainFlowCoordinator: Coordinator {
                 guard let self = self else { return }
                 switch event {
                 case .routeToLogin:
-                    self.showLoginScreen()
-                case .registerNewUser:
                     self.showRegistrationScreen()
+                case .registerNewUser:
+                    self.showLoginScreen()
                 }
             })
             .disposed(by: disposeBag)
@@ -41,7 +41,21 @@ final class MainFlowCoordinator: Coordinator {
     }
     
     private func showLoginScreen() {
-        print("showLoginScreen")
+        let module = LoginModuleAssembly.buildModule(dependencies: .init(), payload: .init())
+        let view = module.view
+        module.output
+            .subscribe(onNext: {[weak self] event in
+                guard let self = self else { return }
+                switch event {
+                case .authenticateUser:
+                    break
+                case .passwordRecovery:
+                    self.showRegistrationScreen()
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        navigationController.pushViewController(view, animated: true)
     }
     
     private func showRegistrationScreen() {
