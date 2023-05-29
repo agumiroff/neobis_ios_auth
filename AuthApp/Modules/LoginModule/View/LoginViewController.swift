@@ -339,5 +339,4 @@ fileprivate extension Constants {
     // Names
     static let hidePasswordImage = "passHide"
     static let hiddenPasswordImage = "passHidden"
-    static let smileImageName = "Smile"
 }

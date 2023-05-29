@@ -8,11 +8,14 @@
 import Foundation
 import UIKit
 import RxSwift
+import SwiftUI
+import Combine
 
 final class MainFlowCoordinator: Coordinator {
     
     var navigationController: Navigation
     private let disposeBag = DisposeBag()
+    private var cancellable = Set<AnyCancellable>()
     
     init(navigationController: Navigation) {
         self.navigationController = navigationController
@@ -59,6 +62,21 @@ final class MainFlowCoordinator: Coordinator {
     }
     
     private func showRegistrationScreen() {
-        print("showRegistrationScreen")
+        let module = RegistrationModuleAssembly.buildModule(dependencies: .init(), payload: .init())
+        let view = module.view
+        module.output
+            .eraseToAnyPublisher()
+            .sink { error in
+                print(error)
+            } receiveValue: { event in
+                switch event {
+                case .emailCheckPassed:
+                    print("passed")
+                }
+            }
+            .store(in: &cancellable)
+        
+        let hostedView = UIHostingController(rootView: view)
+        navigationController.pushViewController(hostedView, animated: true)
     }
 }

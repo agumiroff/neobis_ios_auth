@@ -26,10 +26,12 @@ enum Constants {
     // Strings
     static let welcomeLabelText = "Смейся\nи улыбайся каждый день"
     static let emailTextField = "Электронная почта"
-    static let welcomeLabelLineHeight = 1.25
+    static let smileImageName = "smile"
     
     // Colors
     
     // Constraints
     static let horizontalInsets = 20.0
+    
+    static let welcomeLabelLineHeight = 1.25
 }
