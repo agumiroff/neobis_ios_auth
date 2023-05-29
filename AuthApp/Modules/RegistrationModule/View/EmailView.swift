@@ -87,9 +87,9 @@ struct EmailView: View {
                 .padding(.leading, Constants.textFieldLeftInset)
             }
             .frame(height: Constants.textFieldHeight)
-        .padding(.top, Constants.textFieldTop)
+            .padding(.top, Constants.textFieldTop)
             
-            Text("Данная почта уже зарегистривана")
+            Text(Constants.warningLabel)
                 .foregroundColor(Color.red)
                 .padding(16)
         }
@@ -138,4 +138,5 @@ fileprivate extension Constants {
     
     // Strings
     static let submitButtonLabel = "Далее"
+    static let warningLabel = "Данная почта уже зарегистривана"
 }

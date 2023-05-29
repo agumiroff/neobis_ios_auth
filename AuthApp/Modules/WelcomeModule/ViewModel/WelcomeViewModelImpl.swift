@@ -34,13 +34,13 @@ extension WelcomeViewModelImpl {
     private func handleEvent(_ event: WelcomeViewEvent) {
         switch event {
         case .loginButtonTapped:
-            setEvent(.routeToLogin)
+            setOutput(.routeToLogin)
         case .registerButtonTapped:
-            setEvent(.registerNewUser)
+            setOutput(.registerNewUser)
         }
     }
     
-    private func setEvent(_ event: OutputEvent) {
+    private func setOutput(_ event: OutputEvent) {
         _output.accept(event)
     }
 }

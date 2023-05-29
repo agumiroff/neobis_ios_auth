@@ -33,17 +33,21 @@ extension RegistrationViewModelImpl {
         case emailCheckPassed
     }
     
-    enum State {}
+    enum State {
+        case emailAlreadyExist
+    }
     
     func sendEvent(_ event: RegEvent) {
         handleEvent(event)
     }
-    func setState(_ state: State) {}
+    func setState(_ state: State) {
+        _state.send(.emailAlreadyExist)
+    }
     
     private func handleEvent(_ event: RegEvent) {
         switch event {
         case .checkEmail:
-            _output.send(.emailCheckPassed)
+            setState(.emailAlreadyExist)
         }
     }
 }
