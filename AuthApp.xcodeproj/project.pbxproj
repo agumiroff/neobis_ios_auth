@@ -43,10 +43,6 @@
 		C6A22CD52A1E439500189B2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A22CD32A1E439500189B2C /* LaunchScreen.storyboard */; };
 		C6A22CE62A1E466300189B2C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CE52A1E466300189B2C /* WelcomeViewController.swift */; };
 		C6A22CEE2A1E47E300189B2C /* AuthAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CED2A1E47E300189B2C /* AuthAppTests.swift */; };
-		C6BC577B2A244B7D00E2311C /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC577A2A244B7D00E2311C /* RegistrationViewModel.swift */; };
-		C6BC577D2A244B9600E2311C /* RegistrationViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC577C2A244B9600E2311C /* RegistrationViewModelImpl.swift */; };
-		C6BC577F2A24588B00E2311C /* RegistrationModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC577E2A24588B00E2311C /* RegistrationModuleAssembly.swift */; };
-		C6BC57812A2458CE00E2311C /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC57802A2458CE00E2311C /* RegistrationView.swift */; };
 		EB62B732B82F2794C8E8E2DD /* Pods_AuthAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3168F817385C8E7FB1015F /* Pods_AuthAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,10 +99,6 @@
 		C6A22CE52A1E466300189B2C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C6A22CEB2A1E47E300189B2C /* AuthAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A22CED2A1E47E300189B2C /* AuthAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppTests.swift; sourceTree = "<group>"; };
-		C6BC577A2A244B7D00E2311C /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
-		C6BC577C2A244B9600E2311C /* RegistrationViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelImpl.swift; sourceTree = "<group>"; };
-		C6BC577E2A24588B00E2311C /* RegistrationModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModuleAssembly.swift; sourceTree = "<group>"; };
-		C6BC57802A2458CE00E2311C /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		EB3168F817385C8E7FB1015F /* Pods_AuthAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AuthAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF4C4F98839D8AAE829445C1 /* Pods_AuthApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AuthApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -214,8 +206,6 @@
 		C6457F8A2A2425040011EC50 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C6BC577A2A244B7D00E2311C /* RegistrationViewModel.swift */,
-				C6BC577C2A244B9600E2311C /* RegistrationViewModelImpl.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -223,7 +213,6 @@
 		C6457F8B2A24250B0011EC50 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				C6BC577E2A24588B00E2311C /* RegistrationModuleAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -232,7 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				C6457F8D2A2425FF0011EC50 /* EmailView.swift */,
-				C6BC57802A2458CE00E2311C /* RegistrationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -624,21 +612,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6BC577F2A24588B00E2311C /* RegistrationModuleAssembly.swift in Sources */,
 				C67D03C02A1ED1800005132D /* AppCoordinator.swift in Sources */,
-				C6BC577B2A244B7D00E2311C /* RegistrationViewModel.swift in Sources */,
 				C67D03922A1E9CBF0005132D /* BaseViewController.swift in Sources */,
 				C663BCA92A2148DD00431A64 /* String + Extension.swift in Sources */,
 				C6457F8E2A2425FF0011EC50 /* EmailView.swift in Sources */,
 				C635117A2A20270E00D5CDA6 /* Coordinator.swift in Sources */,
 				C663BC912A202C3700431A64 /* WelcomeViewModel.swift in Sources */,
 				C663BCA72A20514F00431A64 /* LoginAssemblyBuilder.swift in Sources */,
-				C6BC577D2A244B9600E2311C /* RegistrationViewModelImpl.swift in Sources */,
 				C63511552A1FD9EF00D5CDA6 /* LoginViewModelImpl.swift in Sources */,
 				C663BCA22A204B9C00431A64 /* AppNavigation.swift in Sources */,
 				C63511532A1FD9DA00D5CDA6 /* LoginViewModel.swift in Sources */,
 				C6A22CCD2A1E439400189B2C /* LoginViewController.swift in Sources */,
-				C6BC57812A2458CE00E2311C /* RegistrationView.swift in Sources */,
 				C663BC962A202E4000431A64 /* WelcomeModuleAssembly.swift in Sources */,
 				C67D03C42A1EEFBD0005132D /* TextField.swift in Sources */,
 				C6A22CE62A1E466300189B2C /* WelcomeViewController.swift in Sources */,

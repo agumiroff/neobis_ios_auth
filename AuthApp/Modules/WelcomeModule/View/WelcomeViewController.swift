@@ -77,14 +77,12 @@ extension WelcomeViewController {
     private func smileImageSetup() {
         contentView.addSubview(smileImage)
         
-        smileImage.image = UIImage(named: Constants.smileImageName)
+        smileImage.image = UIImage(named: "Smile")
         
         smileImage.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-                .inset(Constants.smileImageVerticalInset)
+            make.top.equalToSuperview().inset(Constants.smileImageVerticalInset)
             make.horizontalEdges.equalToSuperview()
                 .inset(Constants.smileImageHorizontalInsets)
-            make.height.equalTo(smileImage.snp.width)
         }
     }
     

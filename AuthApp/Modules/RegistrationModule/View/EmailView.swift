@@ -8,6 +8,12 @@
 import Foundation
 import SwiftUI
 
+struct FinanceMainScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        EmailView()
+    }
+}
+
 struct EmailView: View {
     
     // MARK: - Properties
@@ -15,11 +21,6 @@ struct EmailView: View {
     @State var textFieldPlaceholder = Constants.emailTextField
     @State var isTextFieldLabelHidden = true
     @State var textFieldLabel = ""
-    private let viewModel: any RegistrationViewModel
-    
-    init(viewModel: any RegistrationViewModel) {
-        self.viewModel = viewModel
-    }
     
     // MARK: - Body
     var body: some View {
@@ -55,62 +56,54 @@ struct EmailView: View {
     // MARK: - TextField
     @ViewBuilder
     func textFieldView() -> some View {
-        VStack {
-            ZStack {
-                Rectangle()
-                    .foregroundColor(Color(hexString: Constants.inactiveGray))
-                    .cornerRadius(Constants.textFieldCornerRadius)
-                
-                VStack {
-                    if !isTextFieldLabelHidden {
-                        Text(textFieldLabel)
-                            .foregroundColor(Color(hexString: Constants.textDarkGray))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading, Constants.smallTextLabelLeft)
-                            .padding(.bottom, Constants.smallTextLabelBotton)
-                            .font(Font.custom(Constants.Font.gothamMedium, size: Constants.Font.small))
-                    }
-                    
-                    Text(textFieldPlaceholder)
+        ZStack {
+            Rectangle()
+                .foregroundColor(Color(hexString: Constants.inactiveGray))
+                .cornerRadius(Constants.textFieldCornerRadius)
+            
+            VStack {
+                if !isTextFieldLabelHidden {
+                    Text(textFieldLabel)
                         .foregroundColor(Color(hexString: Constants.textDarkGray))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, Constants.smallTextLabelLeft)
-                        .font(Font.custom(Constants.Font.gothamMedium, size: Constants.Font.regular))
+                        .padding(.bottom, Constants.smallTextLabelBotton)
+                        .font(Font.custom(Constants.Font.gothamMedium, size: Constants.Font.small))
                 }
                 
-                TextField("", text: $text) { _ in
-                    isTextFieldLabelHidden.toggle()
-                    textFieldPlaceholder = isTextFieldLabelHidden ? Constants.emailTextField : ""
-                    textFieldLabel = isTextFieldLabelHidden ? "" : Constants.emailTextField
-                }
-                .font(Font.custom(Constants.Font.gothamMedium, size: Constants.Font.regular))
-                .padding(.leading, Constants.textFieldLeftInset)
+                Text(textFieldPlaceholder)
+                    .foregroundColor(Color(hexString: Constants.textDarkGray))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, Constants.smallTextLabelLeft)
+                    .font(Font.custom(Constants.Font.gothamMedium, size: Constants.Font.regular))
             }
-            .frame(height: Constants.textFieldHeight)
-        .padding(.top, Constants.textFieldTop)
             
-            Text("Данная почта уже зарегистривана")
-                .foregroundColor(Color.red)
-                .padding(16)
+            TextField("", text: $text) { _ in
+                isTextFieldLabelHidden.toggle()
+                textFieldPlaceholder = isTextFieldLabelHidden ? Constants.emailTextField : ""
+                textFieldLabel = isTextFieldLabelHidden ? "" : Constants.emailTextField
+            }
+            .font(Font.custom(Constants.Font.gothamMedium, size: Constants.Font.regular))
+            .padding(.leading, Constants.textFieldLeftInset)
         }
+        .frame(height: Constants.textFieldHeight)
+        .padding(.top, Constants.textFieldTop)
     }
     
     // MARK: - Button
     @ViewBuilder
     func submitButton() -> some View {
         VStack {
-            Button {
-                viewModel.sendEvent(.checkEmail)
-            } label: {
-                Text(Constants.submitButtonLabel)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding([.top, .bottom], Constants.submitButtonInsets)
+            Button(Constants.submitButtonLabel) {
+                print("посмотреть все")
             }
+            .padding([.top, .bottom], Constants.submitButtonInsets)
+            .frame(maxWidth: .infinity, alignment: .center)
             .foregroundColor(String.isValidEmail(text)() ? Color.white : Color(hexString: Constants.textDarkGray))
             .background(String.isValidEmail(text)() ? Color(hexString: Constants.mainBlueColor) :
                             Color(hexString: Constants.inactiveGray))
             .cornerRadius(Constants.submitButtonCornerRadius)
-            .disabled(!String.isValidEmail(text)())
+            .disabled(String.isValidEmail(text)())
         }
         .padding(.top, Constants.submitButtonTop)
         .frame(maxHeight: .infinity, alignment: .top)
@@ -127,7 +120,7 @@ fileprivate extension Constants {
     static let textFieldCornerRadius = 8.0
     static let textFieldLeftInset = 10.0
     
-    static let submitButtonTop = 31.0
+    static let submitButtonTop = 60.0
     static let submitButtonCornerRadius = 16.0
     static let submitButtonInsets = 25.0
     
