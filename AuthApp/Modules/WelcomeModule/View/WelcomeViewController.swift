@@ -19,12 +19,8 @@ final class WelcomeViewController: BaseViewController {
     private let contentView = UIView()
     private let smileImage = UIImageView()
     private let welcomeLabel = UILabel()
-    private let filledButton = FilledButton(
-        hexColor: Constants.mainBlueColor,
-        cornerRadius: Constants.filledButtonCornerRadius,
-        title: Constants.filledButtonTitle,
-        textColor: Constants.filledButtonColor
-    )
+    private let filledButton = FilledButton(cornerRadius: Constants.filledButtonCornerRadius,
+                                            title: Constants.filledButtonTitle)
     private let transparentButton = UIButton()
     
     init(viewModel: any WelcomeViewModel) {

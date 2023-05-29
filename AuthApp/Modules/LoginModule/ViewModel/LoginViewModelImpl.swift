@@ -6,24 +6,24 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 final class LoginViewModelImpl: LoginViewModel {
     
-    var output: ViewModelOutput
+    var output: Observable<LoginOutput> { _output.asObservable() }
+    private var _output = PublishRelay<LoginOutput>()
     var input: Input
+    struct Input {}
     
-    struct Input {
-        
-    }
-    
-    init(input: Input, output: ViewModelOutput) {
+    init(input: Input) {
         self.input = input
-        self.output = output
     }
 }
 
 extension LoginViewModelImpl {
     enum OutputEvent {
-        case output
+        case passwordRecovery
+        case authenticateUser
     }
 }

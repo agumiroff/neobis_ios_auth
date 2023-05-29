@@ -28,6 +28,8 @@
 		C663BC982A202FC500431A64 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC972A202FC500431A64 /* MainFlowCoordinator.swift */; };
 		C663BCA22A204B9C00431A64 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BCA12A204B9C00431A64 /* AppNavigation.swift */; };
 		C663BCA42A204C2000431A64 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BCA32A204C2000431A64 /* Navigation.swift */; };
+		C663BCA72A20514F00431A64 /* LoginAssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BCA62A20514F00431A64 /* LoginAssemblyBuilder.swift */; };
+		C663BCA92A2148DD00431A64 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BCA82A2148DD00431A64 /* String + Extension.swift */; };
 		C67D03902A1E5D620005132D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D038F2A1E5D620005132D /* Constants.swift */; };
 		C67D03922A1E9CBF0005132D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03912A1E9CBF0005132D /* BaseViewController.swift */; };
 		C67D03BC2A1EA1AD0005132D /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03BB2A1EA1AD0005132D /* UIColor + Extension.swift */; };
@@ -78,6 +80,8 @@
 		C663BC972A202FC500431A64 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
 		C663BCA12A204B9C00431A64 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
 		C663BCA32A204C2000431A64 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		C663BCA62A20514F00431A64 /* LoginAssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssemblyBuilder.swift; sourceTree = "<group>"; };
+		C663BCA82A2148DD00431A64 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		C67D038F2A1E5D620005132D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C67D03912A1E9CBF0005132D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C67D03BB2A1EA1AD0005132D /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
@@ -195,6 +199,14 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
+		C663BCA52A20513700431A64 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				C663BCA62A20514F00431A64 /* LoginAssemblyBuilder.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
 		C67D038E2A1E5D440005132D /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +221,7 @@
 			children = (
 				C67D03BB2A1EA1AD0005132D /* UIColor + Extension.swift */,
 				C67D038F2A1E5D620005132D /* Constants.swift */,
+				C663BCA82A2148DD00431A64 /* String + Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -280,6 +293,7 @@
 		C6A22CE02A1E45A800189B2C /* LoginModule */ = {
 			isa = PBXGroup;
 			children = (
+				C663BCA52A20513700431A64 /* Assembly */,
 				C6A22CE12A1E461300189B2C /* ViewModel */,
 				C6A22CE22A1E461600189B2C /* View */,
 			);
@@ -565,8 +579,10 @@
 			files = (
 				C67D03C02A1ED1800005132D /* AppCoordinator.swift in Sources */,
 				C67D03922A1E9CBF0005132D /* BaseViewController.swift in Sources */,
+				C663BCA92A2148DD00431A64 /* String + Extension.swift in Sources */,
 				C635117A2A20270E00D5CDA6 /* Coordinator.swift in Sources */,
 				C663BC912A202C3700431A64 /* WelcomeViewModel.swift in Sources */,
+				C663BCA72A20514F00431A64 /* LoginAssemblyBuilder.swift in Sources */,
 				C63511552A1FD9EF00D5CDA6 /* LoginViewModelImpl.swift in Sources */,
 				C663BCA22A204B9C00431A64 /* AppNavigation.swift in Sources */,
 				C63511532A1FD9DA00D5CDA6 /* LoginViewModel.swift in Sources */,

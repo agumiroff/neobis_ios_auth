@@ -11,11 +11,11 @@ import RxSwift
 
 typealias WelcomeModule = (view: WelcomeViewController, output: Observable<WelcomeOutput>)
 
-struct Dependencies {}
-
-struct PayLoad {}
-
 enum WelcomeModuleAssembly {
+    
+    struct Dependencies {}
+    struct PayLoad {}
+    
     static func buildModule(dependencies: Dependencies, payload: PayLoad) -> WelcomeModule {
         let viewModel = WelcomeViewModelImpl(input: .init())
         let view = WelcomeViewController(viewModel: viewModel)

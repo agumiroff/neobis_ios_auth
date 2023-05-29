@@ -11,7 +11,8 @@ enum Constants {
     
     static let mainBlueColor = "#5D5FEF"
     static let inactiveGray = "#F7F7F8"
-    static let neactiveGrayColor = "#9CA4AB"
+    static let textDarkGray = "#9CA4AB"
+    static let textWhite = "#FFFFFF"
     
     enum Font {
         static let gothamBold = "GothamPro-Bold"

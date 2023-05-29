@@ -28,15 +28,19 @@ extension WelcomeViewModelImpl {
     }
     
     func sendEvent(_ event: WelcomeViewEvent) {
-        setOutput(event)
+        handleEvent(event)
     }
     
-    private func setOutput(_ event: WelcomeViewEvent) {
+    private func handleEvent(_ event: WelcomeViewEvent) {
         switch event {
         case .loginButtonTapped:
-            _output.accept(.routeToLogin)
+            setEvent(.routeToLogin)
         case .registerButtonTapped:
-            _output.accept(.registerNewUser)
+            setEvent(.registerNewUser)
         }
+    }
+    
+    private func setEvent(_ event: OutputEvent) {
+        _output.accept(event)
     }
 }

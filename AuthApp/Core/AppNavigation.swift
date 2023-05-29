@@ -14,5 +14,8 @@ final class AppNavigation: UINavigationController, Navigation {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         coordinator?.start()
+        
+        isToolbarHidden = true
+        isNavigationBarHidden = true
     }
 }

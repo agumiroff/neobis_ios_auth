@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import RxSwift
 
-typealias ViewModelOutput = LoginViewModelImpl.OutputEvent
+typealias LoginOutput = LoginViewModelImpl.OutputEvent
 
 protocol LoginViewModel {
     associatedtype InputType
     var input: InputType { get set }
-    var output: ViewModelOutput { get }
+    var output: Observable<LoginOutput> { get }
 }
