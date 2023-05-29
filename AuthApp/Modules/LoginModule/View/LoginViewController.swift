@@ -309,8 +309,6 @@ extension LoginViewController {
 fileprivate extension Constants {
     
     // Constraints
-    static let horizontalInsets = 20.0
-    
     static let smileImageVerticalInset = 32.0
     static let smileImageHorizontalInsets = 0.0
     static let smileImageSideSize = 120.0

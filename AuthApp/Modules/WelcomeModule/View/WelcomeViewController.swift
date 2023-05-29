@@ -158,7 +158,6 @@ extension WelcomeViewController {
 // MARK: - Constraints and constants
 fileprivate extension Constants {
     // Constraints
-    static let horizontalInsets = 20.0
     static let smileImageVerticalInset = 100.0
     static let smileImageHorizontalInsets = 87.0
     static let welcomeLabelVertical = 60.0
@@ -166,7 +165,6 @@ fileprivate extension Constants {
     static let filledButtonCornerRadius = 16.0
     static let transparentButtonVertical = 41.0
     // String constants
-    static let welcomeLabelText = "Смейся и улыбайся каждый день"
     static let filledButtonTitle = "Начать пользоваться"
     static let transparentButtonTitle = "Есть аккаунт? Войти"
     static let filledButtonColor = "#FFFFFF"

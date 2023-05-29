@@ -22,6 +22,7 @@
 		C63511752A201FF600D5CDA6 /* gothampro_blackitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C635116A2A201FF600D5CDA6 /* gothampro_blackitalic.ttf */; };
 		C63511762A201FF600D5CDA6 /* gothampro_bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C635116B2A201FF600D5CDA6 /* gothampro_bolditalic.ttf */; };
 		C635117A2A20270E00D5CDA6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63511792A20270E00D5CDA6 /* Coordinator.swift */; };
+		C6457F8E2A2425FF0011EC50 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6457F8D2A2425FF0011EC50 /* EmailView.swift */; };
 		C663BC912A202C3700431A64 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC902A202C3700431A64 /* WelcomeViewModel.swift */; };
 		C663BC932A202C5A00431A64 /* WelcomeViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC922A202C5A00431A64 /* WelcomeViewModelImpl.swift */; };
 		C663BC962A202E4000431A64 /* WelcomeModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC952A202E4000431A64 /* WelcomeModuleAssembly.swift */; };
@@ -74,6 +75,7 @@
 		C635116A2A201FF600D5CDA6 /* gothampro_blackitalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_blackitalic.ttf; sourceTree = "<group>"; };
 		C635116B2A201FF600D5CDA6 /* gothampro_bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_bolditalic.ttf; sourceTree = "<group>"; };
 		C63511792A20270E00D5CDA6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C6457F8D2A2425FF0011EC50 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
 		C663BC902A202C3700431A64 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		C663BC922A202C5A00431A64 /* WelcomeViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModelImpl.swift; sourceTree = "<group>"; };
 		C663BC952A202E4000431A64 /* WelcomeModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModuleAssembly.swift; sourceTree = "<group>"; };
@@ -191,6 +193,38 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C6457F892A2424F90011EC50 /* RegistrationModule */ = {
+			isa = PBXGroup;
+			children = (
+				C6457F8B2A24250B0011EC50 /* Assembly */,
+				C6457F8A2A2425040011EC50 /* ViewModel */,
+				C6457F8C2A24250E0011EC50 /* View */,
+			);
+			path = RegistrationModule;
+			sourceTree = "<group>";
+		};
+		C6457F8A2A2425040011EC50 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C6457F8B2A24250B0011EC50 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		C6457F8C2A24250E0011EC50 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6457F8D2A2425FF0011EC50 /* EmailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C663BC942A202E1E00431A64 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +318,7 @@
 		C6A22CDF2A1E459B00189B2C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C6457F892A2424F90011EC50 /* RegistrationModule */,
 				C635117C2A202AF300D5CDA6 /* WelcomeModule */,
 				C6A22CE02A1E45A800189B2C /* LoginModule */,
 			);
@@ -580,6 +615,7 @@
 				C67D03C02A1ED1800005132D /* AppCoordinator.swift in Sources */,
 				C67D03922A1E9CBF0005132D /* BaseViewController.swift in Sources */,
 				C663BCA92A2148DD00431A64 /* String + Extension.swift in Sources */,
+				C6457F8E2A2425FF0011EC50 /* EmailView.swift in Sources */,
 				C635117A2A20270E00D5CDA6 /* Coordinator.swift in Sources */,
 				C663BC912A202C3700431A64 /* WelcomeViewModel.swift in Sources */,
 				C663BCA72A20514F00431A64 /* LoginAssemblyBuilder.swift in Sources */,
