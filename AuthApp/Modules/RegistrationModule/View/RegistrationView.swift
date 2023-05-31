@@ -7,15 +7,41 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct RegistrationView: View {
-    private let viewModel: any RegistrationViewModel
+    @ObservedObject private var viewModel: RegistrationViewModel
+    private var cancellable = Set<AnyCancellable>()
     
     var body: some View {
-        EmailView(viewModel: viewModel)
+        switch viewModel.state {
+        case .start:
+            EmailView()
+                .environmentObject(viewModel)
+        case .emailValidationFailed:
+            EmailView()
+                .environmentObject(viewModel)
+        case .loading:
+            EmailView()
+        case .waitForEmailInput:
+            EmailView()
+        case .emailSuccessfullyCreated:
+            EmailView()
+        }
     }
     
-    init(viewModel: any RegistrationViewModel) {
+    init(viewModel: RegistrationViewModel) {
         self.viewModel = viewModel
     }
+}
+
+extension RegistrationView {
+    enum RegViewState {
+        case start
+        case validationFailed
+    }
+}
+
+fileprivate extension Constants {
+    static let warningLabel = "Данная почта уже зарегистривана"
 }

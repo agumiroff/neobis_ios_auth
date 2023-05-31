@@ -16,7 +16,7 @@ enum RegistrationModuleAssembly {
     struct PayLoad {}
     
     static func buildModule(dependencies: Dependencies, payload: PayLoad) -> RegistrationModule {
-        let viewModel = RegistrationViewModelImpl(input: .init())
+        let viewModel = RegistrationViewModel(input: .init())
         let view = RegistrationView(viewModel: viewModel)
         return (view, viewModel.output)
     }

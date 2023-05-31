@@ -1,25 +1,63 @@
 //
-//  RegistrationViewModel.swift
+//  RegistrationViewModelImpl.swift
 //  AuthApp
 //
 //  Created by G G on 29.05.2023.
 //
 
 import Foundation
+import SwiftUI
 import Combine
 
-typealias RegViewModelOutput = RegistrationViewModelImpl.Output
+typealias RegViewModelOutput = RegistrationViewModel.Output
 typealias RegEvent = RegistrationViewEvents
-typealias RegState = RegistrationViewModelImpl.State
+typealias RegVMState = RegistrationViewModel.RegVMState
+typealias RegViewState = RegistrationView.RegViewState
 
-protocol RegistrationViewModel {
-    associatedtype InputType
-    var input: InputType { get set }
-    var state: AnyPublisher<RegState, Error> { get }
-    var output: AnyPublisher<RegViewModelOutput, Error> { get }
-    func sendEvent(_ event: RegEvent)
+class RegistrationViewModel: ObservableObject {
+    var output: AnyPublisher<RegViewModelOutput, Error> {
+        _output
+            .eraseToAnyPublisher()
+    }
+    private var _output = PassthroughSubject<RegViewModelOutput, Error>()
+    @Published private(set) var state: RegVMState = .start
+    var input: Input
+    
+    struct Input {}
+    
+    init(input: Input) {
+        self.input = input
+    }
+}
+
+extension RegistrationViewModel {
+    enum Output {
+        case emailCheckPassed
+    }
+    
+    enum RegVMState: Equatable {
+        case start
+        case loading
+        case waitForEmailInput(text: String)
+        case emailValidationFailed
+        case emailSuccessfullyCreated
+    }
+    
+    func sendEvent(_ event: RegEvent) {
+        handleEvent(event)
+    }
+    
+    private func handleEvent(_ event: RegEvent) {
+        switch event {
+        case .checkEmail:
+            state = .emailValidationFailed
+        case .reset:
+            state = .waitForEmailInput(text: "dsdss")
+        }
+    }
 }
 
 enum RegistrationViewEvents {
-    case checkEmail
+    case reset
+    case checkEmail(email: String)
 }

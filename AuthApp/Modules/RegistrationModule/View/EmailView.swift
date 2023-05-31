@@ -7,19 +7,15 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct EmailView: View {
     
     // MARK: - Properties
-    @State var text = ""
-    @State var textFieldPlaceholder = Constants.emailTextField
-    @State var isTextFieldLabelHidden = true
-    @State var textFieldLabel = ""
-    private let viewModel: any RegistrationViewModel
-    
-    init(viewModel: any RegistrationViewModel) {
-        self.viewModel = viewModel
-    }
+    @State private var isFocused = false
+    @State private var errorMessage = ""
+    @EnvironmentObject var viewModel: RegistrationViewModel
+    @ObservedObject var textManager = TextFieldManager()
     
     // MARK: - Body
     var body: some View {
@@ -41,7 +37,7 @@ struct EmailView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack {
-                Image("smile")
+                Image(Constants.smileImageName)
                     .resizable()
                     .frame(width: Constants.imageSize, height: Constants.imageSize, alignment: .top)
                     .frame(maxWidth: .infinity, alignment: .trailing)
@@ -56,43 +52,36 @@ struct EmailView: View {
     @ViewBuilder
     func textFieldView() -> some View {
         VStack {
-            ZStack {
-                Rectangle()
-                    .foregroundColor(Color(hexString: Constants.inactiveGray))
-                    .cornerRadius(Constants.textFieldCornerRadius)
-                
-                VStack {
-                    if !isTextFieldLabelHidden {
-                        Text(textFieldLabel)
-                            .foregroundColor(Color(hexString: Constants.textDarkGray))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading, Constants.smallTextLabelLeft)
-                            .padding(.bottom, Constants.smallTextLabelBotton)
-                            .font(Font.custom(Constants.Font.gothamMedium, size: Constants.Font.small))
-                    }
-                    
-                    Text(textFieldPlaceholder)
-                        .foregroundColor(Color(hexString: Constants.textDarkGray))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.leading, Constants.smallTextLabelLeft)
-                        .font(Font.custom(Constants.Font.gothamMedium, size: Constants.Font.regular))
-                }
-                
-                TextField("", text: $text) { _ in
-                    isTextFieldLabelHidden.toggle()
-                    textFieldPlaceholder = isTextFieldLabelHidden ? Constants.emailTextField : ""
-                    textFieldLabel = isTextFieldLabelHidden ? "" : Constants.emailTextField
-                }
-                .font(Font.custom(Constants.Font.gothamMedium, size: Constants.Font.regular))
-                .padding(.leading, Constants.textFieldLeftInset)
-            }
-            .frame(height: Constants.textFieldHeight)
-            .padding(.top, Constants.textFieldTop)
             
-            Text(Constants.warningLabel)
-                .foregroundColor(Color.red)
-                .padding(16)
+            VStack {
+                TextField("", text: $textManager.text) { focused in
+                    withAnimation(.easeInOut) {
+                        isFocused = focused ? true : false
+                    }
+                }
+                .background(
+                    
+                    Text(Constants.emailTextField)
+                        .scaleEffect(isFocused ? 0.8 : 1)
+                        .offset(x: isFocused ? -15 : 0, y: isFocused ? -18 : 0)
+                    , alignment: .leading
+                )
+            }
+            .padding(.vertical, 20)
+            .padding(.horizontal, 10)
+            .background(Color(hexString: Constants.inactiveGray))
+            .cornerRadius(16)
+            .font(Font.custom(Constants.Font.gothamMedium, size: Constants.Font.regular))
+            .foregroundColor(Color(hexString: Constants.textDarkGray))
+            
+            
+            if viewModel.state == .emailValidationFailed {
+                Text(Constants.errorMessage)
+                    .foregroundColor(Color.red)
+                    .padding(.top, 16)
+            }
         }
+        .padding(.top, Constants.textFieldTop)
     }
     
     // MARK: - Button
@@ -100,20 +89,32 @@ struct EmailView: View {
     func submitButton() -> some View {
         VStack {
             Button {
-                viewModel.sendEvent(.checkEmail)
+                viewModel.sendEvent(.checkEmail(email: textManager.text))
             } label: {
                 Text(Constants.submitButtonLabel)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding([.top, .bottom], Constants.submitButtonInsets)
             }
-            .foregroundColor(String.isValidEmail(text)() ? Color.white : Color(hexString: Constants.textDarkGray))
-            .background(String.isValidEmail(text)() ? Color(hexString: Constants.mainBlueColor) :
+            .foregroundColor(String.isValidEmail(textManager.text)() ? Color.white :
+                                Color(hexString: Constants.textDarkGray))
+            .background(String.isValidEmail(textManager.text)() ? Color(hexString: Constants.mainBlueColor) :
                             Color(hexString: Constants.inactiveGray))
             .cornerRadius(Constants.submitButtonCornerRadius)
-            .disabled(!String.isValidEmail(text)())
+            .disabled(!String.isValidEmail(textManager.text)())
         }
         .padding(.top, Constants.submitButtonTop)
         .frame(maxHeight: .infinity, alignment: .top)
+    }
+}
+
+class TextFieldManager: ObservableObject {
+    
+    @Published var text = "" {
+        didSet {
+            if text.count > 25 && oldValue.count <= 25 {
+                text = oldValue
+            }
+        }
     }
 }
 
@@ -138,5 +139,5 @@ fileprivate extension Constants {
     
     // Strings
     static let submitButtonLabel = "Далее"
-    static let warningLabel = "Данная почта уже зарегистривана"
+    static let errorMessage = "Данный email уже существует"
 }
