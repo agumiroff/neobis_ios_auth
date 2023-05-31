@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = "SwiftLint-iOS14.0";
+			productName = "SwiftLint-iOS14.0";
 		};
 		27C30F85FF4C50916C26D2277C9FE890 /* SwiftLint-iOS16.1 */ = {
 			isa = PBXAggregateTarget;
@@ -24,6 +25,7 @@
 			dependencies = (
 			);
 			name = "SwiftLint-iOS16.1";
+			productName = "SwiftLint-iOS16.1";
 		};
 /* End PBXAggregateTarget section */
 
@@ -902,7 +904,7 @@
 		17B2B7CFF2900AEE1EB441D00E111C82 /* Infallible+Create.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Infallible+Create.swift"; path = "RxSwift/Traits/Infallible/Infallible+Create.swift"; sourceTree = "<group>"; };
 		18756217283A37C0F1700D8A1F403CEC /* Disposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Disposable.swift; path = RxSwift/Disposable.swift; sourceTree = "<group>"; };
 		1936BBFB828C70C86AE5B462C0C7F7EC /* ConstraintDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDSL.swift; path = Sources/ConstraintDSL.swift; sourceTree = "<group>"; };
-		197C73B36BEFB16765E5E2480E6C16A8 /* SnapKit-iOS16.1 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "SnapKit-iOS16.1"; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		197C73B36BEFB16765E5E2480E6C16A8 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A872E1CF12593B3506BB9D8DADD515 /* Cancelable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cancelable.swift; path = RxSwift/Cancelable.swift; sourceTree = "<group>"; };
 		1A7F2FE28EB55E0C1D2FE927B6EBE8D4 /* UIStepper+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIStepper+Rx.swift"; path = "RxCocoa/iOS/UIStepper+Rx.swift"; sourceTree = "<group>"; };
 		1D45693D906A27B62E9A690BD3C65E1B /* Pods-AuthAppTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AuthAppTests-umbrella.h"; sourceTree = "<group>"; };
@@ -916,7 +918,7 @@
 		20F7144407B408178483ECE65A2C959D /* SnapKit-iOS14.0.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "SnapKit-iOS14.0.modulemap"; sourceTree = "<group>"; };
 		21325092C4597A4DBFAB25BE7BE1F291 /* HistoricalScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HistoricalScheduler.swift; path = RxSwift/Schedulers/HistoricalScheduler.swift; sourceTree = "<group>"; };
 		2178803A405D4D81F59D13164180D896 /* BehaviorRelay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BehaviorRelay.swift; path = RxRelay/BehaviorRelay.swift; sourceTree = "<group>"; };
-		2190F408D18FD6084C4AEB9FC01611C7 /* RxCocoa-iOS16.1 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "RxCocoa-iOS16.1"; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2190F408D18FD6084C4AEB9FC01611C7 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A5DA3CA211650D4FB1CF9AB61424AF /* Reduce.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reduce.swift; path = RxSwift/Observables/Reduce.swift; sourceTree = "<group>"; };
 		21D8CE7A075C5F3232D78145FA2B1152 /* UIRefreshControl+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIRefreshControl+Rx.swift"; path = "RxCocoa/iOS/UIRefreshControl+Rx.swift"; sourceTree = "<group>"; };
 		21E1A571E0EDE67201AD73281F2B8A34 /* NSTextView+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSTextView+Rx.swift"; path = "RxCocoa/macOS/NSTextView+Rx.swift"; sourceTree = "<group>"; };
@@ -973,7 +975,7 @@
 		3DD077B00B4D6E342FD2BEAFFDD99826 /* RxMutableBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxMutableBox.swift; path = RxSwift/RxMutableBox.swift; sourceTree = "<group>"; };
 		3E7B405D87CBDD5549B6468136EDF182 /* NSControl+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSControl+Rx.swift"; path = "RxCocoa/macOS/NSControl+Rx.swift"; sourceTree = "<group>"; };
 		3EF1AB36F2CA58280FA2F967DDD0FA1F /* Bag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Bag.swift; path = Platform/DataStructures/Bag.swift; sourceTree = "<group>"; };
-		3F48C9FCB046999FAA3CA093CF7424A7 /* SnapKit-iOS14.0 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "SnapKit-iOS14.0"; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F48C9FCB046999FAA3CA093CF7424A7 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		407D4C2DFFFBD39FF3F15F60BCEAF2B5 /* RxCocoa-iOS14.0-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "RxCocoa-iOS14.0-Info.plist"; sourceTree = "<group>"; };
 		4093CA6620D740955795183C25529945 /* WithUnretained.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WithUnretained.swift; path = RxSwift/Observables/WithUnretained.swift; sourceTree = "<group>"; };
 		40AB453C6ECB7E6F3EFB68FAF081E937 /* RxRelay-iOS16.1-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RxRelay-iOS16.1-prefix.pch"; path = "../RxRelay-iOS16.1/RxRelay-iOS16.1-prefix.pch"; sourceTree = "<group>"; };
@@ -983,7 +985,7 @@
 		4423FFD1A5BD4ABA84A5D2E64A3E52AC /* RxCocoa-iOS14.0-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RxCocoa-iOS14.0-umbrella.h"; sourceTree = "<group>"; };
 		446BECD57A6B514CC9E29C419F8CA81D /* DelaySubscription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DelaySubscription.swift; path = RxSwift/Observables/DelaySubscription.swift; sourceTree = "<group>"; };
 		44AF8C8D78687668E8BA41A751033A3A /* UIBarButtonItem+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIBarButtonItem+Rx.swift"; path = "RxCocoa/iOS/UIBarButtonItem+Rx.swift"; sourceTree = "<group>"; };
-		44D9B8ECC3A657A76703F684DE46546F /* RxRelay-iOS16.1 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "RxRelay-iOS16.1"; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44D9B8ECC3A657A76703F684DE46546F /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		452C4D7B5117A1B3AF19AAF9958BF69E /* DefaultIfEmpty.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultIfEmpty.swift; path = RxSwift/Observables/DefaultIfEmpty.swift; sourceTree = "<group>"; };
 		457E1974D081FC28E58FA824201E7709 /* LockOwnerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LockOwnerType.swift; path = RxSwift/Concurrency/LockOwnerType.swift; sourceTree = "<group>"; };
 		45D4B5F555CA9557BFB7823645A93063 /* Delay.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Delay.swift; path = RxSwift/Observables/Delay.swift; sourceTree = "<group>"; };
@@ -995,7 +997,7 @@
 		498D03E606F9F906F192C88AD9E07660 /* URLSession+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URLSession+Rx.swift"; path = "RxCocoa/Foundation/URLSession+Rx.swift"; sourceTree = "<group>"; };
 		4A672AED3BD873EBA8B16FED48BA0BAB /* SnapKit-iOS16.1.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "SnapKit-iOS16.1.modulemap"; path = "../SnapKit-iOS16.1/SnapKit-iOS16.1.modulemap"; sourceTree = "<group>"; };
 		4B5D9B089078608F5B4E08D9DDDF689B /* ObserverBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObserverBase.swift; path = RxSwift/Observers/ObserverBase.swift; sourceTree = "<group>"; };
-		4C39870B0ECFD8FB6D033F3FDC27B90C /* RxCocoa-iOS14.0 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "RxCocoa-iOS14.0"; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C39870B0ECFD8FB6D033F3FDC27B90C /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6040C41CE203BCED357D741D362C68 /* ReplaySubject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaySubject.swift; path = RxSwift/Subjects/ReplaySubject.swift; sourceTree = "<group>"; };
 		4CC2CF268609192EB41EAA723F4D5A26 /* ServiceEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServiceEntry.swift; path = Sources/ServiceEntry.swift; sourceTree = "<group>"; };
 		4D207DAA16DAF17E3F5E3FE95C215BF4 /* Swinject-iOS16.1-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Swinject-iOS16.1-prefix.pch"; path = "../Swinject-iOS16.1/Swinject-iOS16.1-prefix.pch"; sourceTree = "<group>"; };
@@ -1016,7 +1018,7 @@
 		52454F0120DBD029C4EAE26C316F7953 /* RxSwift-iOS14.0-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RxSwift-iOS14.0-dummy.m"; sourceTree = "<group>"; };
 		528D94A77DF111738C37CF2C22F4CEEB /* Map.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Map.swift; path = RxSwift/Observables/Map.swift; sourceTree = "<group>"; };
 		533C2F0740B4D36DD971D3C220E07B85 /* ScheduledDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScheduledDisposable.swift; path = RxSwift/Disposables/ScheduledDisposable.swift; sourceTree = "<group>"; };
-		53A47FC1DC738C4CB15FBAF873A5D33E /* RxRelay-iOS14.0 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "RxRelay-iOS14.0"; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53A47FC1DC738C4CB15FBAF873A5D33E /* RxRelay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxRelay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		544CA25A8D301F9AB839B689C38A4EE8 /* Container.Arguments.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Container.Arguments.swift; path = Sources/Container.Arguments.swift; sourceTree = "<group>"; };
 		55C13669876026A51CDA227CD5558917 /* SerialDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SerialDisposable.swift; path = RxSwift/Disposables/SerialDisposable.swift; sourceTree = "<group>"; };
 		55CAFAE518E664AFCCBAC0D109ED6BE5 /* RxCocoaRuntime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RxCocoaRuntime.h; path = RxCocoa/Runtime/include/RxCocoaRuntime.h; sourceTree = "<group>"; };
@@ -1111,7 +1113,7 @@
 		8CF9631BAD352C5267E3F41749B70799 /* SnapKit-iOS14.0-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-iOS14.0-umbrella.h"; sourceTree = "<group>"; };
 		8D224EBC5E5040451B03F8FA5705DD5F /* NopDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NopDisposable.swift; path = RxSwift/Disposables/NopDisposable.swift; sourceTree = "<group>"; };
 		8DD8E16ABCC55044A16CED4799A428B7 /* PrimitiveSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PrimitiveSequence.swift; path = RxSwift/Traits/PrimitiveSequence/PrimitiveSequence.swift; sourceTree = "<group>"; };
-		8F2DFBBC734FCFB41028C80550F962CE /* Swinject-iOS16.1 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Swinject-iOS16.1"; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F2DFBBC734FCFB41028C80550F962CE /* Swinject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9027ECC54C2CB3849586C999A20722E5 /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintLayoutGuide+Extensions.swift"; path = "Sources/ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
 		9312DCEC31CD72E9E29D6D4ABF8A252A /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Sources/ConstraintMaker.swift; sourceTree = "<group>"; };
 		9383BB29BA92DAFB40BDB54FF44100D4 /* NSTextField+Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSTextField+Rx.swift"; path = "RxCocoa/macOS/NSTextField+Rx.swift"; sourceTree = "<group>"; };
@@ -1132,7 +1134,7 @@
 		9CB3A90C8924C63DD3AC4BE2AD2B5B12 /* Swinject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Swinject.h; path = Sources/Swinject.h; sourceTree = "<group>"; };
 		9D0A0475D90D3D91B9BB2BA0E35139B2 /* ConstraintPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriority.swift; path = Sources/ConstraintPriority.swift; sourceTree = "<group>"; };
 		9D933850F9047361D6B49D4928E01A4F /* DisposeBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DisposeBase.swift; path = RxSwift/Disposables/DisposeBase.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DD2164013DA57FBD2B90FBC6799C7AF /* Swinject-iOS14.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Swinject-iOS14.0.debug.xcconfig"; sourceTree = "<group>"; };
 		9F5F58B438F19CC5AE87729C8EEBE310 /* RxCocoa-iOS16.1.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "RxCocoa-iOS16.1.modulemap"; path = "../RxCocoa-iOS16.1/RxCocoa-iOS16.1.modulemap"; sourceTree = "<group>"; };
 		A01DACD0E0021E6CE8C2B1B67ACAC134 /* RxCocoa-iOS14.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "RxCocoa-iOS14.0.release.xcconfig"; sourceTree = "<group>"; };
@@ -1165,7 +1167,7 @@
 		B26BBCFEDF9DF73AC5E1ACBD2BC00474 /* Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Rx.swift; path = RxSwift/Rx.swift; sourceTree = "<group>"; };
 		B32B7019E11E0E549BF8A07732C08588 /* KVORepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KVORepresentable.swift; path = RxCocoa/Foundation/KVORepresentable.swift; sourceTree = "<group>"; };
 		B3B76C78FB03413441B325DD89832A5F /* DispatchQueueConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DispatchQueueConfiguration.swift; path = RxSwift/Schedulers/Internal/DispatchQueueConfiguration.swift; sourceTree = "<group>"; };
-		B5CB0F5C877BA1FA5125B7CD981FBE7F /* Swinject-iOS14.0 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Swinject-iOS14.0"; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5CB0F5C877BA1FA5125B7CD981FBE7F /* Swinject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D600847C2EACE7B73D945C4FC45D64 /* SwiftLint-iOS14.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SwiftLint-iOS14.0.release.xcconfig"; sourceTree = "<group>"; };
 		B629422B7452555E9E52B5BAD541019B /* Optional.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Optional.swift; path = RxSwift/Observables/Optional.swift; sourceTree = "<group>"; };
 		B701F7DFB831D625E8E165BEE2A55F4A /* Never.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Never.swift; path = RxSwift/Observables/Never.swift; sourceTree = "<group>"; };
@@ -1224,7 +1226,7 @@
 		CBD1E5AC5A7A2B004995A6F07F8710BD /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Sources/ConstraintItem.swift; sourceTree = "<group>"; };
 		CD2F5F2E5E09793C4539BD54F969C6C8 /* Sink.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sink.swift; path = RxSwift/Observables/Sink.swift; sourceTree = "<group>"; };
 		CE6D671B29B8BB3C6908DD46299A044C /* PublishSubject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PublishSubject.swift; path = RxSwift/Subjects/PublishSubject.swift; sourceTree = "<group>"; };
-		D0351AB6DBEC40C53A07C5408A2D94D1 /* RxSwift-iOS16.1 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "RxSwift-iOS16.1"; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0351AB6DBEC40C53A07C5408A2D94D1 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D070D6156780CC033F65E019A3456CED /* PriorityQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PriorityQueue.swift; path = Platform/DataStructures/PriorityQueue.swift; sourceTree = "<group>"; };
 		D0A515762066169CC8D3318FE37EC188 /* Do.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Do.swift; path = RxSwift/Observables/Do.swift; sourceTree = "<group>"; };
 		D0C88FC152E3398208FD40BFACD21FAF /* RxCocoa-iOS14.0-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RxCocoa-iOS14.0-dummy.m"; sourceTree = "<group>"; };
@@ -1287,7 +1289,7 @@
 		F27BD7B362FF5DC303E47FE566859CDF /* DelegateProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DelegateProxy.swift; path = RxCocoa/Common/DelegateProxy.swift; sourceTree = "<group>"; };
 		F37576FD27DCE88916E64E1DB47A37E1 /* Queue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Queue.swift; path = Platform/DataStructures/Queue.swift; sourceTree = "<group>"; };
 		F3AC9884C623C483BBE7918402D270FC /* VirtualTimeScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VirtualTimeScheduler.swift; path = RxSwift/Schedulers/VirtualTimeScheduler.swift; sourceTree = "<group>"; };
-		F41478E00E22134FCCDFB2269662C7AF /* RxSwift-iOS14.0 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "RxSwift-iOS14.0"; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F41478E00E22134FCCDFB2269662C7AF /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F478C738D7BE87CF676F6F8D1A2A93DC /* RxTableViewDataSourceProxy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RxTableViewDataSourceProxy.swift; path = RxCocoa/iOS/Proxies/RxTableViewDataSourceProxy.swift; sourceTree = "<group>"; };
 		F5705C1F63623B977EF2829C5FB508F2 /* ControlEvent+Driver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ControlEvent+Driver.swift"; path = "RxCocoa/Traits/Driver/ControlEvent+Driver.swift"; sourceTree = "<group>"; };
 		F60628261B50316C3C8609A5DBB0DAA7 /* SubscriptionDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SubscriptionDisposable.swift; path = RxSwift/Disposables/SubscriptionDisposable.swift; sourceTree = "<group>"; };
@@ -1428,16 +1430,16 @@
 			children = (
 				D7D607A7A8CCFDB94C058A6A956A49FD /* Pods-AuthApp */,
 				5D386E9478DD5943A58213FF52917CB2 /* Pods-AuthAppTests */,
-				4C39870B0ECFD8FB6D033F3FDC27B90C /* RxCocoa-iOS14.0 */,
-				2190F408D18FD6084C4AEB9FC01611C7 /* RxCocoa-iOS16.1 */,
-				53A47FC1DC738C4CB15FBAF873A5D33E /* RxRelay-iOS14.0 */,
-				44D9B8ECC3A657A76703F684DE46546F /* RxRelay-iOS16.1 */,
-				F41478E00E22134FCCDFB2269662C7AF /* RxSwift-iOS14.0 */,
-				D0351AB6DBEC40C53A07C5408A2D94D1 /* RxSwift-iOS16.1 */,
-				3F48C9FCB046999FAA3CA093CF7424A7 /* SnapKit-iOS14.0 */,
-				197C73B36BEFB16765E5E2480E6C16A8 /* SnapKit-iOS16.1 */,
-				B5CB0F5C877BA1FA5125B7CD981FBE7F /* Swinject-iOS14.0 */,
-				8F2DFBBC734FCFB41028C80550F962CE /* Swinject-iOS16.1 */,
+				4C39870B0ECFD8FB6D033F3FDC27B90C /* RxCocoa.framework */,
+				2190F408D18FD6084C4AEB9FC01611C7 /* RxCocoa.framework */,
+				53A47FC1DC738C4CB15FBAF873A5D33E /* RxRelay.framework */,
+				44D9B8ECC3A657A76703F684DE46546F /* RxRelay.framework */,
+				F41478E00E22134FCCDFB2269662C7AF /* RxSwift.framework */,
+				D0351AB6DBEC40C53A07C5408A2D94D1 /* RxSwift.framework */,
+				3F48C9FCB046999FAA3CA093CF7424A7 /* SnapKit.framework */,
+				197C73B36BEFB16765E5E2480E6C16A8 /* SnapKit.framework */,
+				B5CB0F5C877BA1FA5125B7CD981FBE7F /* Swinject.framework */,
+				8F2DFBBC734FCFB41028C80550F962CE /* Swinject.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1506,7 +1508,6 @@
 				0935092B7D13BC9D3FD8556CA8F2EB4F /* UILayoutSupport+Extensions.swift */,
 				B5A51033F3BBB95C2869402F822EB3D9 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -1633,7 +1634,6 @@
 				022EF7DB09324FC9B518857ABDC5228A /* WKWebView+Rx.swift */,
 				88D1072BE4EF272B6593FD5984635989 /* Support Files */,
 			);
-			name = RxCocoa;
 			path = RxCocoa;
 			sourceTree = "<group>";
 		};
@@ -1863,7 +1863,6 @@
 				7AD9F08D47A1EFA659E6211973B3321A /* Zip+Collection.swift */,
 				ECDDFA29D5D3E413DA5F165AC57E4184 /* Support Files */,
 			);
-			name = RxSwift;
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
@@ -1890,7 +1889,6 @@
 				59DBC9C35E7F0D6A05E389B525FABDB4 /* Utils.swift */,
 				37E557368B5D43D309E71B9BACF00489 /* Support Files */,
 			);
-			name = RxRelay;
 			path = RxRelay;
 			sourceTree = "<group>";
 		};
@@ -1943,7 +1941,6 @@
 				DFED69BAAF4D5A2B3F5AFE22FEB63786 /* UnavailableItems.swift */,
 				7DDE5CCFAB527C55B2E49F284FCB43BB /* Support Files */,
 			);
-			name = Swinject;
 			path = Swinject;
 			sourceTree = "<group>";
 		};
@@ -1983,7 +1980,6 @@
 			children = (
 				DCF99E94B12D530394E408540A4F9EB1 /* Support Files */,
 			);
-			name = SwiftLint;
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
@@ -2150,7 +2146,7 @@
 			);
 			name = "RxRelay-iOS16.1";
 			productName = RxRelay;
-			productReference = 44D9B8ECC3A657A76703F684DE46546F /* RxRelay-iOS16.1 */;
+			productReference = 44D9B8ECC3A657A76703F684DE46546F /* RxRelay.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		20B271FD56379E314B903C3A1D55FD7B /* SnapKit-iOS16.1 */ = {
@@ -2168,7 +2164,7 @@
 			);
 			name = "SnapKit-iOS16.1";
 			productName = SnapKit;
-			productReference = 197C73B36BEFB16765E5E2480E6C16A8 /* SnapKit-iOS16.1 */;
+			productReference = 197C73B36BEFB16765E5E2480E6C16A8 /* SnapKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		2A99207D1C7C14F460CE1C7687742A68 /* Pods-AuthApp */ = {
@@ -2210,7 +2206,7 @@
 			);
 			name = "Swinject-iOS16.1";
 			productName = Swinject;
-			productReference = 8F2DFBBC734FCFB41028C80550F962CE /* Swinject-iOS16.1 */;
+			productReference = 8F2DFBBC734FCFB41028C80550F962CE /* Swinject.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		4CC61804F6726FEA34E4C006CC8F9DE3 /* RxSwift-iOS14.0 */ = {
@@ -2228,7 +2224,7 @@
 			);
 			name = "RxSwift-iOS14.0";
 			productName = RxSwift;
-			productReference = F41478E00E22134FCCDFB2269662C7AF /* RxSwift-iOS14.0 */;
+			productReference = F41478E00E22134FCCDFB2269662C7AF /* RxSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		61EE4E3AB1E8BAD9988415B2E109A2DC /* RxCocoa-iOS14.0 */ = {
@@ -2248,7 +2244,7 @@
 			);
 			name = "RxCocoa-iOS14.0";
 			productName = RxCocoa;
-			productReference = 4C39870B0ECFD8FB6D033F3FDC27B90C /* RxCocoa-iOS14.0 */;
+			productReference = 4C39870B0ECFD8FB6D033F3FDC27B90C /* RxCocoa.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		96CB348EB3C4FA26F5D9B02926BFC4E6 /* Pods-AuthAppTests */ = {
@@ -2292,7 +2288,7 @@
 			);
 			name = "RxCocoa-iOS16.1";
 			productName = RxCocoa;
-			productReference = 2190F408D18FD6084C4AEB9FC01611C7 /* RxCocoa-iOS16.1 */;
+			productReference = 2190F408D18FD6084C4AEB9FC01611C7 /* RxCocoa.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		A5806208CA31FB4EF8F0D63403267386 /* RxSwift-iOS16.1 */ = {
@@ -2310,7 +2306,7 @@
 			);
 			name = "RxSwift-iOS16.1";
 			productName = RxSwift;
-			productReference = D0351AB6DBEC40C53A07C5408A2D94D1 /* RxSwift-iOS16.1 */;
+			productReference = D0351AB6DBEC40C53A07C5408A2D94D1 /* RxSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		A9DD0815B5C47DB3047FD74932889F82 /* Swinject-iOS14.0 */ = {
@@ -2328,7 +2324,7 @@
 			);
 			name = "Swinject-iOS14.0";
 			productName = Swinject;
-			productReference = B5CB0F5C877BA1FA5125B7CD981FBE7F /* Swinject-iOS14.0 */;
+			productReference = B5CB0F5C877BA1FA5125B7CD981FBE7F /* Swinject.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D2A2C4630AA50F88F5E89F9AE72A9BCF /* SnapKit-iOS14.0 */ = {
@@ -2346,7 +2342,7 @@
 			);
 			name = "SnapKit-iOS14.0";
 			productName = SnapKit;
-			productReference = 3F48C9FCB046999FAA3CA093CF7424A7 /* SnapKit-iOS14.0 */;
+			productReference = 3F48C9FCB046999FAA3CA093CF7424A7 /* SnapKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		DF4A3180335AC25C7F9C7C965F891EE9 /* RxRelay-iOS14.0 */ = {
@@ -2365,7 +2361,7 @@
 			);
 			name = "RxRelay-iOS14.0";
 			productName = RxRelay;
-			productReference = 53A47FC1DC738C4CB15FBAF873A5D33E /* RxRelay-iOS14.0 */;
+			productReference = 53A47FC1DC738C4CB15FBAF873A5D33E /* RxRelay.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -2375,7 +2371,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1410;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -3366,7 +3362,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3430,7 +3426,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Swinject-iOS14.0/Swinject-iOS14.0-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Swinject-iOS14.0/Swinject-iOS14.0-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3455,7 +3451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3481,7 +3477,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SnapKit-iOS16.1/SnapKit-iOS16.1-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SnapKit-iOS16.1/SnapKit-iOS16.1-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3535,6 +3531,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -3581,7 +3578,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxCocoa-iOS16.1/RxCocoa-iOS16.1-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxCocoa-iOS16.1/RxCocoa-iOS16.1-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3616,7 +3613,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxSwift-iOS16.1/RxSwift-iOS16.1-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxSwift-iOS16.1/RxSwift-iOS16.1-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3642,7 +3639,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3667,7 +3664,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxRelay-iOS14.0/RxRelay-iOS14.0-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxRelay-iOS14.0/RxRelay-iOS14.0-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3702,7 +3699,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxCocoa-iOS16.1/RxCocoa-iOS16.1-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxCocoa-iOS16.1/RxCocoa-iOS16.1-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3737,7 +3734,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SnapKit-iOS16.1/SnapKit-iOS16.1-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SnapKit-iOS16.1/SnapKit-iOS16.1-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3772,7 +3769,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Swinject-iOS16.1/Swinject-iOS16.1-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Swinject-iOS16.1/Swinject-iOS16.1-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3807,7 +3804,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxSwift-iOS14.0/RxSwift-iOS14.0-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxSwift-iOS14.0/RxSwift-iOS14.0-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3842,7 +3839,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SnapKit-iOS14.0/SnapKit-iOS14.0-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SnapKit-iOS14.0/SnapKit-iOS14.0-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3876,7 +3873,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxRelay-iOS14.0/RxRelay-iOS14.0-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxRelay-iOS14.0/RxRelay-iOS14.0-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3911,7 +3908,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SnapKit-iOS14.0/SnapKit-iOS14.0-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SnapKit-iOS14.0/SnapKit-iOS14.0-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3966,6 +3963,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3999,7 +3997,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4062,7 +4060,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxSwift-iOS16.1/RxSwift-iOS16.1-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxSwift-iOS16.1/RxSwift-iOS16.1-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4096,7 +4094,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxCocoa-iOS14.0/RxCocoa-iOS14.0-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxCocoa-iOS14.0/RxCocoa-iOS14.0-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4131,7 +4129,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Swinject-iOS16.1/Swinject-iOS16.1-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Swinject-iOS16.1/Swinject-iOS16.1-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4165,7 +4163,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxCocoa-iOS14.0/RxCocoa-iOS14.0-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxCocoa-iOS14.0/RxCocoa-iOS14.0-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4199,7 +4197,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxRelay-iOS16.1/RxRelay-iOS16.1-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxRelay-iOS16.1/RxRelay-iOS16.1-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4234,7 +4232,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Swinject-iOS14.0/Swinject-iOS14.0-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Swinject-iOS14.0/Swinject-iOS14.0-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4269,7 +4267,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxRelay-iOS16.1/RxRelay-iOS16.1-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxRelay-iOS16.1/RxRelay-iOS16.1-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4341,7 +4339,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/RxSwift-iOS14.0/RxSwift-iOS14.0-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/RxSwift-iOS14.0/RxSwift-iOS14.0-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

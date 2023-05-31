@@ -6,19 +6,19 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
 
 class FilledButton: UIButton {
     
-    var hexColor: String
     var cornerRadius: CGFloat
     var title: String
+    private let disposeBag = DisposeBag()
     
     init(
-        hexColor: String,
         cornerRadius: CGFloat,
         title: String
     ) {
-        self.hexColor = hexColor
         self.cornerRadius = cornerRadius
         self.title = title
         
@@ -31,7 +31,7 @@ class FilledButton: UIButton {
     }
     
     private func setupAppearance() {
-        backgroundColor = UIColor(hexString: hexColor)
+        updateAppearance(isEnabled: isEnabled)
         layer.cornerRadius = cornerRadius
         setTitle(title, for: .normal)
         titleLabel?.font = UIFont(name: Constants.Font.gothamBold,
@@ -40,5 +40,10 @@ class FilledButton: UIButton {
                                          left: 0,
                                          bottom: 25,
                                          right: 0)
+    }
+    
+    func updateAppearance(isEnabled: Bool) {
+        backgroundColor = UIColor(hexString: isEnabled ? Constants.mainBlueColor : Constants.inactiveGray)
+        setTitleColor(UIColor (hexString: isEnabled ? Constants.textWhite : Constants.textDarkGray), for: .normal)
     }
 }

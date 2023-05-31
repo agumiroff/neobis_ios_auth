@@ -8,37 +8,45 @@
 
 /* Begin PBXBuildFile section */
 		A685AD4396F409138B885582 /* Pods_AuthApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4C4F98839D8AAE829445C1 /* Pods_AuthApp.framework */; };
+		C61289662A255C1C00138888 /* StateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61289652A255C1C00138888 /* StateConverter.swift */; };
+		C63511532A1FD9DA00D5CDA6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63511522A1FD9DA00D5CDA6 /* LoginViewModel.swift */; };
+		C63511552A1FD9EF00D5CDA6 /* LoginViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63511542A1FD9EF00D5CDA6 /* LoginViewModelImpl.swift */; };
+		C635116C2A201FF600D5CDA6 /* gothampro_mediumitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C63511612A201FF600D5CDA6 /* gothampro_mediumitalic.ttf */; };
+		C635116D2A201FF600D5CDA6 /* COPYRIGHT.txt in Resources */ = {isa = PBXBuildFile; fileRef = C63511622A201FF600D5CDA6 /* COPYRIGHT.txt */; };
+		C635116E2A201FF600D5CDA6 /* gothampro_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C63511632A201FF600D5CDA6 /* gothampro_medium.ttf */; };
+		C635116F2A201FF600D5CDA6 /* gothampro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C63511642A201FF600D5CDA6 /* gothampro.ttf */; };
+		C63511702A201FF600D5CDA6 /* gothampro_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C63511652A201FF600D5CDA6 /* gothampro_bold.ttf */; };
+		C63511712A201FF600D5CDA6 /* gothampro_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C63511662A201FF600D5CDA6 /* gothampro_black.ttf */; };
+		C63511722A201FF600D5CDA6 /* gothampro_italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C63511672A201FF600D5CDA6 /* gothampro_italic.ttf */; };
+		C63511732A201FF600D5CDA6 /* gothampro_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C63511682A201FF600D5CDA6 /* gothampro_light.ttf */; };
+		C63511742A201FF600D5CDA6 /* gothampro_lightitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C63511692A201FF600D5CDA6 /* gothampro_lightitalic.ttf */; };
+		C63511752A201FF600D5CDA6 /* gothampro_blackitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C635116A2A201FF600D5CDA6 /* gothampro_blackitalic.ttf */; };
+		C63511762A201FF600D5CDA6 /* gothampro_bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C635116B2A201FF600D5CDA6 /* gothampro_bolditalic.ttf */; };
+		C635117A2A20270E00D5CDA6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63511792A20270E00D5CDA6 /* Coordinator.swift */; };
+		C6457F8E2A2425FF0011EC50 /* EmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6457F8D2A2425FF0011EC50 /* EmailView.swift */; };
+		C663BC912A202C3700431A64 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC902A202C3700431A64 /* WelcomeViewModel.swift */; };
+		C663BC932A202C5A00431A64 /* WelcomeViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC922A202C5A00431A64 /* WelcomeViewModelImpl.swift */; };
+		C663BC962A202E4000431A64 /* WelcomeModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC952A202E4000431A64 /* WelcomeModuleAssembly.swift */; };
+		C663BC982A202FC500431A64 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC972A202FC500431A64 /* MainFlowCoordinator.swift */; };
+		C663BCA22A204B9C00431A64 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BCA12A204B9C00431A64 /* AppNavigation.swift */; };
+		C663BCA42A204C2000431A64 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BCA32A204C2000431A64 /* Navigation.swift */; };
+		C663BCA72A20514F00431A64 /* LoginAssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BCA62A20514F00431A64 /* LoginAssemblyBuilder.swift */; };
+		C663BCA92A2148DD00431A64 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BCA82A2148DD00431A64 /* String + Extension.swift */; };
 		C67D03902A1E5D620005132D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D038F2A1E5D620005132D /* Constants.swift */; };
 		C67D03922A1E9CBF0005132D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03912A1E9CBF0005132D /* BaseViewController.swift */; };
-		C67D03A72A1EA0390005132D /* Gotham-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C67D03942A1EA0390005132D /* Gotham-XLight.otf */; };
-		C67D03A82A1EA0390005132D /* Gotham-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C67D03952A1EA0390005132D /* Gotham-Thin.otf */; };
-		C67D03A92A1EA0390005132D /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = C67D03962A1EA0390005132D /* Gotham-Black.otf */; };
-		C67D03AA2A1EA0390005132D /* Gotham-XLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C67D03972A1EA0390005132D /* Gotham-XLightItalic.otf */; };
-		C67D03AB2A1EA0390005132D /* GothamLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67D03982A1EA0390005132D /* GothamLight.ttf */; };
-		C67D03AC2A1EA0390005132D /* freefontsfamily.com.txt in Resources */ = {isa = PBXBuildFile; fileRef = C67D03992A1EA0390005132D /* freefontsfamily.com.txt */; };
-		C67D03AD2A1EA0390005132D /* Gotham-UltraItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C67D039A2A1EA0390005132D /* Gotham-UltraItalic.otf */; };
-		C67D03AE2A1EA0390005132D /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C67D039B2A1EA0390005132D /* Gotham-Bold.otf */; };
-		C67D03AF2A1EA0390005132D /* GothamMediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67D039C2A1EA0390005132D /* GothamMediumItalic.ttf */; };
-		C67D03B02A1EA0390005132D /* GothamBookItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67D039D2A1EA0390005132D /* GothamBookItalic.ttf */; };
-		C67D03B12A1EA0390005132D /* Gotham-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C67D039E2A1EA0390005132D /* Gotham-ThinItalic.otf */; };
-		C67D03B22A1EA0390005132D /* GothamMedium_1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67D039F2A1EA0390005132D /* GothamMedium_1.ttf */; };
-		C67D03B32A1EA0390005132D /* Gotham-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C67D03A02A1EA0390005132D /* Gotham-Light.otf */; };
-		C67D03B42A1EA0390005132D /* GothamBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67D03A12A1EA0390005132D /* GothamBold.ttf */; };
-		C67D03B52A1EA0390005132D /* Gotham-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C67D03A22A1EA0390005132D /* Gotham-BookItalic.otf */; };
-		C67D03B62A1EA0390005132D /* GothamBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67D03A32A1EA0390005132D /* GothamBoldItalic.ttf */; };
-		C67D03B72A1EA0390005132D /* GothamBook.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67D03A42A1EA0390005132D /* GothamBook.ttf */; };
-		C67D03B82A1EA0390005132D /* GothamLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67D03A52A1EA0390005132D /* GothamLightItalic.ttf */; };
-		C67D03B92A1EA0390005132D /* GothamMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C67D03A62A1EA0390005132D /* GothamMedium.ttf */; };
 		C67D03BC2A1EA1AD0005132D /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03BB2A1EA1AD0005132D /* UIColor + Extension.swift */; };
 		C67D03BE2A1EAFE20005132D /* FilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03BD2A1EAFE20005132D /* FilledButton.swift */; };
 		C67D03C02A1ED1800005132D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03BF2A1ED1800005132D /* AppCoordinator.swift */; };
-		C67D03C22A1ED2550005132D /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03C12A1ED2550005132D /* AppNavigation.swift */; };
+		C67D03C42A1EEFBD0005132D /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03C32A1EEFBD0005132D /* TextField.swift */; };
 		C6A22CC92A1E439400189B2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CC82A1E439400189B2C /* AppDelegate.swift */; };
 		C6A22CCD2A1E439400189B2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CCC2A1E439400189B2C /* LoginViewController.swift */; };
 		C6A22CD22A1E439500189B2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A22CD12A1E439500189B2C /* Assets.xcassets */; };
 		C6A22CD52A1E439500189B2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A22CD32A1E439500189B2C /* LaunchScreen.storyboard */; };
-		C6A22CE62A1E466300189B2C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CE52A1E466300189B2C /* AboutViewController.swift */; };
+		C6A22CE62A1E466300189B2C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CE52A1E466300189B2C /* WelcomeViewController.swift */; };
 		C6A22CEE2A1E47E300189B2C /* AuthAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CED2A1E47E300189B2C /* AuthAppTests.swift */; };
+		C6BC577D2A244B9600E2311C /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC577C2A244B9600E2311C /* RegistrationViewModel.swift */; };
+		C6BC577F2A24588B00E2311C /* RegistrationModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC577E2A24588B00E2311C /* RegistrationModuleAssembly.swift */; };
+		C6BC57812A2458CE00E2311C /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC57802A2458CE00E2311C /* RegistrationView.swift */; };
 		EB62B732B82F2794C8E8E2DD /* Pods_AuthAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3168F817385C8E7FB1015F /* Pods_AuthAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,40 +65,48 @@
 		1E9F9318121C828019E5C8F1 /* Pods-AuthAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthAppTests.release.xcconfig"; path = "Target Support Files/Pods-AuthAppTests/Pods-AuthAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		74FF642A7BBF5A68DECB9EA4 /* Pods-AuthApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthApp.debug.xcconfig"; path = "Target Support Files/Pods-AuthApp/Pods-AuthApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9FCF357DB28C38354CB80247 /* Pods-AuthApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthApp.release.xcconfig"; path = "Target Support Files/Pods-AuthApp/Pods-AuthApp.release.xcconfig"; sourceTree = "<group>"; };
+		C61289652A255C1C00138888 /* StateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateConverter.swift; sourceTree = "<group>"; };
+		C63511522A1FD9DA00D5CDA6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		C63511542A1FD9EF00D5CDA6 /* LoginViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelImpl.swift; sourceTree = "<group>"; };
+		C63511612A201FF600D5CDA6 /* gothampro_mediumitalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_mediumitalic.ttf; sourceTree = "<group>"; };
+		C63511622A201FF600D5CDA6 /* COPYRIGHT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYRIGHT.txt; sourceTree = "<group>"; };
+		C63511632A201FF600D5CDA6 /* gothampro_medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_medium.ttf; sourceTree = "<group>"; };
+		C63511642A201FF600D5CDA6 /* gothampro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro.ttf; sourceTree = "<group>"; };
+		C63511652A201FF600D5CDA6 /* gothampro_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_bold.ttf; sourceTree = "<group>"; };
+		C63511662A201FF600D5CDA6 /* gothampro_black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_black.ttf; sourceTree = "<group>"; };
+		C63511672A201FF600D5CDA6 /* gothampro_italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_italic.ttf; sourceTree = "<group>"; };
+		C63511682A201FF600D5CDA6 /* gothampro_light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_light.ttf; sourceTree = "<group>"; };
+		C63511692A201FF600D5CDA6 /* gothampro_lightitalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_lightitalic.ttf; sourceTree = "<group>"; };
+		C635116A2A201FF600D5CDA6 /* gothampro_blackitalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_blackitalic.ttf; sourceTree = "<group>"; };
+		C635116B2A201FF600D5CDA6 /* gothampro_bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_bolditalic.ttf; sourceTree = "<group>"; };
+		C63511792A20270E00D5CDA6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C6457F8D2A2425FF0011EC50 /* EmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailView.swift; sourceTree = "<group>"; };
+		C663BC902A202C3700431A64 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		C663BC922A202C5A00431A64 /* WelcomeViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModelImpl.swift; sourceTree = "<group>"; };
+		C663BC952A202E4000431A64 /* WelcomeModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModuleAssembly.swift; sourceTree = "<group>"; };
+		C663BC972A202FC500431A64 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
+		C663BCA12A204B9C00431A64 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
+		C663BCA32A204C2000431A64 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		C663BCA62A20514F00431A64 /* LoginAssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssemblyBuilder.swift; sourceTree = "<group>"; };
+		C663BCA82A2148DD00431A64 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		C67D038F2A1E5D620005132D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C67D03912A1E9CBF0005132D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		C67D03942A1EA0390005132D /* Gotham-XLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLight.otf"; sourceTree = "<group>"; };
-		C67D03952A1EA0390005132D /* Gotham-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Thin.otf"; sourceTree = "<group>"; };
-		C67D03962A1EA0390005132D /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
-		C67D03972A1EA0390005132D /* Gotham-XLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLightItalic.otf"; sourceTree = "<group>"; };
-		C67D03982A1EA0390005132D /* GothamLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamLight.ttf; sourceTree = "<group>"; };
-		C67D03992A1EA0390005132D /* freefontsfamily.com.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = freefontsfamily.com.txt; sourceTree = "<group>"; };
-		C67D039A2A1EA0390005132D /* Gotham-UltraItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-UltraItalic.otf"; sourceTree = "<group>"; };
-		C67D039B2A1EA0390005132D /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
-		C67D039C2A1EA0390005132D /* GothamMediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamMediumItalic.ttf; sourceTree = "<group>"; };
-		C67D039D2A1EA0390005132D /* GothamBookItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBookItalic.ttf; sourceTree = "<group>"; };
-		C67D039E2A1EA0390005132D /* Gotham-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-ThinItalic.otf"; sourceTree = "<group>"; };
-		C67D039F2A1EA0390005132D /* GothamMedium_1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamMedium_1.ttf; sourceTree = "<group>"; };
-		C67D03A02A1EA0390005132D /* Gotham-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Light.otf"; sourceTree = "<group>"; };
-		C67D03A12A1EA0390005132D /* GothamBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBold.ttf; sourceTree = "<group>"; };
-		C67D03A22A1EA0390005132D /* Gotham-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BookItalic.otf"; sourceTree = "<group>"; };
-		C67D03A32A1EA0390005132D /* GothamBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBoldItalic.ttf; sourceTree = "<group>"; };
-		C67D03A42A1EA0390005132D /* GothamBook.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBook.ttf; sourceTree = "<group>"; };
-		C67D03A52A1EA0390005132D /* GothamLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamLightItalic.ttf; sourceTree = "<group>"; };
-		C67D03A62A1EA0390005132D /* GothamMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamMedium.ttf; sourceTree = "<group>"; };
 		C67D03BB2A1EA1AD0005132D /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		C67D03BD2A1EAFE20005132D /* FilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButton.swift; sourceTree = "<group>"; };
 		C67D03BF2A1ED1800005132D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		C67D03C12A1ED2550005132D /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
+		C67D03C32A1EEFBD0005132D /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		C6A22CC52A1E439400189B2C /* AuthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A22CC82A1E439400189B2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6A22CCC2A1E439400189B2C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C6A22CD12A1E439500189B2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6A22CD42A1E439500189B2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6A22CD62A1E439500189B2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C6A22CE52A1E466300189B2C /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		C6A22CE52A1E466300189B2C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C6A22CEB2A1E47E300189B2C /* AuthAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A22CED2A1E47E300189B2C /* AuthAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppTests.swift; sourceTree = "<group>"; };
+		C6BC577C2A244B9600E2311C /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		C6BC577E2A24588B00E2311C /* RegistrationModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModuleAssembly.swift; sourceTree = "<group>"; };
+		C6BC57802A2458CE00E2311C /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		EB3168F817385C8E7FB1015F /* Pods_AuthAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AuthAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF4C4F98839D8AAE829445C1 /* Pods_AuthApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AuthApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -124,38 +140,126 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C63511602A201FF600D5CDA6 /* Gotham Pro */ = {
+			isa = PBXGroup;
+			children = (
+				C63511612A201FF600D5CDA6 /* gothampro_mediumitalic.ttf */,
+				C63511622A201FF600D5CDA6 /* COPYRIGHT.txt */,
+				C63511632A201FF600D5CDA6 /* gothampro_medium.ttf */,
+				C63511642A201FF600D5CDA6 /* gothampro.ttf */,
+				C63511652A201FF600D5CDA6 /* gothampro_bold.ttf */,
+				C63511662A201FF600D5CDA6 /* gothampro_black.ttf */,
+				C63511672A201FF600D5CDA6 /* gothampro_italic.ttf */,
+				C63511682A201FF600D5CDA6 /* gothampro_light.ttf */,
+				C63511692A201FF600D5CDA6 /* gothampro_lightitalic.ttf */,
+				C635116A2A201FF600D5CDA6 /* gothampro_blackitalic.ttf */,
+				C635116B2A201FF600D5CDA6 /* gothampro_bolditalic.ttf */,
+			);
+			path = "Gotham Pro";
+			sourceTree = "<group>";
+		};
+		C63511772A20260200D5CDA6 /* MainFlow */ = {
+			isa = PBXGroup;
+			children = (
+				C635117B2A202AC100D5CDA6 /* Coordinator */,
+			);
+			path = MainFlow;
+			sourceTree = "<group>";
+		};
+		C635117B2A202AC100D5CDA6 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				C663BC972A202FC500431A64 /* MainFlowCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		C635117C2A202AF300D5CDA6 /* WelcomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				C663BC942A202E1E00431A64 /* Assembly */,
+				C635117E2A202B0500D5CDA6 /* ViewModel */,
+				C635117D2A202B0100D5CDA6 /* View */,
+			);
+			path = WelcomeModule;
+			sourceTree = "<group>";
+		};
+		C635117D2A202B0100D5CDA6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6A22CE52A1E466300189B2C /* WelcomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C635117E2A202B0500D5CDA6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C663BC902A202C3700431A64 /* WelcomeViewModel.swift */,
+				C663BC922A202C5A00431A64 /* WelcomeViewModelImpl.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C6457F892A2424F90011EC50 /* RegistrationModule */ = {
+			isa = PBXGroup;
+			children = (
+				C6457F8B2A24250B0011EC50 /* Assembly */,
+				C6457F8A2A2425040011EC50 /* ViewModel */,
+				C6457F8C2A24250E0011EC50 /* View */,
+				C61289652A255C1C00138888 /* StateConverter.swift */,
+			);
+			path = RegistrationModule;
+			sourceTree = "<group>";
+		};
+		C6457F8A2A2425040011EC50 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C6BC577C2A244B9600E2311C /* RegistrationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C6457F8B2A24250B0011EC50 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				C6BC577E2A24588B00E2311C /* RegistrationModuleAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		C6457F8C2A24250E0011EC50 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6457F8D2A2425FF0011EC50 /* EmailView.swift */,
+				C6BC57802A2458CE00E2311C /* RegistrationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C663BC942A202E1E00431A64 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				C663BC952A202E4000431A64 /* WelcomeModuleAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		C663BCA52A20513700431A64 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				C663BCA62A20514F00431A64 /* LoginAssemblyBuilder.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
 		C67D038E2A1E5D440005132D /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
 				C67D03BD2A1EAFE20005132D /* FilledButton.swift */,
+				C67D03C32A1EEFBD0005132D /* TextField.swift */,
 			);
 			path = UIComponents;
-			sourceTree = "<group>";
-		};
-		C67D03932A1EA0390005132D /* Gotham-Font */ = {
-			isa = PBXGroup;
-			children = (
-				C67D03942A1EA0390005132D /* Gotham-XLight.otf */,
-				C67D03952A1EA0390005132D /* Gotham-Thin.otf */,
-				C67D03962A1EA0390005132D /* Gotham-Black.otf */,
-				C67D03972A1EA0390005132D /* Gotham-XLightItalic.otf */,
-				C67D03982A1EA0390005132D /* GothamLight.ttf */,
-				C67D03992A1EA0390005132D /* freefontsfamily.com.txt */,
-				C67D039A2A1EA0390005132D /* Gotham-UltraItalic.otf */,
-				C67D039B2A1EA0390005132D /* Gotham-Bold.otf */,
-				C67D039C2A1EA0390005132D /* GothamMediumItalic.ttf */,
-				C67D039D2A1EA0390005132D /* GothamBookItalic.ttf */,
-				C67D039E2A1EA0390005132D /* Gotham-ThinItalic.otf */,
-				C67D039F2A1EA0390005132D /* GothamMedium_1.ttf */,
-				C67D03A02A1EA0390005132D /* Gotham-Light.otf */,
-				C67D03A12A1EA0390005132D /* GothamBold.ttf */,
-				C67D03A22A1EA0390005132D /* Gotham-BookItalic.otf */,
-				C67D03A32A1EA0390005132D /* GothamBoldItalic.ttf */,
-				C67D03A42A1EA0390005132D /* GothamBook.ttf */,
-				C67D03A52A1EA0390005132D /* GothamLightItalic.ttf */,
-				C67D03A62A1EA0390005132D /* GothamMedium.ttf */,
-			);
-			path = "Gotham-Font";
 			sourceTree = "<group>";
 		};
 		C67D03BA2A1EA19F0005132D /* Helpers */ = {
@@ -163,6 +267,7 @@
 			children = (
 				C67D03BB2A1EA1AD0005132D /* UIColor + Extension.swift */,
 				C67D038F2A1E5D620005132D /* Constants.swift */,
+				C663BCA82A2148DD00431A64 /* String + Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -190,8 +295,8 @@
 		C6A22CC72A1E439400189B2C /* AuthApp */ = {
 			isa = PBXGroup;
 			children = (
-				C6A22CDD2A1E442200189B2C /* Application */,
 				C6A22CDE2A1E458E00189B2C /* Core */,
+				C63511772A20260200D5CDA6 /* MainFlow */,
 				C6A22CDF2A1E459B00189B2C /* Modules */,
 				C6A22CDC2A1E441600189B2C /* Resources */,
 				C67D03BA2A1EA19F0005132D /* Helpers */,
@@ -210,17 +315,12 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		C6A22CDD2A1E442200189B2C /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				C6A22CC82A1E439400189B2C /* AppDelegate.swift */,
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
 		C6A22CDE2A1E458E00189B2C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C663BCA12A204B9C00431A64 /* AppNavigation.swift */,
+				C6A22CC82A1E439400189B2C /* AppDelegate.swift */,
+				C67D03BF2A1ED1800005132D /* AppCoordinator.swift */,
 				C6A22CE32A1E465200189B2C /* Base */,
 				C6A22CF42A1E48A700189B2C /* Models */,
 			);
@@ -230,6 +330,8 @@
 		C6A22CDF2A1E459B00189B2C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C6457F892A2424F90011EC50 /* RegistrationModule */,
+				C635117C2A202AF300D5CDA6 /* WelcomeModule */,
 				C6A22CE02A1E45A800189B2C /* LoginModule */,
 			);
 			path = Modules;
@@ -238,6 +340,7 @@
 		C6A22CE02A1E45A800189B2C /* LoginModule */ = {
 			isa = PBXGroup;
 			children = (
+				C663BCA52A20513700431A64 /* Assembly */,
 				C6A22CE12A1E461300189B2C /* ViewModel */,
 				C6A22CE22A1E461600189B2C /* View */,
 			);
@@ -247,6 +350,8 @@
 		C6A22CE12A1E461300189B2C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C63511522A1FD9DA00D5CDA6 /* LoginViewModel.swift */,
+				C63511542A1FD9EF00D5CDA6 /* LoginViewModelImpl.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -262,21 +367,12 @@
 		C6A22CE32A1E465200189B2C /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				C67D03912A1E9CBF0005132D /* BaseViewController.swift */,
+				C63511792A20270E00D5CDA6 /* Coordinator.swift */,
+				C663BCA32A204C2000431A64 /* Navigation.swift */,
 				C67D038E2A1E5D440005132D /* UIComponents */,
-				C6A22CE42A1E465600189B2C /* View */,
-				C67D03BF2A1ED1800005132D /* AppCoordinator.swift */,
-				C67D03C12A1ED2550005132D /* AppNavigation.swift */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		C6A22CE42A1E465600189B2C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				C6A22CE52A1E466300189B2C /* AboutViewController.swift */,
-				C67D03912A1E9CBF0005132D /* BaseViewController.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		C6A22CEC2A1E47E300189B2C /* AuthAppTests */ = {
@@ -297,7 +393,7 @@
 		C6A22CF52A1E491700189B2C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				C67D03932A1EA0390005132D /* Gotham-Font */,
+				C63511602A201FF600D5CDA6 /* Gotham Pro */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -399,27 +495,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C67D03AE2A1EA0390005132D /* Gotham-Bold.otf in Resources */,
-				C67D03B22A1EA0390005132D /* GothamMedium_1.ttf in Resources */,
-				C67D03AD2A1EA0390005132D /* Gotham-UltraItalic.otf in Resources */,
-				C67D03B92A1EA0390005132D /* GothamMedium.ttf in Resources */,
-				C67D03AC2A1EA0390005132D /* freefontsfamily.com.txt in Resources */,
-				C67D03A72A1EA0390005132D /* Gotham-XLight.otf in Resources */,
+				C635116D2A201FF600D5CDA6 /* COPYRIGHT.txt in Resources */,
+				C63511702A201FF600D5CDA6 /* gothampro_bold.ttf in Resources */,
+				C63511742A201FF600D5CDA6 /* gothampro_lightitalic.ttf in Resources */,
+				C635116E2A201FF600D5CDA6 /* gothampro_medium.ttf in Resources */,
 				C6A22CD52A1E439500189B2C /* LaunchScreen.storyboard in Resources */,
-				C67D03B12A1EA0390005132D /* Gotham-ThinItalic.otf in Resources */,
-				C67D03B82A1EA0390005132D /* GothamLightItalic.ttf in Resources */,
-				C67D03B52A1EA0390005132D /* Gotham-BookItalic.otf in Resources */,
-				C67D03B02A1EA0390005132D /* GothamBookItalic.ttf in Resources */,
-				C67D03A82A1EA0390005132D /* Gotham-Thin.otf in Resources */,
-				C67D03B72A1EA0390005132D /* GothamBook.ttf in Resources */,
-				C67D03A92A1EA0390005132D /* Gotham-Black.otf in Resources */,
-				C67D03AB2A1EA0390005132D /* GothamLight.ttf in Resources */,
-				C67D03B42A1EA0390005132D /* GothamBold.ttf in Resources */,
+				C63511722A201FF600D5CDA6 /* gothampro_italic.ttf in Resources */,
+				C63511732A201FF600D5CDA6 /* gothampro_light.ttf in Resources */,
+				C63511762A201FF600D5CDA6 /* gothampro_bolditalic.ttf in Resources */,
+				C63511712A201FF600D5CDA6 /* gothampro_black.ttf in Resources */,
+				C63511752A201FF600D5CDA6 /* gothampro_blackitalic.ttf in Resources */,
+				C635116C2A201FF600D5CDA6 /* gothampro_mediumitalic.ttf in Resources */,
+				C635116F2A201FF600D5CDA6 /* gothampro.ttf in Resources */,
 				C6A22CD22A1E439500189B2C /* Assets.xcassets in Resources */,
-				C67D03AF2A1EA0390005132D /* GothamMediumItalic.ttf in Resources */,
-				C67D03B62A1EA0390005132D /* GothamBoldItalic.ttf in Resources */,
-				C67D03AA2A1EA0390005132D /* Gotham-XLightItalic.otf in Resources */,
-				C67D03B32A1EA0390005132D /* Gotham-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,13 +624,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C61289662A255C1C00138888 /* StateConverter.swift in Sources */,
+				C6BC577F2A24588B00E2311C /* RegistrationModuleAssembly.swift in Sources */,
 				C67D03C02A1ED1800005132D /* AppCoordinator.swift in Sources */,
 				C67D03922A1E9CBF0005132D /* BaseViewController.swift in Sources */,
+				C663BCA92A2148DD00431A64 /* String + Extension.swift in Sources */,
+				C6457F8E2A2425FF0011EC50 /* EmailView.swift in Sources */,
+				C635117A2A20270E00D5CDA6 /* Coordinator.swift in Sources */,
+				C663BC912A202C3700431A64 /* WelcomeViewModel.swift in Sources */,
+				C663BCA72A20514F00431A64 /* LoginAssemblyBuilder.swift in Sources */,
+				C6BC577D2A244B9600E2311C /* RegistrationViewModel.swift in Sources */,
+				C63511552A1FD9EF00D5CDA6 /* LoginViewModelImpl.swift in Sources */,
+				C663BCA22A204B9C00431A64 /* AppNavigation.swift in Sources */,
+				C63511532A1FD9DA00D5CDA6 /* LoginViewModel.swift in Sources */,
 				C6A22CCD2A1E439400189B2C /* LoginViewController.swift in Sources */,
-				C6A22CE62A1E466300189B2C /* AboutViewController.swift in Sources */,
+				C6BC57812A2458CE00E2311C /* RegistrationView.swift in Sources */,
+				C663BC962A202E4000431A64 /* WelcomeModuleAssembly.swift in Sources */,
+				C67D03C42A1EEFBD0005132D /* TextField.swift in Sources */,
+				C6A22CE62A1E466300189B2C /* WelcomeViewController.swift in Sources */,
 				C67D03BE2A1EAFE20005132D /* FilledButton.swift in Sources */,
+				C663BC932A202C5A00431A64 /* WelcomeViewModelImpl.swift in Sources */,
 				C67D03BC2A1EA1AD0005132D /* UIColor + Extension.swift in Sources */,
-				C67D03C22A1ED2550005132D /* AppNavigation.swift in Sources */,
+				C663BC982A202FC500431A64 /* MainFlowCoordinator.swift in Sources */,
+				C663BCA42A204C2000431A64 /* Navigation.swift in Sources */,
 				C6A22CC92A1E439400189B2C /* AppDelegate.swift in Sources */,
 				C67D03902A1E5D620005132D /* Constants.swift in Sources */,
 			);
