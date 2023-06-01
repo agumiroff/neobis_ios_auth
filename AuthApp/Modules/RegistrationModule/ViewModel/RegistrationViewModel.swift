@@ -50,12 +50,13 @@ extension RegistrationViewModel {
     enum Output {
         case emailCheckPassed
         case showPopUp(text: String)
+        case popView
     }
     
     enum RegVMState: Equatable {
         case start
         case loading
-        case waitForEmailInput(text: String)
+        case waitForEmailInput
         case emailValidationFailed
         case emailSuccessfullyCreated
     }
@@ -68,10 +69,17 @@ extension RegistrationViewModel {
         switch event {
         case .checkEmail:
             validateEmail()
+            state = .emailValidationFailed
+        case .routeBack:
+            _output.send(.popView)
+        case .reset:
+            state = .waitForEmailInput
         }
     }
 }
 
 enum RegistrationViewEvents {
     case checkEmail(email: String)
+    case routeBack
+    case reset
 }

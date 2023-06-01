@@ -20,12 +20,27 @@ struct EmailView: View {
     
     // MARK: - Body
     var body: some View {
-        VStack {
-            welcomeLabel()
-            textFieldView()
-            submitButton()
+        NavigationView {
+            VStack {
+                welcomeLabel()
+                textFieldView()
+                submitButton()
+            }
+            .padding(.horizontal, Constants.horizontalInsets)
+            .navigationBarTitle(Constants.navigationTitle)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading: Button(action: {
+                viewModel.sendEvent(.routeBack)
+            }) {
+                Image(systemName: "arrow.left")
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundColor(.black)
+                    .background(Color(hexString: Constants.inactiveGray))
+                    .cornerRadius(50)
+            })
         }
-        .padding(.horizontal, Constants.horizontalInsets)
     }
     
     // MARK: - WelcomeMessage
@@ -60,6 +75,11 @@ struct EmailView: View {
                         isFocused = focused ? true : false
                     }
                 }
+                .onTapGesture {
+                    if viewModel.state == .emailValidationFailed {
+                        viewModel.sendEvent(.reset)
+                    }
+                }
                 .foregroundColor(.black)
                 .background(
                     
@@ -71,6 +91,10 @@ struct EmailView: View {
             }
             .padding(.vertical, 20)
             .padding(.horizontal, 10)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(viewModel.state == .emailValidationFailed ? .red : Color.clear, lineWidth: 1)
+            )
             .background(Color(hexString: Constants.inactiveGray))
             .cornerRadius(16)
             .font(Font.custom(Constants.Font.gothamMedium, size: Constants.Font.regular))
@@ -142,4 +166,5 @@ fileprivate extension Constants {
     // Strings
     static let submitButtonLabel = "Далее"
     static let errorMessage = "Данный email уже существует"
+    static let navigationTitle = "Регистрация"
 }

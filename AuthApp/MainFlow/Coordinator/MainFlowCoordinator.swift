@@ -78,6 +78,8 @@ final class MainFlowCoordinator: Coordinator, ModalViewDelegate {
                     print("passed")
                 case let .showPopUp(message):
                     self.showModalView(message)
+                case .popView:
+                    self.navigationController.popViewController(animated: true)
                 }
             }
             .store(in: &cancellable)

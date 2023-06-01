@@ -25,6 +25,7 @@ struct RegistrationView: View {
             EmailView()
         case .waitForEmailInput:
             EmailView()
+                .environmentObject(viewModel)
         case .emailSuccessfullyCreated:
             EmailView()
         }
