@@ -16,6 +16,7 @@ struct EmailView: View {
     @State private var errorMessage = ""
     @EnvironmentObject var viewModel: RegistrationViewModel
     @ObservedObject var textManager = TextFieldManager()
+    @State var isEmailCreated = false
     
     // MARK: - Body
     var body: some View {
@@ -59,6 +60,7 @@ struct EmailView: View {
                         isFocused = focused ? true : false
                     }
                 }
+                .foregroundColor(.black)
                 .background(
                     
                     Text(Constants.emailTextField)

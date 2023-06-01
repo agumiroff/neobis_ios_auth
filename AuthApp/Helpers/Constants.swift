@@ -27,6 +27,8 @@ enum Constants {
     static let welcomeLabelText = "Смейся\nи улыбайся каждый день"
     static let emailTextField = "Электронная почта"
     static let smileImageName = "smile"
+    static let buttonCloseText = "Закрыть"
+    static let notificationText = "На вашу почту\n «dojacat01.gmail.com» было отправлено письмо"
     
     // Colors
     

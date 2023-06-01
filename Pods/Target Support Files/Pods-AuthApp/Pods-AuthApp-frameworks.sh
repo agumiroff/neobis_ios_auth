@@ -176,6 +176,8 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire-iOS14.0/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Moya-iOS14.0/Moya.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-iOS14.0/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-iOS14.0/RxRelay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-iOS14.0/RxSwift.framework"
@@ -183,6 +185,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Swinject-iOS14.0/Swinject.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire-iOS14.0/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Moya-iOS14.0/Moya.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-iOS14.0/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-iOS14.0/RxRelay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-iOS14.0/RxSwift.framework"
