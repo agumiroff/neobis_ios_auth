@@ -11,7 +11,11 @@ import RxSwift
 import SwiftUI
 import Combine
 
-final class MainFlowCoordinator: Coordinator {
+protocol ModalViewDelegate: AnyObject {
+    func closeModalView()
+}
+
+final class MainFlowCoordinator: Coordinator, ModalViewDelegate {
     
     var navigationController: Navigation
     private let disposeBag = DisposeBag()
@@ -72,11 +76,27 @@ final class MainFlowCoordinator: Coordinator {
                 switch event {
                 case .emailCheckPassed:
                     print("passed")
+                case let .showPopUp(message):
+                    self.showModalView(message)
                 }
             }
             .store(in: &cancellable)
         
         let hostedView = UIHostingController(rootView: view)
         navigationController.pushViewController(hostedView, animated: true)
+    }
+    
+    private func showModalView(_ message: String) {
+        let view: UIViewController = UIHostingController(rootView: ModalView(notificationText: message, delegate: self))
+        
+        view.view.backgroundColor = .clear
+        view.view.isOpaque = false
+        view.modalPresentationStyle = .overCurrentContext
+        
+        self.navigationController.present(view, animated: false)
+    }
+    
+    func closeModalView() {
+        self.navigationController.presentedViewController?.dismiss(animated: false)
     }
 }

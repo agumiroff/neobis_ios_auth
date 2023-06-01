@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import Moya
 
 typealias RegViewModelOutput = RegistrationViewModel.Output
 typealias RegEvent = RegistrationViewEvents
@@ -22,17 +23,33 @@ class RegistrationViewModel: ObservableObject {
     private var _output = PassthroughSubject<RegViewModelOutput, Error>()
     @Published private(set) var state: RegVMState = .start
     var input: Input
+    private let networkServiceProvider: MoyaProvider<NetworkRequest>
     
     struct Input {}
     
-    init(input: Input) {
+    init(input: Input, networkServiceProvider: MoyaProvider<NetworkRequest>) {
         self.input = input
+        self.networkServiceProvider = networkServiceProvider
     }
+    
+    private func validateEmail() {
+        networkServiceProvider.request(.emailCheck) { result in
+            switch result {
+            case .success(_):
+                print(result)
+            case .failure(_):
+                print("error")
+            }
+        }
+    }
+    
+    private func registerEmail() {}
 }
 
 extension RegistrationViewModel {
     enum Output {
         case emailCheckPassed
+        case showPopUp(text: String)
     }
     
     enum RegVMState: Equatable {
@@ -50,14 +67,11 @@ extension RegistrationViewModel {
     private func handleEvent(_ event: RegEvent) {
         switch event {
         case .checkEmail:
-            state = .emailValidationFailed
-        case .reset:
-            state = .waitForEmailInput(text: "dsdss")
+            validateEmail()
         }
     }
 }
 
 enum RegistrationViewEvents {
-    case reset
     case checkEmail(email: String)
 }

@@ -9,6 +9,7 @@ target 'AuthApp' do
   pod 'RxCocoa', '6.5.0'
   pod 'Swinject'
   pod 'SwiftLint'
+  pod 'Moya', '~> 15.0'
 
 end
 
@@ -19,4 +20,6 @@ target 'AuthAppTests' do
   pod 'RxCocoa', '6.5.0'
   pod 'Swinject'
   pod 'SwiftLint'
+  pod 'Moya', '~> 15.0'
+  
  end
