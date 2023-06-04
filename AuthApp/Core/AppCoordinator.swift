@@ -9,12 +9,13 @@ import Foundation
 import UIKit
 
 final class AppCoordinator: Coordinator {
-    var navigationController: Navigation
+    var type: CoordinatorType = .app
+    var navigationController: UINavigationController
     private lazy var childCoordinators: [Coordinator] = []
     
-    init(navigationController: Navigation) {
+    
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.navigationController.coordinator = self
     }
     
     func start() {
@@ -22,8 +23,31 @@ final class AppCoordinator: Coordinator {
     }
     
     private func startLoginFlow() {
-        let mainCoordinator = MainFlowCoordinator(navigationController: navigationController)
-        childCoordinators.append(mainCoordinator)
-        mainCoordinator.start()
+        let coordinator = MainFlowCoordinator(navigationController: navigationController, delegate: self)
+        childCoordinators.append(coordinator)
+        coordinator.start()
+    }
+    
+    private func startRegistrationFlow() {
+        let coordinator = RegistrationFlowCoordinator(navigationController: navigationController, delegate: self)
+        childCoordinators.append(coordinator)
+        coordinator.start()
+    }
+}
+
+extension AppCoordinator: CoordinatorFinishDelegate  {
+    
+    func coordinatorDidFinish(childCoordinator: Coordinator) {
+        switch childCoordinator.type {
+        case .app:
+            navigationController.viewControllers.removeAll()
+        case .registration:
+            navigationController.viewControllers.removeAll()
+        case .login:
+            navigationController.viewControllers.removeAll()
+            startRegistrationFlow()
+        case .main:
+            navigationController.viewControllers.removeAll()
+        }
     }
 }

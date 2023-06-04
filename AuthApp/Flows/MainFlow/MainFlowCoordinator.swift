@@ -17,16 +17,23 @@ protocol ModalViewDelegate: AnyObject {
 
 final class MainFlowCoordinator: Coordinator, ModalViewDelegate {
     
-    var navigationController: Navigation
+    var type: CoordinatorType = .main
+    var navigationController: UINavigationController
     private let disposeBag = DisposeBag()
     private var cancellable = Set<AnyCancellable>()
+    var delegate: CoordinatorFinishDelegate
     
-    init(navigationController: Navigation) {
+    init(navigationController: UINavigationController, delegate: CoordinatorFinishDelegate) {
         self.navigationController = navigationController
+        self.delegate = delegate
     }
     
     func start() {
         showWelcomeScreen()
+    }
+    
+    func finish() {
+        delegate.coordinatorDidFinish(childCoordinator: self)
     }
     
     private func showWelcomeScreen() {
@@ -37,7 +44,7 @@ final class MainFlowCoordinator: Coordinator, ModalViewDelegate {
                 guard let self = self else { return }
                 switch event {
                 case .routeToLogin:
-                    self.showRegistrationScreen()
+                    self.finish()
                 case .registerNewUser:
                     self.showLoginScreen()
                 }
@@ -57,7 +64,7 @@ final class MainFlowCoordinator: Coordinator, ModalViewDelegate {
                 case .authenticateUser:
                     break
                 case .passwordRecovery:
-                    self.showRegistrationScreen()
+                    break
                 }
             })
             .disposed(by: disposeBag)
@@ -65,31 +72,10 @@ final class MainFlowCoordinator: Coordinator, ModalViewDelegate {
         navigationController.pushViewController(view, animated: true)
     }
     
-    private func showRegistrationScreen() {
-        let module = RegistrationModuleAssembly.buildModule(dependencies: .init(), payload: .init())
-        let view = module.view
-        module.output
-            .eraseToAnyPublisher()
-            .sink { error in
-                print(error)
-            } receiveValue: { event in
-                switch event {
-                case .emailCheckPassed:
-                    print("passed")
-                case let .showPopUp(message):
-                    self.showModalView(message)
-                case .popView:
-                    self.navigationController.popViewController(animated: true)
-                }
-            }
-            .store(in: &cancellable)
-        
-        let hostedView = UIHostingController(rootView: view)
-        navigationController.pushViewController(hostedView, animated: true)
-    }
+    
     
     private func showModalView(_ message: String) {
-        let view: UIViewController = UIHostingController(rootView: ModalView(notificationText: message, delegate: self))
+        let view = UIViewController()
         
         view.view.backgroundColor = .clear
         view.view.isOpaque = false

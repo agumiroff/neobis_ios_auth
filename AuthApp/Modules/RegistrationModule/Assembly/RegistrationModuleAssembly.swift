@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import Moya
 
-typealias RegistrationModule = (view: RegistrationView, output: AnyPublisher<RegViewModelOutput, Error>)
+typealias RegistrationModule = (view: RegistrationViewController, output: AnyPublisher<RegViewModelOutput, Never>)
 
 enum RegistrationModuleAssembly {
     
@@ -18,8 +18,9 @@ enum RegistrationModuleAssembly {
     
     static func buildModule(dependencies: Dependencies, payload: PayLoad) -> RegistrationModule {
         let networkServiceProvider = MoyaProvider<NetworkRequest>()
-        let viewModel = RegistrationViewModel(input: .init(), networkServiceProvider: networkServiceProvider)        
-        let view = RegistrationView(viewModel: viewModel)
+        let viewModel = RegistrationViewModelImpl(input: .init(),
+                                                  networkServiceProvider: networkServiceProvider)
+        let view = RegistrationViewController(viewModel: viewModel)
         return (view, viewModel.output)
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Properties
     var window: UIWindow?
+    var coordinator: AppCoordinator?
     
     // MARK: App lifecycle
     func application(_ application: UIApplication,
@@ -24,8 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func startApplication() {
-        let navigation = AppNavigation()
-        let coordinator = AppCoordinator(navigationController: navigation)
+        let navigation = UINavigationController()
+        coordinator = AppCoordinator(navigationController: navigation)
+        coordinator?.start()
         window?.rootViewController = navigation
     }
 }

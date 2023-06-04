@@ -15,12 +15,9 @@ final class WelcomeViewController: BaseViewController {
     // MARK: - Properties
     private let viewModel: any WelcomeViewModel
     private let disposeBag = DisposeBag()
-    private let scrollView = UIScrollView()
-    private let contentView = UIView()
     private let smileImage = UIImageView()
     private let welcomeLabel = UILabel()
-    private let filledButton = FilledButton(cornerRadius: Constants.filledButtonCornerRadius,
-                                            title: Constants.filledButtonTitle)
+    private let filledButton = FilledButton(title: Constants.filledButtonTitle)
     private let transparentButton = UIButton()
     
     init(viewModel: any WelcomeViewModel) {
@@ -41,8 +38,6 @@ final class WelcomeViewController: BaseViewController {
     // MARK: - SetupUI
     override func setupUI() {
         super.setupUI()
-        scrollViewSetup()
-        contentViewSetup()
         smileImageSetup()
         welcomeLabelSetup()
         filledButtonSetup()
@@ -52,28 +47,7 @@ final class WelcomeViewController: BaseViewController {
 
 // MARK: - SetupViews
 extension WelcomeViewController {
-    
-    private func scrollViewSetup() {
-        view.addSubview(scrollView)
-        
-        scrollView.isDirectionalLockEnabled = true
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.contentSize = .zero
-        
-        scrollView.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalTo(view.safeAreaLayoutGuide)
-        }
-    }
-    
-    private func contentViewSetup() {
-        scrollView.addSubview(contentView)
-        
-        contentView.snp.makeConstraints { make in
-            make.leading.top.trailing.bottom.equalToSuperview()
-            make.width.equalTo(scrollView.snp.width)
-        }
-    }
-    
+   
     private func smileImageSetup() {
         contentView.addSubview(smileImage)
         
@@ -92,7 +66,7 @@ extension WelcomeViewController {
         contentView.addSubview(welcomeLabel)
         
         welcomeLabel.text = Constants.welcomeLabelText
-        welcomeLabel.font = UIFont(name: Constants.Font.gothamBold,
+        welcomeLabel.font = UIFont(name: Constants.Font.gothamMedium,
                                    size: Constants.Font.largeTitle)
         welcomeLabel.textColor = UIColor(hexString: Constants.mainBlueColor)
         welcomeLabel.numberOfLines = 3
@@ -135,7 +109,7 @@ extension WelcomeViewController {
         
         transparentButton.setTitle(Constants.transparentButtonTitle, for: .normal)
         transparentButton.tintColor = .black
-        transparentButton.titleLabel?.font = UIFont(name: Constants.Font.gothamBold,
+        transparentButton.titleLabel?.font = UIFont(name: Constants.Font.gothamMedium,
                                                     size: Constants.Font.regular)
         transparentButton.setTitleColor(.black, for: .normal)
         

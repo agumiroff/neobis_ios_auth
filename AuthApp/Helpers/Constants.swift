@@ -15,7 +15,6 @@ enum Constants {
     static let textWhite = "#FFFFFF"
     
     enum Font {
-        static let gothamBold = "GothamPro-Bold"
         static let gothamMedium = "GothamPro-Medium"
         
         static let largeTitle = 40.0
@@ -24,16 +23,19 @@ enum Constants {
     }
     
     // Strings
-    static let welcomeLabelText = "Смейся\nи улыбайся каждый день"
-    static let emailTextField = "Электронная почта"
+    static let welcomeLabelText = "Смейся\nи улыбайся\nкаждый день"
     static let smileImageName = "smile"
     static let buttonCloseText = "Закрыть"
     static let notificationText = "На вашу почту\n «dojacat01.gmail.com» было отправлено письмо"
+    static let loginFieldText = "Электронная почта"
+    static let passwordFieldTitle = "Пароль"
+    static let emailCheckFailed = "e-mail заполнен неверно"
+    static let passCheckFailed = String("Пароль должен иметь длину не менее 8 символов.")
     
     // Colors
     
     // Constraints
     static let horizontalInsets = 20.0
-    
+    static let submitButtonCornerRadius = 16.0
     static let welcomeLabelLineHeight = 1.25
 }

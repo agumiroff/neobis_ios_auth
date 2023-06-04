@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum NetworkRequest {
-    case emailCheck
+    case emailCheck(String)
     case login
     case logout
     case passwordReset
@@ -54,8 +54,8 @@ extension NetworkRequest: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .emailCheck:
-            return .requestPlain
+        case let .emailCheck(email):
+            return .requestParameters(parameters: ["email":email], encoding: JSONEncoding.default)
         default:
             return .requestPlain
         }

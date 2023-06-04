@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-class BaseTextField: UITextField, UITextFieldDelegate {
+class BaseTextField: UITextField {
     
-    private var hexColor: String
+    // MARK: - Properties
     private var title: String
     private let label = UILabel()
     private var labelConstraint: Constraint?
@@ -19,10 +19,8 @@ class BaseTextField: UITextField, UITextFieldDelegate {
                                       bottom: 9,
                                       right: 30)
     
-    init(hexColor: String,
-         title: String) {
-        
-        self.hexColor = hexColor
+    // MARK: - Init
+    init(title: String) {
         self.title = title
         
         super.init(frame: CGRect())
@@ -35,14 +33,16 @@ class BaseTextField: UITextField, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - SetupUI
     private func setupAppearance() {
-        backgroundColor = UIColor(hexString: hexColor)
+        backgroundColor = UIColor(hexString: Constants.inactiveGray)
         layer.cornerRadius = 8
         placeholder = nil
         
         setupLabel()
     }
     
+    // MARK: - Methods
     private func setupLabel() {
         self.addSubview(label)
         
@@ -57,7 +57,8 @@ class BaseTextField: UITextField, UITextFieldDelegate {
     }
 }
 
-extension BaseTextField {
+// MARK: - Delegate
+extension BaseTextField: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         labelConstraint?.deactivate()
