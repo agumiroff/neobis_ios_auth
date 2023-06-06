@@ -25,4 +25,18 @@ extension String {
     func isValidEmail() -> Bool {
         return EmailValidation.emailPredicate.evaluate(with: self)
     }
+    
+    func dateMasking(pattern: String) -> String {
+        var result = ""
+        var index = self.startIndex
+        for char in pattern where index < self.endIndex {
+            if char == "#" {
+                result.append(self[index])
+                index = self.index(after: index)
+            } else {
+                result.append(char)
+            }
+        }
+        return result
+    }
 }

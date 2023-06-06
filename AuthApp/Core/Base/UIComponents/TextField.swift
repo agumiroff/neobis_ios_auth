@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 class BaseTextField: UITextField {
     
@@ -15,18 +16,22 @@ class BaseTextField: UITextField {
     private let label = UILabel()
     private var labelConstraint: Constraint?
     private let paddingForText = UIEdgeInsets(top: 32,
-                                      left: 10,
-                                      bottom: 9,
-                                      right: 30)
+                                              left: 10,
+                                              bottom: 9,
+                                              right: 30)
+    private let type: TextFieldType
+    var isFilled = CurrentValueSubject<Bool, Never>(false)
     
     // MARK: - Init
-    init(title: String) {
+    init(title: String, type: TextFieldType) {
         self.title = title
+        self.type = type
         
         super.init(frame: CGRect())
         self.delegate = self
         
         setupAppearance()
+        subscribe()
     }
     
     required init?(coder: NSCoder) {
@@ -60,6 +65,33 @@ class BaseTextField: UITextField {
 // MARK: - Delegate
 extension BaseTextField: UITextFieldDelegate {
     
+    enum TextFieldType {
+        case email
+        case password
+        case date
+        case onlyLetters
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch self.type {
+        case .email:
+            break
+        case .password:
+            break
+        case .date:
+            if textField.text?.count ?? 0 > 9 && !string.isEmpty { return false }
+            let mask = "##.##.####"
+            let text = textField.text?.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
+            textField.text = text?.dateMasking(pattern: mask)
+            return true
+        case .onlyLetters:
+            let allowedCharacters = CharacterSet.letters
+            let characterSet = CharacterSet(charactersIn: string)
+            return characterSet.isSubset(of: allowedCharacters) || string.isEmpty
+        }
+        return true
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         labelConstraint?.deactivate()
         label.snp.makeConstraints { make in
@@ -69,12 +101,29 @@ extension BaseTextField: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if text == "" {
+        if textField.text == "" {
             labelConstraint?.deactivate()
             label.snp.makeConstraints { make in
                 labelConstraint = make.centerY.equalToSuperview().constraint
             }
             label.font = UIFont(name: Constants.Font.gothamMedium, size: Constants.Font.regular)
+        }
+    }
+    
+    private func subscribe() {
+        addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+    
+    @objc private func textDidChange() {
+        switch self.type {
+        case .email:
+            isFilled.send(self.text?.count ?? 0 > 5 && text?.isValidEmail() ?? false)
+        case .password:
+            isFilled.send(self.text?.count ?? 0 > 5 && text?.isValidPassword() ?? false)
+        case .date:
+            isFilled.send(self.text?.count ?? 0 == 10)
+        case .onlyLetters:
+            isFilled.send(self.text?.count ?? 0 > 3)
         }
     }
     

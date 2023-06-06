@@ -26,6 +26,7 @@ class BaseViewController: UIViewController {
         scrollViewSetup()
         contentViewSetup()
         keyboardNotificationSetup()
+        view.backgroundColor = .systemBackground
     }
     
     func navigationSetup() {

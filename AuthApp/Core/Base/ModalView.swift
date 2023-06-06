@@ -1,29 +1,31 @@
 //
-//  Modal.swift
+//  ModalView.swift
 //  AuthApp
 //
-//  Created by G G on 01.06.2023.
+//  Created by G G on 05.06.2023.
 //
 
-import SwiftUI
+import Foundation
+import UIKit
 
-
-fileprivate extension Constants {
+final class ModalView: UIView {
     
-    // Constraints
-    static let rectangleRadius = 32.0
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        backgroundColor = .clear
+    }
     
-    static let smileImageMaxSize = 120.0
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
-    static let notificationTextTop = 24.0
-    static let notificationTextHor = 16.0
-    
-    static let buttonCornerRadius = 10.0
-    static let buttonHorPadding = 31.0
-    static let buttonTopPadding = 41.0
-    
-    static let zStackHorPadding = 16.0
-    
-    // Strings
-    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        let squarePath = UIBezierPath(roundedRect: bounds,
+                                      cornerRadius: 32)
+        squarePath.lineWidth = 2.0
+        UIColor.white.setFill()
+        squarePath.fill()
+    }
 }

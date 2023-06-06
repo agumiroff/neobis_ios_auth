@@ -46,7 +46,7 @@ extension NetworkRequest: TargetType {
     var method: Moya.Method {
         switch self {
         case .emailCheck:
-            return .get
+            return .post
         default:
             return .post
         }
@@ -55,7 +55,7 @@ extension NetworkRequest: TargetType {
     var task: Moya.Task {
         switch self {
         case let .emailCheck(email):
-            return .requestParameters(parameters: ["email":email], encoding: JSONEncoding.default)
+            return .requestParameters(parameters: ["email": email], encoding: JSONEncoding.default)
         default:
             return .requestPlain
         }
@@ -69,7 +69,7 @@ extension NetworkRequest: TargetType {
 fileprivate extension Constants {
     // Strings
     static let urlString = "http://34.107.1.158"
-    static let emailCheckPath = "/auth/email-verify/"
+    static let emailCheckPath = "/auth/register/"
     static let loginPath = "login"
     static let logoutPath = "logout"
     static let passwordResetPath = "password_reset"

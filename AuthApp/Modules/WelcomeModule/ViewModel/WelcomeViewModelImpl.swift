@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
+import Combine
 
 final class WelcomeViewModelImpl: WelcomeViewModel {
     
-    private lazy var _output = PublishRelay<WelcomeOutput>()
-    var output: Observable<WelcomeOutput> { _output.asObservable() }
+    private lazy var _output = PassthroughSubject<WelcomeOutput, Never>()
+    var output: AnyPublisher<WelcomeOutput, Never> { _output.eraseToAnyPublisher() }
     var input: Input
     struct Input {}
     
@@ -23,8 +22,8 @@ final class WelcomeViewModelImpl: WelcomeViewModel {
 
 extension WelcomeViewModelImpl {
     enum OutputEvent {
-        case routeToLogin
-        case registerNewUser
+        case signInUser
+        case signUpUser
     }
     
     func sendEvent(_ event: WelcomeViewEvent) {
@@ -33,14 +32,14 @@ extension WelcomeViewModelImpl {
     
     private func handleEvent(_ event: WelcomeViewEvent) {
         switch event {
-        case .loginButtonTapped:
-            setOutput(.routeToLogin)
-        case .registerButtonTapped:
-            setOutput(.registerNewUser)
+        case .signInButtonTapped:
+            setOutput(.signInUser)
+        case .signUnButtonTapped:
+            setOutput(.signUpUser)
         }
     }
     
     private func setOutput(_ event: OutputEvent) {
-        _output.accept(event)
+        _output.send(event)
     }
 }

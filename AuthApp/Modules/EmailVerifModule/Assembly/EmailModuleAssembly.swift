@@ -9,18 +9,18 @@ import Foundation
 import Combine
 import Moya
 
-typealias RegistrationModule = (view: RegistrationViewController, output: AnyPublisher<RegViewModelOutput, Never>)
+typealias RegistrationModule = (view: UIViewController, output: AnyPublisher<EmailVMOutput, Never>)
 
-enum RegistrationModuleAssembly {
+enum EmailModuleAssembly {
     
     struct Dependencies {}
     struct PayLoad {}
     
     static func buildModule(dependencies: Dependencies, payload: PayLoad) -> RegistrationModule {
         let networkServiceProvider = MoyaProvider<NetworkRequest>()
-        let viewModel = RegistrationViewModelImpl(input: .init(),
+        let viewModel = EmailViewModelImpl(input: .init(),
                                                   networkServiceProvider: networkServiceProvider)
-        let view = RegistrationViewController(viewModel: viewModel)
+        let view = EmailVerificationVC(viewModel: viewModel)
         return (view, viewModel.output)
     }
 }

@@ -43,6 +43,13 @@ final class WelcomeViewController: BaseViewController {
         filledButtonSetup()
         transparentButtonSetup()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isToolbarHidden = true
+        navigationController?.isNavigationBarHidden = true
+    }
 }
 
 // MARK: - SetupViews
@@ -82,12 +89,7 @@ extension WelcomeViewController {
     private func filledButtonSetup() {
         contentView.addSubview(filledButton)
         
-        filledButton.rx.tap
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: ({[weak self] in
-                self?.viewModel.sendEvent(.loginButtonTapped)
-            }))
-            .disposed(by: disposeBag)
+        filledButton.addTarget(self, action: #selector(signUpButtonDidTap), for: .touchUpInside)
         
         filledButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
@@ -100,13 +102,7 @@ extension WelcomeViewController {
     private func transparentButtonSetup() {
         contentView.addSubview(transparentButton)
         
-        transparentButton.rx.tap
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: ({[weak self] in
-                self?.viewModel.sendEvent(.registerButtonTapped)
-            }))
-            .disposed(by: disposeBag)
-        
+        transparentButton.addTarget(self, action: #selector(signInButtonDidTap), for: .touchUpInside)
         transparentButton.setTitle(Constants.transparentButtonTitle, for: .normal)
         transparentButton.tintColor = .black
         transparentButton.titleLabel?.font = UIFont(name: Constants.Font.gothamMedium,
@@ -125,9 +121,20 @@ extension WelcomeViewController {
 }
 
 extension WelcomeViewController {
+    
+    @objc private func signInButtonDidTap() {
+        viewModel.sendEvent(.signInButtonTapped)
+    }
+    
+    @objc private func signUpButtonDidTap() {
+        viewModel.sendEvent(.signUnButtonTapped)
+    }
+}
+
+extension WelcomeViewController {
     enum Event {
-        case loginButtonTapped
-        case registerButtonTapped
+        case signUnButtonTapped
+        case signInButtonTapped
     }
 }
 

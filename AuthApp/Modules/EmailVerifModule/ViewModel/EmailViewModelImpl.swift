@@ -11,12 +11,13 @@ import Combine
 import Moya
 
 
-class RegistrationViewModelImpl: RegistrationViewModel {
+class EmailViewModelImpl: EmailViewModel {
+    
+    // MARK: - Properties
     var state: AnyPublisher<State, Never> {
         _state.eraseToAnyPublisher()
     }
-    
-    var output: AnyPublisher<RegViewModelOutput, Never> {
+    var output: AnyPublisher<EmailVMOutput, Never> {
         _output
             .eraseToAnyPublisher()
     }
@@ -27,63 +28,64 @@ class RegistrationViewModelImpl: RegistrationViewModel {
     
     struct Input {}
     
+    // MARK: - Init
     init(input: Input, networkServiceProvider: MoyaProvider<NetworkRequest>) {
         self.input = input
         self.networkServiceProvider = networkServiceProvider
     }
     
-    private func validateEmail(_ email: String) {
+    private func validateEmail(_ email: String,
+                               completion: @escaping (Bool) -> Void) {
         networkServiceProvider.request(.emailCheck(email)) { result in
             switch result {
-            case .success(_):
-                print(result)
-            case .failure(_):
-                print("error")
+            case let .success(response):
+                switch response.statusCode {
+                case 201:
+                    print("dssds")
+                    completion(true)
+                case 400...410:
+                    print("error")
+                    completion(false)
+                default:
+                    print("default")
+                    completion(false)
+                }
+            case let .failure(error):
+                print(error)
+                completion(false)
             }
         }
     }
-    
-    private func registerEmail() {}
 }
 
-extension RegistrationViewModelImpl {
+extension EmailViewModelImpl {
     enum Output {
-        case emailCheckPassed
         case showPopUp(text: String)
         case popView
     }
     
     enum State: Equatable {
         case initial
-        case loading
-        case waitForEmailInput
-        case emailValidationFailed
-        case emailCheckSuccessfull
-        case emailCheckFailed
+        case emailCheckResult(Bool)
+        case validationFailed
+        case validationSuccess
     }
     
-    func sendEvent(_ event: RegEvent) {
+    func sendEvent(_ event: EmailModuleEvent) {
         handleEvent(event)
     }
     
-    private func handleEvent(_ event: RegEvent) {
+    private func handleEvent(_ event: EmailModuleEvent) {
         switch event {
         case let .checkEmail(email):
             let result = email.isValidEmail()
-            _state.send(result ? .emailCheckSuccessfull : .emailCheckFailed)
+            _state.send(.emailCheckResult(result))
         case .routeBack:
             _output.send(.popView)
-        case .reset:
-            _state.send(.initial)
         case let .validateEmail(email):
-            validateEmail(email)
+            validateEmail(email, completion: { [weak self] result in
+                self?._state.send(result ? .validationSuccess : .validationFailed)
+            })
         }
     }
-}
-
-enum RegistrationViewEvents {
-    case checkEmail(email: String)
-    case validateEmail(email: String)
-    case routeBack
-    case reset
 }

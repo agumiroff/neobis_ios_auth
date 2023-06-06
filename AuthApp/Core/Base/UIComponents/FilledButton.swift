@@ -40,5 +40,6 @@ class FilledButton: UIButton {
     func updateAppearance(isEnabled: Bool) {
         backgroundColor = UIColor(hexString: isEnabled ? Constants.mainBlueColor : Constants.inactiveGray)
         setTitleColor(UIColor(hexString: isEnabled ? Constants.textWhite : Constants.textDarkGray), for: .normal)
+        self.isEnabled = isEnabled
     }
 }

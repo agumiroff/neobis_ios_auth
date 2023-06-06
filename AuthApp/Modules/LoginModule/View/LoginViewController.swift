@@ -16,8 +16,8 @@ final class LoginViewController: BaseViewController {
     private let viewModel: any LoginViewModel
     private let smileImage = UIImageView()
     private let hidePasswordButton = UIButton()
-    private var loginField = BaseTextField(title: Constants.loginFieldText)
-    private let passwordField = BaseTextField(title: Constants.passwordFieldTitle)
+    private var loginField = BaseTextField(title: Constants.loginFieldText, type: .email)
+    private let passwordField = BaseTextField(title: Constants.passwordFieldTitle, type: .password)
     private let validatingLabel = UILabel()
     private let filledButton = FilledButton(title: Constants.filledButtonTitle)
     private let transparentButton = UIButton()

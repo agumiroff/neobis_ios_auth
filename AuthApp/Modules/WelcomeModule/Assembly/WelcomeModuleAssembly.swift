@@ -7,9 +7,9 @@
 
 import Foundation
 import UIKit
-import RxSwift
+import Combine
 
-typealias WelcomeModule = (view: WelcomeViewController, output: Observable<WelcomeOutput>)
+typealias WelcomeModule = (view: WelcomeViewController, output: AnyPublisher<WelcomeOutput, Never>)
 
 enum WelcomeModuleAssembly {
     
