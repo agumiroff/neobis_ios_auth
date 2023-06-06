@@ -7,33 +7,30 @@
 
 import UIKit
 import SnapKit
-import RxSwift
-import RxCocoa
+import Combine
 
-class LoginViewController: BaseViewController {
+final class LoginViewController: BaseViewController {
     
     // MARK: - Properties
-    private let disposeBag = DisposeBag()
+    private var cancellable = Set<AnyCancellable>()
     private let viewModel: any LoginViewModel
-    private let scrollView = UIScrollView()
-    private let contentView = UIView()
     private let smileImage = UIImageView()
     private let hidePasswordButton = UIButton()
-    private let loginField = BaseTextField(hexColor: Constants.inactiveGray,
-                                           title: Constants.loginFieldText)
-    private let passwordField = BaseTextField(hexColor: Constants.inactiveGray,
-                                              title: Constants.passwordFieldTitle)
+    private var loginField = BaseTextField(title: Constants.loginFieldText, type: .email)
+    private let passwordField = BaseTextField(title: Constants.passwordFieldTitle, type: .password)
     private let validatingLabel = UILabel()
-    private let filledButton = FilledButton(cornerRadius: Constants.filledButtonCornerRadius,
-                                            title: Constants.filledButtonTitle)
+    private let filledButton = FilledButton(title: Constants.filledButtonTitle)
     private let transparentButton = UIButton()
     private let spacer = UIView()
-    private let isLoginValid = BehaviorRelay<Bool>(value: false)
-    private let isPasswordValid = BehaviorRelay<Bool>(value: false)
-    private var isAuthEnabled: Observable<Bool> {
-        return Observable.combineLatest(isLoginValid, isPasswordValid) { return $0 && $1 }
+    private var isLoginValid = CurrentValueSubject<Bool, Never>(false)
+    private var isPasswordValid = CurrentValueSubject<Bool, Never>(false)
+    private var isAuthEnabled: AnyPublisher<Bool, Never> {
+        return Publishers.CombineLatest(isLoginValid, isPasswordValid)
+            .map { $0 && $1 }
+            .eraseToAnyPublisher()
     }
     
+    // MARK: - init
     init(viewModel: any LoginViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -53,10 +50,8 @@ class LoginViewController: BaseViewController {
     // MARK: - SetupUI
     override func setupUI() {
         super.setupUI()
-        notificationCenterSetup()
+        keyboardNotificationSetup()
         
-        scrollViewSetup()
-        contentViewSetup()
         smileImageSetup()
         loginFieldSetup()
         passwordFieldSetup()
@@ -69,28 +64,6 @@ class LoginViewController: BaseViewController {
 
 // MARK: - SetupViews
 extension LoginViewController {
-    
-    private func scrollViewSetup() {
-        view.addSubview(scrollView)
-        
-        scrollView.isDirectionalLockEnabled = true
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.contentSize = .zero
-        scrollView.bounces = false
-        
-        scrollView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
-        }
-    }
-    
-    private func contentViewSetup() {
-        scrollView.addSubview(contentView)
-        
-        contentView.snp.makeConstraints { make in
-            make.edges.equalTo(scrollView.snp.edges)
-            make.width.equalTo(scrollView.snp.width)
-        }
-    }
     
     private func smileImageSetup() {
         contentView.addSubview(smileImage)
@@ -108,25 +81,10 @@ extension LoginViewController {
     private func loginFieldSetup() {
         contentView.addSubview(loginField)
         
-        loginField.rx.text
-            .filter { text in
-                guard let text = text else { return false }
-                let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
-                return !trimmedText.isEmpty
-            }
-            .subscribe(onNext: { [weak self] text in
-                guard let text = text else { return }
-                if text.isValidEmail() {
-                    self?.validatingLabel.text = ""
-                    self?.validatingLabel.isHidden = true
-                    self?.isLoginValid.accept(true)
-                } else {
-                    self?.validatingLabel.text = Constants.emailCheckFailed
-                    self?.validatingLabel.isHidden = false
-                    self?.isLoginValid.accept(false)
-                }
-            })
-            .disposed(by: disposeBag)
+        NotificationCenter.default
+            .addObserver(self, selector: #selector(loginDidChange),
+                         name: UITextField.textDidChangeNotification,
+                         object: loginField)
         
         loginField.snp.makeConstraints { make in
             make.top.equalTo(smileImage.snp.bottom)
@@ -138,28 +96,12 @@ extension LoginViewController {
     
     private func passwordFieldSetup() {
         contentView.addSubview(passwordField)
-        
-        passwordField.rx.text
-            .filter { text in
-                guard let text = text else { return false }
-                let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
-                return !trimmedText.isEmpty
-            }
-            .subscribe(onNext: { [weak self] text in
-                guard let text = text else { return }
-                if text.isValidPassword() {
-                    self?.validatingLabel.text = ""
-                    self?.validatingLabel.isHidden = true
-                    self?.isPasswordValid.accept(true)
-                } else {
-                    self?.validatingLabel.text = Constants.passCheckFailed
-                    self?.validatingLabel.isHidden = false
-                    self?.isPasswordValid.accept(false)
-                }
-            })
-            .disposed(by: disposeBag)
-        
+               
         passwordField.isSecureTextEntry = true
+        NotificationCenter.default
+            .addObserver(self, selector: #selector(passwordDidChange),
+                         name: UITextField.textDidChangeNotification,
+                         object: passwordField)
         
         passwordField.snp.makeConstraints { make in
             make.top.equalTo(loginField.snp.bottom)
@@ -202,18 +144,15 @@ extension LoginViewController {
     private func filledButtonSetup() {
         contentView.addSubview(filledButton)
         
-        isAuthEnabled
-            .subscribe { [weak self] in
-                self?.filledButton.isEnabled = $0
-                self?.filledButton.updateAppearance(isEnabled: $0)
-            }
-            .disposed(by: disposeBag)
+        filledButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
-        filledButton.rx.tap
-            .subscribe(onNext: { _ in
-                print("dsdsds")
-            })
-            .disposed(by: disposeBag)
+        isAuthEnabled
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] value in
+                self?.filledButton.isEnabled = value
+                self?.filledButton.updateAppearance(isEnabled: value)
+            }
+            .store(in: &cancellable)
         
         filledButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
@@ -238,7 +177,7 @@ extension LoginViewController {
         
         transparentButton.setTitle(Constants.transparentButtonTitle, for: .normal)
         transparentButton.tintColor = .black
-        transparentButton.titleLabel?.font = UIFont(name: Constants.Font.gothamBold,
+        transparentButton.titleLabel?.font = UIFont(name: Constants.Font.gothamMedium,
                                                     size: Constants.Font.regular)
         transparentButton.setTitleColor(.black, for: .normal)
         
@@ -253,9 +192,35 @@ extension LoginViewController {
 }
 
 // MARK: - Methods
+
 extension LoginViewController {
     
-    private func notificationCenterSetup() {
+    @objc private func loginDidChange(_ notification: Notification) {
+        if let textField = notification.object as? UITextField {
+            guard let validationResult = textField.text?.isValidEmail() else { return }
+            isLoginValid.send(validationResult)
+            self.validatingLabel.text = validationResult ? "" : Constants.emailCheckFailed
+            self.validatingLabel.isHidden = validationResult ? true : false
+        }
+    }
+    
+    @objc private func passwordDidChange(_ notification: Notification) {
+        if let textField = notification.object as? UITextField {
+            guard let validationResult = textField.text?.isValidPassword() else { return }
+            isPasswordValid.send(validationResult)
+            self.validatingLabel.text = validationResult ? "" : Constants.passCheckFailed
+            self.validatingLabel.isHidden = validationResult ? true : false
+        }
+    }
+    
+    @objc private func buttonTapped() {
+        print("sdsdsds")
+    }
+}
+
+extension LoginViewController {
+    
+    private func keyboardNotificationSetup() {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(
             self,
@@ -276,33 +241,6 @@ extension LoginViewController {
         hidePasswordButton.setImage(UIImage(named: isSecure ? Constants.hiddenPasswordImage :
                                                 Constants.hidePasswordImage), for: .normal)
     }
-    
-    @objc func keyboarDidAppear(notification: Notification) {
-        guard let info = notification.userInfo,
-              let keyboardFrameValue = info[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue else { return }
-        
-        let keyboardFrame = keyboardFrameValue.cgRectValue
-        let keyboardSize = keyboardFrame.size
-        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
-        let bottomPadding = view.safeAreaInsets.bottom
-        let obscuredFrame = CGRect(x: 0,
-                                   y: self.view.frame.height - keyboardFrame.height - bottomPadding,
-                                   width: self.view.frame.width,
-                                   height: keyboardFrame.height + bottomPadding)
-        
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-        
-        if obscuredFrame.intersects(self.filledButton.frame) {
-            scrollView.scrollRectToVisible(self.filledButton.frame, animated: true)
-        }
-    }
-    
-    @objc func keyboardDidDissappear(_ notification: NSNotification) {
-        let contentInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
-    }
 }
 
 // MARK: - Constraints and constants
@@ -318,7 +256,7 @@ fileprivate extension Constants {
     static let passwordFieldTop = 24.0
     
     static let filledButtonCornerRadius = 16.0
-    static let filledButtonTop = 60.0
+    static let filledButtonTop = 31.0
     
     static let validatingLabelTop = 16.0
     
@@ -331,11 +269,8 @@ fileprivate extension Constants {
     
     // Strings
     static let transparentButtonTitle = "Забыли пароль?"
-    static let loginFieldText = "Электронная почта"
-    static let passwordFieldTitle = "Пароль"
+    
     static let filledButtonTitle = "Войти"
-    static let emailCheckFailed = "e-mail заполнен неверно"
-    static let passCheckFailed = String("Пароль должен содержать только английские буквы и цифры и меть длину не менее 8 символов.")
     // Names
     static let hidePasswordImage = "passHide"
     static let hiddenPasswordImage = "passHidden"

@@ -7,9 +7,9 @@
 
 import Foundation
 import UIKit
-import RxSwift
+import Combine
 
-typealias LoginModule = (view: LoginViewController, output: Observable<LoginOutput>)
+typealias LoginModule = (view: LoginViewController, output: AnyPublisher<LoginOutput, Never>)
 
 enum LoginModuleAssembly {
     

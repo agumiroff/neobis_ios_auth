@@ -15,12 +15,9 @@ final class WelcomeViewController: BaseViewController {
     // MARK: - Properties
     private let viewModel: any WelcomeViewModel
     private let disposeBag = DisposeBag()
-    private let scrollView = UIScrollView()
-    private let contentView = UIView()
     private let smileImage = UIImageView()
     private let welcomeLabel = UILabel()
-    private let filledButton = FilledButton(cornerRadius: Constants.filledButtonCornerRadius,
-                                            title: Constants.filledButtonTitle)
+    private let filledButton = FilledButton(title: Constants.filledButtonTitle)
     private let transparentButton = UIButton()
     
     init(viewModel: any WelcomeViewModel) {
@@ -41,39 +38,23 @@ final class WelcomeViewController: BaseViewController {
     // MARK: - SetupUI
     override func setupUI() {
         super.setupUI()
-        scrollViewSetup()
-        contentViewSetup()
         smileImageSetup()
         welcomeLabelSetup()
         filledButtonSetup()
         transparentButtonSetup()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isToolbarHidden = true
+        navigationController?.isNavigationBarHidden = true
+    }
 }
 
 // MARK: - SetupViews
 extension WelcomeViewController {
-    
-    private func scrollViewSetup() {
-        view.addSubview(scrollView)
-        
-        scrollView.isDirectionalLockEnabled = true
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.contentSize = .zero
-        
-        scrollView.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalTo(view.safeAreaLayoutGuide)
-        }
-    }
-    
-    private func contentViewSetup() {
-        scrollView.addSubview(contentView)
-        
-        contentView.snp.makeConstraints { make in
-            make.leading.top.trailing.bottom.equalToSuperview()
-            make.width.equalTo(scrollView.snp.width)
-        }
-    }
-    
+   
     private func smileImageSetup() {
         contentView.addSubview(smileImage)
         
@@ -92,7 +73,7 @@ extension WelcomeViewController {
         contentView.addSubview(welcomeLabel)
         
         welcomeLabel.text = Constants.welcomeLabelText
-        welcomeLabel.font = UIFont(name: Constants.Font.gothamBold,
+        welcomeLabel.font = UIFont(name: Constants.Font.gothamMedium,
                                    size: Constants.Font.largeTitle)
         welcomeLabel.textColor = UIColor(hexString: Constants.mainBlueColor)
         welcomeLabel.numberOfLines = 3
@@ -108,12 +89,7 @@ extension WelcomeViewController {
     private func filledButtonSetup() {
         contentView.addSubview(filledButton)
         
-        filledButton.rx.tap
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: ({[weak self] in
-                self?.viewModel.sendEvent(.loginButtonTapped)
-            }))
-            .disposed(by: disposeBag)
+        filledButton.addTarget(self, action: #selector(signUpButtonDidTap), for: .touchUpInside)
         
         filledButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
@@ -126,16 +102,10 @@ extension WelcomeViewController {
     private func transparentButtonSetup() {
         contentView.addSubview(transparentButton)
         
-        transparentButton.rx.tap
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: ({[weak self] in
-                self?.viewModel.sendEvent(.registerButtonTapped)
-            }))
-            .disposed(by: disposeBag)
-        
+        transparentButton.addTarget(self, action: #selector(signInButtonDidTap), for: .touchUpInside)
         transparentButton.setTitle(Constants.transparentButtonTitle, for: .normal)
         transparentButton.tintColor = .black
-        transparentButton.titleLabel?.font = UIFont(name: Constants.Font.gothamBold,
+        transparentButton.titleLabel?.font = UIFont(name: Constants.Font.gothamMedium,
                                                     size: Constants.Font.regular)
         transparentButton.setTitleColor(.black, for: .normal)
         
@@ -151,9 +121,20 @@ extension WelcomeViewController {
 }
 
 extension WelcomeViewController {
+    
+    @objc private func signInButtonDidTap() {
+        viewModel.sendEvent(.signInButtonTapped)
+    }
+    
+    @objc private func signUpButtonDidTap() {
+        viewModel.sendEvent(.signUnButtonTapped)
+    }
+}
+
+extension WelcomeViewController {
     enum Event {
-        case loginButtonTapped
-        case registerButtonTapped
+        case signUnButtonTapped
+        case signInButtonTapped
     }
 }
 

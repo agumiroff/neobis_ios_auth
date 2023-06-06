@@ -9,6 +9,21 @@ import Foundation
 import UIKit
 
 protocol Coordinator {
-    var navigationController: Navigation { get set }
+    var childCoordinators: [Coordinator] { get set }
+    var navigationController: UINavigationController { get set }
+    var type: CoordinatorType { get }
     func start()
+    func start(with option: DeepLinkType)
+}
+
+enum CoordinatorType {
+    case app
+    case registration
+    case login
+    case main
+}
+
+// MARK: Finish coordinator states
+protocol CoordinatorFinishDelegate: AnyObject {
+    func coordinatorDidFinish(childCoordinator: Coordinator)
 }

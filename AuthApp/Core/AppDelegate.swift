@@ -11,6 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Properties
     var window: UIWindow?
+    var coordinator: Coordinator?
     
     // MARK: App lifecycle
     func application(_ application: UIApplication,
@@ -24,8 +25,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func startApplication() {
-        let navigation = AppNavigation()
-        let coordinator = AppCoordinator(navigationController: navigation)
+        let navigation = UINavigationController()
+        coordinator = AppCoordinator(navigationController: navigation)
+        coordinator?.start()
         window?.rootViewController = navigation
+    }
+    
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        
+        guard let deepLink = DeepLinkParser.parseDeepLink(url) else {
+            print("fail")
+            return false
+        }
+        coordinator?.start(with: deepLink)
+        return false
     }
 }
