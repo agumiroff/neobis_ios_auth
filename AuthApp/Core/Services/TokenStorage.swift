@@ -7,6 +7,8 @@
 
 import Foundation
 
-struct TokenStorage {
-    var token = ""
+class TokenStorage {
+    static var shared = TokenStorage()
+    
+    var token: String = ""
 }

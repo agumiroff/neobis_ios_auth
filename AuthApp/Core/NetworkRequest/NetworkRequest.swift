@@ -12,7 +12,7 @@ enum NetworkRequest {
     case emailCheck(String)
     case login
     case logout
-    case passwordReset
+    case passwordReset(String)
     case passwordResetConfirm
     case register(UserModelAPI)
     case refreshToken
@@ -49,6 +49,8 @@ extension NetworkRequest: TargetType {
             return .post
         case .register:
             return .put
+        case .passwordReset:
+            return .post
         default:
             return .post
         }
@@ -64,14 +66,15 @@ extension NetworkRequest: TargetType {
                                                    "date_born": model.dateOfBirth,
                                                    "mobile_phone": model.email,
                                                    "password": model.password], encoding: JSONEncoding.default)
+        case let .passwordReset(email):
+            return .requestParameters(parameters: ["email": email], encoding: JSONEncoding.default)
         default:
             return .requestPlain
         }
     }
     
     var headers: [String: String]? {
-        return ["Content-Type": "application/json",
-                "X-CSRFToken": TokenStorage().token]
+        return ["Content-Type": "application/json"]
     }
 }
 

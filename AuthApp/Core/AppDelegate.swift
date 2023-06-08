@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         
         DeepLinkParser.shared.parseDeepLink(url)
+        
         return false
     }
 }

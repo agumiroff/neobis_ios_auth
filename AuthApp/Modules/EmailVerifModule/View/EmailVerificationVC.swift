@@ -17,12 +17,13 @@ final class EmailVerificationVC: BaseViewController {
     private let welcomeLabel = UILabel()
     private let emailField = BaseTextField(title: Constants.loginFieldText, type: .email)
     private let validatingLabel = UILabel()
-    private let filledButton = FilledButton(title: "close")
+    private let filledButton = FilledButton(title: "Далее")
     var event: AnyPublisher<EmailEvent, Never> {
         _event.eraseToAnyPublisher()
     }
     private let _event = PassthroughSubject<EmailEvent, Never>()
     private let viewModel: any EmailViewModel
+    private let type: ViewControllerType
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -30,8 +31,9 @@ final class EmailVerificationVC: BaseViewController {
     }
     
     // MARK: - Init
-    init(viewModel: EmailViewModel) {
+    init(viewModel: EmailViewModel, type: ViewControllerType) {
         self.viewModel = viewModel
+        self.type = type
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -62,7 +64,7 @@ final class EmailVerificationVC: BaseViewController {
         navigationController?.isToolbarHidden = false
         navigationController?.isNavigationBarHidden = false
         
-        navigationItem.title = "Регистрация"
+        navigationItem.title = type == .registration ? "Регистрация" : "Сброс пароля"
         let backButtonImage = UIImage(named: "backButton")?.withRenderingMode(.alwaysOriginal)
         let backButton = UIBarButtonItem(image: backButtonImage,
                                          style: .plain,
@@ -183,9 +185,14 @@ extension EmailVerificationVC {
             self.validatingLabel.text = Constants.validationError
             self.validatingLabel.isHidden = false
             self.emailField.layer.borderColor = UIColor.red.cgColor
-        case .validationSuccess:
-            PresentationService.present(text: self.emailField.text ?? "",
-                                        from: self, action: { self.viewModel.sendEvent(.closeModal)})
+        case .success:
+            guard let email = self.emailField.text else { return }
+            PresentationService.present(text: "На вашу почту \(String(describing: email)) было отправлено письмо",
+                                        from: self, action: { self.viewModel.sendEvent(.closeModal) })
+        case .resetError:
+            self.validatingLabel.text = Constants.validationError
+            self.validatingLabel.isHidden = false
+            self.emailField.layer.borderColor = UIColor.red.cgColor
         }
     }
     
@@ -196,7 +203,8 @@ extension EmailVerificationVC {
     }
     
     @objc private func buttonTapped() {
-        viewModel.sendEvent(.validateEmail(email: self.emailField.text ?? ""))
+        guard let email = self.emailField.text else { return }
+        viewModel.sendEvent(type == .registration ? .validateEmail(email: email) : .recoverPassword(email: email))
     }
     
     @objc private func backAction() {
@@ -219,4 +227,5 @@ fileprivate extension Constants {
     // Strings
     static let warningLabel = "Данная почта уже зарегистрирована"
     static let validationError = "Данный email уже зарегистрирован"
+    static let resetError = "Не удалось сбросить email"
 }

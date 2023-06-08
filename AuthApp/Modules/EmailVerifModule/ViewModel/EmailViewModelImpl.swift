@@ -56,6 +56,29 @@ class EmailViewModelImpl: EmailViewModel {
             }
         }
     }
+    
+    private func recoverPassword(_ email: String,
+                                 completion: @escaping (Bool) -> Void) {
+        networkServiceProvider.request(.passwordReset(email)) { result in
+            switch result {
+            case let .success(response):
+                switch response.statusCode {
+                case 201:
+                    print("dssds")
+                    completion(true)
+                case 400...410:
+                    print("error")
+                    completion(false)
+                default:
+                    print("default")
+                    completion(false)
+                }
+            case let .failure(error):
+                print(error)
+                completion(false)
+            }
+        }
+    }
 }
 
 extension EmailViewModelImpl {
@@ -70,7 +93,8 @@ extension EmailViewModelImpl {
         case initial
         case emailCheckResult(Bool)
         case validationFailed
-        case validationSuccess
+        case success
+        case resetError
     }
     
     enum Event {
@@ -78,6 +102,7 @@ extension EmailViewModelImpl {
         case checkEmail(email: String)
         case routeBack
         case closeModal
+        case recoverPassword(email: String)
     }
     
     func sendEvent(_ event: EmailEvent) {
@@ -95,7 +120,7 @@ extension EmailViewModelImpl {
             validateEmail(email, completion: { [weak self] result in
                 switch result {
                 case true:
-                    self?._state.send(.validationSuccess)
+                    self?._state.send(.success)
                     self?._output.send(.emailVerified(email))
                 case false:
                     self?._state.send(.validationFailed)
@@ -103,6 +128,16 @@ extension EmailViewModelImpl {
             })
         case .closeModal:
             _output.send(.finishFlow)
+        case let .recoverPassword(email):
+            recoverPassword(email, completion: { [weak self] result in
+                switch result {
+                case true:
+                    self?._state.send(.success)
+                    self?._output.send(.emailVerified(email))
+                case false:
+                    self?._state.send(.resetError)
+                }
+            })
         }
     }
 }

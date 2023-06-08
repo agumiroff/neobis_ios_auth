@@ -12,19 +12,20 @@ import Moya
 typealias PasswordModule = (view: PasswordVC, output: AnyPublisher<PasswordOutput, Never>)
 
 enum PasswordModuleAssembly {
-    
+        
     struct Dependencies {
         let networkServiceProvider = MoyaProvider<NetworkRequest>()
     }
     
     struct PayLoad {
         let userModel: UserModelAPI
+        let type: ViewControllerType
     }
     
     static func buildModule(dependencies: Dependencies, payload: PayLoad) -> PasswordModule {
         let viewModel = PasswordVMImpl(input: .init(userModel: payload.userModel),
                                        networkServiceProvider: dependencies.networkServiceProvider)
-        let view = PasswordVC(viewModel: viewModel)
+        let view = PasswordVC(viewModel: viewModel, type: payload.type)
         return (view, viewModel.output)
     }
 }

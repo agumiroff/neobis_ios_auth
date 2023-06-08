@@ -17,13 +17,14 @@ enum EmailModuleAssembly {
         let networkServiceProvider = MoyaProvider<NetworkRequest>()
     }
     
-    struct PayLoad {}
+    struct PayLoad {
+        let type: ViewControllerType
+    }
     
     static func buildModule(dependencies: Dependencies, payload: PayLoad) -> RegistrationModule {
-        
         let viewModel = EmailViewModelImpl(input: .init(),
                                            networkServiceProvider: dependencies.networkServiceProvider)
-        let view = EmailVerificationVC(viewModel: viewModel)
+        let view = EmailVerificationVC(viewModel: viewModel, type: payload.type)
         return (view, viewModel.output)
     }
 }

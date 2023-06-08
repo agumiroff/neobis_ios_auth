@@ -71,7 +71,6 @@ extension PasswordVMImpl {
             _output.send(.backRouteAsked)
         case let .registerUser(password):
             registerUser(password: password)
-            
         }
     }
 }

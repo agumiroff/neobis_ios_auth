@@ -20,7 +20,7 @@ final class AuthFlowCoordinator: Coordinator {
     private var model = UserModelAPI(firstName: "", secondName: "", dateOfBirth: "", email: "", password: "")
     // MARK: Methods
     func start() {
-        showEmailVerificationScreen()
+        showWelcomeScreen()
     }
     
     func finish() {
@@ -54,7 +54,7 @@ final class AuthFlowCoordinator: Coordinator {
                 case .signInUser:
                     self.showLoginScreen()
                 case .signUpUser:
-                    self.showEmailVerificationScreen()
+                    self.showEmailVerificationScreen(type: .registration)
                 }
             }
             .store(in: &cancellables)
@@ -62,8 +62,8 @@ final class AuthFlowCoordinator: Coordinator {
         navigationController.viewControllers = [view]
     }
     
-    private func showEmailVerificationScreen() {
-        let module = EmailModuleAssembly.buildModule(dependencies: .init(), payload: .init())
+    private func showEmailVerificationScreen(type: ViewControllerType) {
+        let module = EmailModuleAssembly.buildModule(dependencies: .init(), payload: .init(type: type))
         let view = module.view
         
         module.output
@@ -96,7 +96,7 @@ final class AuthFlowCoordinator: Coordinator {
                 case .authenticateUser:
                     break
                 case .passwordRecovery:
-                    break
+                    self.showEmailVerificationScreen(type: .recovery)
                 }
             }
             .store(in: &cancellables)
@@ -104,7 +104,7 @@ final class AuthFlowCoordinator: Coordinator {
         navigationController.pushViewController(view, animated: true)
     }
     
-    private func showAdditionalInfoScreen() {
+    private func showAdditionalInfoScreen(type: ViewControllerType) {
         let module = AdditionalInfoModuleAssembly.buildModule(dependencies: .init(), payload: .init())
         let view = module.view
         module.output
@@ -112,7 +112,7 @@ final class AuthFlowCoordinator: Coordinator {
                 guard let self else { return }
                 switch event {
                 case let .additionalInfoAdded(userModel):
-                    self.showPasswordScreen(userModel: userModel)
+                    self.showPasswordScreen(userModel: userModel, type: type)
                 case .registerFailed:
                     self.finish()
                 }
@@ -122,8 +122,8 @@ final class AuthFlowCoordinator: Coordinator {
         navigationController.pushViewController(view, animated: false)
     }
     
-    private func showPasswordScreen(userModel: UserModelAPI) {
-        let module = PasswordModuleAssembly.buildModule(dependencies: .init(), payload: .init(userModel: userModel))
+    private func showPasswordScreen(userModel: UserModelAPI, type: ViewControllerType) {
+        let module = PasswordModuleAssembly.buildModule(dependencies: .init(), payload: .init(userModel: userModel, type: type))
         let view = module.view
         module.output
             .sink { [weak self] event in
@@ -153,7 +153,7 @@ extension AuthFlowCoordinator {
         print(parameters)
         switch host {
         case "additionalInfo":
-            showAdditionalInfoScreen()
+            showAdditionalInfoScreen(type: .registration)
         case "login":
             showLoginScreen()
         case "welcome":
@@ -165,7 +165,7 @@ extension AuthFlowCoordinator {
             for component in components {
                 switch component {
                 case "additionalInfo":
-                    showAdditionalInfoScreen()
+                    showAdditionalInfoScreen(type: .registration)
                 case "login":
                     showLoginScreen()
                 case "welcome":
