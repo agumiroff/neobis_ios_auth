@@ -62,6 +62,8 @@ extension EmailViewModelImpl {
     enum Output {
         case showPopUp(text: String)
         case popView
+        case finishFlow
+        case emailVerified(String)
     }
     
     enum State: Equatable {
@@ -71,11 +73,18 @@ extension EmailViewModelImpl {
         case validationSuccess
     }
     
-    func sendEvent(_ event: EmailModuleEvent) {
+    enum Event {
+        case validateEmail(email: String)
+        case checkEmail(email: String)
+        case routeBack
+        case closeModal
+    }
+    
+    func sendEvent(_ event: EmailEvent) {
         handleEvent(event)
     }
     
-    private func handleEvent(_ event: EmailModuleEvent) {
+    private func handleEvent(_ event: EmailEvent) {
         switch event {
         case let .checkEmail(email):
             let result = email.isValidEmail()
@@ -84,8 +93,16 @@ extension EmailViewModelImpl {
             _output.send(.popView)
         case let .validateEmail(email):
             validateEmail(email, completion: { [weak self] result in
-                self?._state.send(result ? .validationSuccess : .validationFailed)
+                switch result {
+                case true:
+                    self?._state.send(.validationSuccess)
+                    self?._output.send(.emailVerified(email))
+                case false:
+                    self?._state.send(.validationFailed)
+                }
             })
+        case .closeModal:
+            _output.send(.finishFlow)
         }
     }
 }

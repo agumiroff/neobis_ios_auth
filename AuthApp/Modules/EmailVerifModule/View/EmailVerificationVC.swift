@@ -18,10 +18,10 @@ final class EmailVerificationVC: BaseViewController {
     private let emailField = BaseTextField(title: Constants.loginFieldText, type: .email)
     private let validatingLabel = UILabel()
     private let filledButton = FilledButton(title: "close")
-    var event: AnyPublisher<Event, Never> {
+    var event: AnyPublisher<EmailEvent, Never> {
         _event.eraseToAnyPublisher()
     }
-    private let _event = PassthroughSubject<Event, Never>()
+    private let _event = PassthroughSubject<EmailEvent, Never>()
     private let viewModel: any EmailViewModel
     
     // MARK: - ViewDidLoad
@@ -185,7 +185,7 @@ extension EmailVerificationVC {
             self.emailField.layer.borderColor = UIColor.red.cgColor
         case .validationSuccess:
             PresentationService.present(text: self.emailField.text ?? "",
-                                        from: self)
+                                        from: self, action: { self.viewModel.sendEvent(.closeModal)})
         }
     }
     
@@ -204,14 +204,6 @@ extension EmailVerificationVC {
     }
 }
 
-// MARK: - Event
-extension EmailVerificationVC {
-    enum Event {
-        case validateEmail(email: String)
-        case checkEmail(email: String)
-        case routeBack
-    }
-}
 
 fileprivate extension Constants {
     

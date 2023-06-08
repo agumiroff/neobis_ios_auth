@@ -26,7 +26,7 @@ extension String {
         return EmailValidation.emailPredicate.evaluate(with: self)
     }
     
-    func dateMasking(pattern: String) -> String {
+    func textFieldMasking(pattern: String) -> String {
         var result = ""
         var index = self.startIndex
         for char in pattern where index < self.endIndex {

@@ -14,7 +14,7 @@ enum NetworkRequest {
     case logout
     case passwordReset
     case passwordResetConfirm
-    case register
+    case register(UserModelAPI)
     case refreshToken
 }
 
@@ -47,6 +47,8 @@ extension NetworkRequest: TargetType {
         switch self {
         case .emailCheck:
             return .post
+        case .register:
+            return .put
         default:
             return .post
         }
@@ -56,24 +58,31 @@ extension NetworkRequest: TargetType {
         switch self {
         case let .emailCheck(email):
             return .requestParameters(parameters: ["email": email], encoding: JSONEncoding.default)
+        case let .register(model):
+            return .requestParameters(parameters: ["first_name": model.firstName,
+                                                   "last_name": model.secondName,
+                                                   "date_born": model.dateOfBirth,
+                                                   "mobile_phone": model.email,
+                                                   "password": model.password], encoding: JSONEncoding.default)
         default:
             return .requestPlain
         }
     }
     
     var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
+        return ["Content-Type": "application/json",
+                "X-CSRFToken": TokenStorage().token]
     }
 }
 
 fileprivate extension Constants {
     // Strings
     static let urlString = "http://34.107.1.158"
-    static let emailCheckPath = "/auth/register/"
+    static let emailCheckPath = "/auth/register-for-mobile/"
     static let loginPath = "login"
     static let logoutPath = "logout"
     static let passwordResetPath = "password_reset"
     static let passwordResetConfirmPath = "password_reset_confirm"
-    static let registerPath = "register"
+    static let registerPath = "/auth/register-update/"
     static let tokenPath = "token/refresh"
 }
