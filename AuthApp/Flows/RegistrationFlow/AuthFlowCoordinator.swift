@@ -20,7 +20,7 @@ final class AuthFlowCoordinator: Coordinator {
     private var model = UserModelAPI(firstName: "", secondName: "", dateOfBirth: "", email: "", password: "")
     // MARK: Methods
     func start() {
-        showPasswordScreen(userModel: model)
+        showEmailVerificationScreen()
     }
     
     func finish() {
