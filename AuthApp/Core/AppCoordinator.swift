@@ -32,19 +32,6 @@ final class AppCoordinator: Coordinator {
         startAuthFlow()
     }
     
-    func deepLinkRedirect() {
-        startAuthFlow()
-    }
-    
-    func start(with option: DeepLinkType) {
-        switch option {
-        case .additionalInfo:
-            childCoordinators.last?.start(with: option)
-        case .login:
-            childCoordinators.last?.start(with: option)
-        }
-    }
-    
     // MARK: - private Methods
     
 }
@@ -67,6 +54,7 @@ extension AppCoordinator: CoordinatorFinishDelegate {
             navigationController.viewControllers.removeAll()
         case .registration:
             navigationController.viewControllers.removeAll()
+            startAuthFlow()
         case .login:
             navigationController.viewControllers.removeAll()
         case .main:

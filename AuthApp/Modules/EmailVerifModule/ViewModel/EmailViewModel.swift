@@ -9,11 +9,11 @@ import Foundation
 import Combine
 
 typealias EmailVMOutput = EmailViewModelImpl.Output
-typealias EmailModuleEvent = EmailVerificationVC.Event
+typealias EmailEvent = EmailViewModelImpl.Event
 typealias EmailVMState = EmailViewModelImpl.State
 
 protocol EmailViewModel {
     var state: AnyPublisher<EmailVMState, Never> { get }
     var output: AnyPublisher<EmailVMOutput, Never> { get }
-    func sendEvent(_ event: EmailModuleEvent)
+    func sendEvent(_ event: EmailEvent)
 }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
-typealias LoginModule = (view: LoginViewController, output: AnyPublisher<LoginOutput, Never>)
+typealias LoginModule = (view: LoginVC, output: AnyPublisher<LoginOutput, Never>)
 
 enum LoginModuleAssembly {
     
@@ -17,8 +17,8 @@ enum LoginModuleAssembly {
     struct PayLoad {}
     
     static func buildModule(dependencies: Dependencies, payload: PayLoad) -> LoginModule {
-        let viewModel = LoginViewModelImpl(input: .init())
-        let view = LoginViewController(viewModel: viewModel)
+        let viewModel = LoginVMImpl(input: .init())
+        let view = LoginVC(viewModel: viewModel)
         return (view, viewModel.output)
     }
 }

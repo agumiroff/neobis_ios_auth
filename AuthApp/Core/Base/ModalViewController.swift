@@ -15,10 +15,12 @@ final class ModalViewController: UIViewController {
     private let labelMessage = UILabel()
     private let filledButton = FilledButton(title: Constants.filledButtonTitle)
     private let modalView = ModalView()
+    private var action: () -> Void
     
     // MARK: - Init
-    init(labelText: String) {
+    init(labelText: String, action: @escaping () -> Void) {
         self.labelMessage.text = labelText
+        self.action = action
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -94,7 +96,7 @@ extension ModalViewController {
     }
     
     @objc private func buttonDidTap() {
-        self.dismiss(animated: false)
+        action()
     }
 }
 

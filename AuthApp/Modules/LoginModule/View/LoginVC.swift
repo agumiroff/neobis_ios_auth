@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 import Combine
 
-final class LoginViewController: BaseViewController {
+final class LoginVC: BaseViewController {
     
     // MARK: - Properties
     private var cancellable = Set<AnyCancellable>()
-    private let viewModel: any LoginViewModel
+    private let viewModel: any LoginVM
     private let smileImage = UIImageView()
     private let hidePasswordButton = UIButton()
     private var loginField = BaseTextField(title: Constants.loginFieldText, type: .email)
@@ -31,7 +31,7 @@ final class LoginViewController: BaseViewController {
     }
     
     // MARK: - init
-    init(viewModel: any LoginViewModel) {
+    init(viewModel: any LoginVM) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -63,7 +63,7 @@ final class LoginViewController: BaseViewController {
 }
 
 // MARK: - SetupViews
-extension LoginViewController {
+extension LoginVC {
     
     private func smileImageSetup() {
         contentView.addSubview(smileImage)
@@ -193,7 +193,7 @@ extension LoginViewController {
 
 // MARK: - Methods
 
-extension LoginViewController {
+extension LoginVC {
     
     @objc private func loginDidChange(_ notification: Notification) {
         if let textField = notification.object as? UITextField {
@@ -218,7 +218,7 @@ extension LoginViewController {
     }
 }
 
-extension LoginViewController {
+extension LoginVC {
     
     private func keyboardNotificationSetup() {
         let notificationCenter = NotificationCenter.default
@@ -263,15 +263,7 @@ fileprivate extension Constants {
     static var transparentButtonTop = 198.0
     static let transparentButtonBottom = 16.0
     
-    static let hidePasswordButtonTrailing = 12.0
-    static let hidePasswordButtonTop = 30.0
-    static let hidePasswordButtonBottom = 14.0
-    
     // Strings
     static let transparentButtonTitle = "Забыли пароль?"
-    
     static let filledButtonTitle = "Войти"
-    // Names
-    static let hidePasswordImage = "passHide"
-    static let hiddenPasswordImage = "passHidden"
 }

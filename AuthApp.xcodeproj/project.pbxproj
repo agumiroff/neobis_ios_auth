@@ -14,8 +14,9 @@
 		C633C2292A2E523C005664F3 /* DeepLinkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C633C2282A2E523C005664F3 /* DeepLinkParser.swift */; };
 		C633C22B2A2E673D005664F3 /* AdditionalInfoAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C633C22A2A2E673D005664F3 /* AdditionalInfoAssembly.swift */; };
 		C633C22D2A2EC438005664F3 /* DatePickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C633C22C2A2EC438005664F3 /* DatePickerService.swift */; };
-		C63511532A1FD9DA00D5CDA6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63511522A1FD9DA00D5CDA6 /* LoginViewModel.swift */; };
-		C63511552A1FD9EF00D5CDA6 /* LoginViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63511542A1FD9EF00D5CDA6 /* LoginViewModelImpl.swift */; };
+		C633C22F2A2FC483005664F3 /* UserModelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C633C22E2A2FC483005664F3 /* UserModelAPI.swift */; };
+		C63511532A1FD9DA00D5CDA6 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63511522A1FD9DA00D5CDA6 /* LoginVM.swift */; };
+		C63511552A1FD9EF00D5CDA6 /* LoginVMImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63511542A1FD9EF00D5CDA6 /* LoginVMImpl.swift */; };
 		C635116C2A201FF600D5CDA6 /* gothampro_mediumitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C63511612A201FF600D5CDA6 /* gothampro_mediumitalic.ttf */; };
 		C635116D2A201FF600D5CDA6 /* COPYRIGHT.txt in Resources */ = {isa = PBXBuildFile; fileRef = C63511622A201FF600D5CDA6 /* COPYRIGHT.txt */; };
 		C635116E2A201FF600D5CDA6 /* gothampro_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C63511632A201FF600D5CDA6 /* gothampro_medium.ttf */; };
@@ -46,11 +47,16 @@
 		C67D03C02A1ED1800005132D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03BF2A1ED1800005132D /* AppCoordinator.swift */; };
 		C67D03C42A1EEFBD0005132D /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D03C32A1EEFBD0005132D /* TextField.swift */; };
 		C6A22CC92A1E439400189B2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CC82A1E439400189B2C /* AppDelegate.swift */; };
-		C6A22CCD2A1E439400189B2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CCC2A1E439400189B2C /* LoginViewController.swift */; };
+		C6A22CCD2A1E439400189B2C /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CCC2A1E439400189B2C /* LoginVC.swift */; };
 		C6A22CD22A1E439500189B2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A22CD12A1E439500189B2C /* Assets.xcassets */; };
 		C6A22CD52A1E439500189B2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A22CD32A1E439500189B2C /* LaunchScreen.storyboard */; };
 		C6A22CE62A1E466300189B2C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CE52A1E466300189B2C /* WelcomeViewController.swift */; };
 		C6A22CEE2A1E47E300189B2C /* AuthAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A22CED2A1E47E300189B2C /* AuthAppTests.swift */; };
+		C6BC51E02A2FFDC2005A480E /* PasswordAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC51DF2A2FFDC2005A480E /* PasswordAssembly.swift */; };
+		C6BC51E32A2FFDF6005A480E /* PasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC51E22A2FFDF6005A480E /* PasswordVM.swift */; };
+		C6BC51E52A2FFE0C005A480E /* PasswordVMImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC51E42A2FFE0C005A480E /* PasswordVMImpl.swift */; };
+		C6BC51E82A300028005A480E /* PasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC51E72A300028005A480E /* PasswordVC.swift */; };
+		C6BC51EA2A301405005A480E /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC51E92A301405005A480E /* TokenStorage.swift */; };
 		C6BC577D2A244B9600E2311C /* EmailViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC577C2A244B9600E2311C /* EmailViewModelImpl.swift */; };
 		C6BC577F2A24588B00E2311C /* EmailModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC577E2A24588B00E2311C /* EmailModuleAssembly.swift */; };
 		C6C8586F2A2D96CB0043B083 /* AdditionalInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C8586E2A2D96CB0043B083 /* AdditionalInfoVC.swift */; };
@@ -78,8 +84,9 @@
 		C633C2282A2E523C005664F3 /* DeepLinkParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkParser.swift; sourceTree = "<group>"; };
 		C633C22A2A2E673D005664F3 /* AdditionalInfoAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoAssembly.swift; sourceTree = "<group>"; };
 		C633C22C2A2EC438005664F3 /* DatePickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerService.swift; sourceTree = "<group>"; };
-		C63511522A1FD9DA00D5CDA6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		C63511542A1FD9EF00D5CDA6 /* LoginViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelImpl.swift; sourceTree = "<group>"; };
+		C633C22E2A2FC483005664F3 /* UserModelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModelAPI.swift; sourceTree = "<group>"; };
+		C63511522A1FD9DA00D5CDA6 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		C63511542A1FD9EF00D5CDA6 /* LoginVMImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVMImpl.swift; sourceTree = "<group>"; };
 		C63511612A201FF600D5CDA6 /* gothampro_mediumitalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_mediumitalic.ttf; sourceTree = "<group>"; };
 		C63511622A201FF600D5CDA6 /* COPYRIGHT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYRIGHT.txt; sourceTree = "<group>"; };
 		C63511632A201FF600D5CDA6 /* gothampro_medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_medium.ttf; sourceTree = "<group>"; };
@@ -111,13 +118,18 @@
 		C67D03C32A1EEFBD0005132D /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		C6A22CC52A1E439400189B2C /* AuthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A22CC82A1E439400189B2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C6A22CCC2A1E439400189B2C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C6A22CCC2A1E439400189B2C /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C6A22CD12A1E439500189B2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6A22CD42A1E439500189B2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6A22CD62A1E439500189B2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6A22CE52A1E466300189B2C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		C6A22CEB2A1E47E300189B2C /* AuthAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A22CED2A1E47E300189B2C /* AuthAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAppTests.swift; sourceTree = "<group>"; };
+		C6BC51DF2A2FFDC2005A480E /* PasswordAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordAssembly.swift; sourceTree = "<group>"; };
+		C6BC51E22A2FFDF6005A480E /* PasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVM.swift; sourceTree = "<group>"; };
+		C6BC51E42A2FFE0C005A480E /* PasswordVMImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVMImpl.swift; sourceTree = "<group>"; };
+		C6BC51E72A300028005A480E /* PasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVC.swift; sourceTree = "<group>"; };
+		C6BC51E92A301405005A480E /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		C6BC577C2A244B9600E2311C /* EmailViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModelImpl.swift; sourceTree = "<group>"; };
 		C6BC577E2A24588B00E2311C /* EmailModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailModuleAssembly.swift; sourceTree = "<group>"; };
 		C6C8586E2A2D96CB0043B083 /* AdditionalInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoVC.swift; sourceTree = "<group>"; };
@@ -315,6 +327,7 @@
 				C67549F22A2D660200DC1F1F /* PresentationService.swift */,
 				C633C2282A2E523C005664F3 /* DeepLinkParser.swift */,
 				C633C22C2A2EC438005664F3 /* DatePickerService.swift */,
+				C6BC51E92A301405005A480E /* TokenStorage.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -397,6 +410,7 @@
 		C6A22CDF2A1E459B00189B2C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C6BC51DD2A2FFDA7005A480E /* PasswordModule */,
 				C6A22CE02A1E45A800189B2C /* LoginModule */,
 				C635117C2A202AF300D5CDA6 /* WelcomeModule */,
 				C6457F892A2424F90011EC50 /* EmailVerifModule */,
@@ -418,8 +432,8 @@
 		C6A22CE12A1E461300189B2C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C63511522A1FD9DA00D5CDA6 /* LoginViewModel.swift */,
-				C63511542A1FD9EF00D5CDA6 /* LoginViewModelImpl.swift */,
+				C63511522A1FD9DA00D5CDA6 /* LoginVM.swift */,
+				C63511542A1FD9EF00D5CDA6 /* LoginVMImpl.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -427,7 +441,7 @@
 		C6A22CE22A1E461600189B2C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C6A22CCC2A1E439400189B2C /* LoginViewController.swift */,
+				C6A22CCC2A1E439400189B2C /* LoginVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -455,6 +469,7 @@
 		C6A22CF42A1E48A700189B2C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C633C22E2A2FC483005664F3 /* UserModelAPI.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -465,6 +480,41 @@
 				C63511602A201FF600D5CDA6 /* Gotham Pro */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C6BC51DD2A2FFDA7005A480E /* PasswordModule */ = {
+			isa = PBXGroup;
+			children = (
+				C6BC51DE2A2FFDB3005A480E /* Assembly */,
+				C6BC51E12A2FFDED005A480E /* ViewModel */,
+				C6BC51E62A300011005A480E /* View */,
+			);
+			path = PasswordModule;
+			sourceTree = "<group>";
+		};
+		C6BC51DE2A2FFDB3005A480E /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				C6BC51DF2A2FFDC2005A480E /* PasswordAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		C6BC51E12A2FFDED005A480E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C6BC51E22A2FFDF6005A480E /* PasswordVM.swift */,
+				C6BC51E42A2FFE0C005A480E /* PasswordVMImpl.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C6BC51E62A300011005A480E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6BC51E72A300028005A480E /* PasswordVC.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C8C63B00D1F8C442DE487933 /* Pods */ = {
@@ -695,6 +745,7 @@
 			files = (
 				C6BC577F2A24588B00E2311C /* EmailModuleAssembly.swift in Sources */,
 				C67D03C02A1ED1800005132D /* AppCoordinator.swift in Sources */,
+				C6BC51E82A300028005A480E /* PasswordVC.swift in Sources */,
 				C67D03922A1E9CBF0005132D /* BaseViewController.swift in Sources */,
 				C663BCA92A2148DD00431A64 /* String+Extension.swift in Sources */,
 				C67549E22A2CC4D300DC1F1F /* AuthFlowCoordinator.swift in Sources */,
@@ -705,22 +756,27 @@
 				C6BC577D2A244B9600E2311C /* EmailViewModelImpl.swift in Sources */,
 				C633C2252A2E4D90005664F3 /* AdditionalInfoVM.swift in Sources */,
 				C67549D82A2C3C7700DC1F1F /* EmailViewModel.swift in Sources */,
-				C63511552A1FD9EF00D5CDA6 /* LoginViewModelImpl.swift in Sources */,
+				C63511552A1FD9EF00D5CDA6 /* LoginVMImpl.swift in Sources */,
 				C633C2272A2E4DAE005664F3 /* AdditionalInfoVMImpl.swift in Sources */,
-				C63511532A1FD9DA00D5CDA6 /* LoginViewModel.swift in Sources */,
+				C63511532A1FD9DA00D5CDA6 /* LoginVM.swift in Sources */,
 				C67549F32A2D660200DC1F1F /* PresentationService.swift in Sources */,
-				C6A22CCD2A1E439400189B2C /* LoginViewController.swift in Sources */,
+				C6A22CCD2A1E439400189B2C /* LoginVC.swift in Sources */,
 				C663BC962A202E4000431A64 /* WelcomeModuleAssembly.swift in Sources */,
+				C6BC51E02A2FFDC2005A480E /* PasswordAssembly.swift in Sources */,
 				C67D03C42A1EEFBD0005132D /* TextField.swift in Sources */,
 				C67549D42A2C329900DC1F1F /* EmailVerificationVC.swift in Sources */,
 				C67549F52A2D6A9900DC1F1F /* ModalView.swift in Sources */,
+				C633C22F2A2FC483005664F3 /* UserModelAPI.swift in Sources */,
 				C67549CF2A282CE400DC1F1F /* NetworkRequest.swift in Sources */,
+				C6BC51EA2A301405005A480E /* TokenStorage.swift in Sources */,
 				C6A22CE62A1E466300189B2C /* WelcomeViewController.swift in Sources */,
 				C67D03BE2A1EAFE20005132D /* FilledButton.swift in Sources */,
 				C6C8586F2A2D96CB0043B083 /* AdditionalInfoVC.swift in Sources */,
 				C663BC932A202C5A00431A64 /* WelcomeViewModelImpl.swift in Sources */,
 				C633C22B2A2E673D005664F3 /* AdditionalInfoAssembly.swift in Sources */,
+				C6BC51E32A2FFDF6005A480E /* PasswordVM.swift in Sources */,
 				C67D03BC2A1EA1AD0005132D /* UIColor+Extension.swift in Sources */,
+				C6BC51E52A2FFE0C005A480E /* PasswordVMImpl.swift in Sources */,
 				C6A22CC92A1E439400189B2C /* AppDelegate.swift in Sources */,
 				C67D03902A1E5D620005132D /* Constants.swift in Sources */,
 				C61289722A2804F600138888 /* ModalViewController.swift in Sources */,

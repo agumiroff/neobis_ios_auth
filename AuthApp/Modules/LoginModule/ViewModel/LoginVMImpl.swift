@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class LoginViewModelImpl: LoginViewModel {
+final class LoginVMImpl: LoginVM {
     
     var output: AnyPublisher<LoginOutput, Never> { _output.eraseToAnyPublisher() }
     private var _output = PassthroughSubject<LoginOutput, Never>()
@@ -20,7 +20,7 @@ final class LoginViewModelImpl: LoginViewModel {
     }
 }
 
-extension LoginViewModelImpl {
+extension LoginVMImpl {
     enum OutputEvent {
         case passwordRecovery
         case authenticateUser

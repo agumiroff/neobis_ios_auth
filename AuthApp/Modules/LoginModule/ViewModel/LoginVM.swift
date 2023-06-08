@@ -8,9 +8,9 @@
 import Foundation
 import Combine
 
-typealias LoginOutput = LoginViewModelImpl.OutputEvent
+typealias LoginOutput = LoginVMImpl.OutputEvent
 
-protocol LoginViewModel {
+protocol LoginVM {
     associatedtype InputType
     var input: InputType { get set }
     var output: AnyPublisher<LoginOutput, Never> { get }

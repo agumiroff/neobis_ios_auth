@@ -17,9 +17,7 @@ final class AppCoordinator: Coordinator {
         navigationController.coordinator = self
     }
     
-    func start() {
-        
-    }
+    func start() {}
     
     private func startLoginFlow() {
         

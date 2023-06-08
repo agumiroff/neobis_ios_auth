@@ -70,9 +70,12 @@ extension BaseTextField: UITextFieldDelegate {
         case password
         case date
         case onlyLetters
+        case mobilePhone
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
         switch self.type {
         case .email:
             break
@@ -82,12 +85,17 @@ extension BaseTextField: UITextFieldDelegate {
             if textField.text?.count ?? 0 > 9 && !string.isEmpty { return false }
             let mask = "##.##.####"
             let text = textField.text?.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
-            textField.text = text?.dateMasking(pattern: mask)
+            textField.text = text?.textFieldMasking(pattern: mask)
             return true
         case .onlyLetters:
             let allowedCharacters = CharacterSet.letters
             let characterSet = CharacterSet(charactersIn: string)
             return characterSet.isSubset(of: allowedCharacters) || string.isEmpty
+        case .mobilePhone:
+            if textField.text?.count ?? 0 > 16 && !string.isEmpty { return false }
+            let mask = "+# (###) ### ## ##"
+            let text = textField.text?.replacingOccurrences( of: "[^0-9]", with: "", options: .regularExpression)
+            textField.text = text?.textFieldMasking(pattern: mask)
         }
         return true
     }
@@ -124,6 +132,8 @@ extension BaseTextField: UITextFieldDelegate {
             isFilled.send(self.text?.count ?? 0 == 10)
         case .onlyLetters:
             isFilled.send(self.text?.count ?? 0 > 3)
+        case .mobilePhone:
+            isFilled.send(self.text?.count ?? 0 > 12)
         }
     }
     
