@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 import Combine
 
-final class LoginViewController: BaseViewController {
+final class LoginVC: BaseViewController {
     
     // MARK: - Properties
-    private var cancellable = Set<AnyCancellable>()
-    private let viewModel: any LoginViewModel
+    private var cancellables = Set<AnyCancellable>()
+    private let viewModel: any LoginVM
     private let smileImage = UIImageView()
     private let hidePasswordButton = UIButton()
     private var loginField = BaseTextField(title: Constants.loginFieldText, type: .email)
@@ -31,7 +31,7 @@ final class LoginViewController: BaseViewController {
     }
     
     // MARK: - init
-    init(viewModel: any LoginViewModel) {
+    init(viewModel: any LoginVM) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -45,12 +45,12 @@ final class LoginViewController: BaseViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        subscribe()
     }
     
     // MARK: - SetupUI
     override func setupUI() {
         super.setupUI()
-        keyboardNotificationSetup()
         
         smileImageSetup()
         loginFieldSetup()
@@ -63,7 +63,7 @@ final class LoginViewController: BaseViewController {
 }
 
 // MARK: - SetupViews
-extension LoginViewController {
+extension LoginVC {
     
     private func smileImageSetup() {
         contentView.addSubview(smileImage)
@@ -86,6 +86,10 @@ extension LoginViewController {
                          name: UITextField.textDidChangeNotification,
                          object: loginField)
         
+        loginField.layer.cornerRadius = Constants.submitButtonCornerRadius
+        loginField.clipsToBounds = true
+        loginField.layer.borderWidth = 1
+        
         loginField.snp.makeConstraints { make in
             make.top.equalTo(smileImage.snp.bottom)
                 .offset(Constants.loginFieldTop)
@@ -102,6 +106,10 @@ extension LoginViewController {
             .addObserver(self, selector: #selector(passwordDidChange),
                          name: UITextField.textDidChangeNotification,
                          object: passwordField)
+        
+        passwordField.layer.cornerRadius = Constants.submitButtonCornerRadius
+        passwordField.clipsToBounds = true
+        passwordField.layer.borderWidth = 1
         
         passwordField.snp.makeConstraints { make in
             make.top.equalTo(loginField.snp.bottom)
@@ -144,7 +152,7 @@ extension LoginViewController {
     private func filledButtonSetup() {
         contentView.addSubview(filledButton)
         
-        filledButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        filledButton.addTarget(self, action: #selector(filledButtonTapped), for: .touchUpInside)
         
         isAuthEnabled
             .receive(on: DispatchQueue.main)
@@ -152,7 +160,7 @@ extension LoginViewController {
                 self?.filledButton.isEnabled = value
                 self?.filledButton.updateAppearance(isEnabled: value)
             }
-            .store(in: &cancellable)
+            .store(in: &cancellables)
         
         filledButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
@@ -180,6 +188,7 @@ extension LoginViewController {
         transparentButton.titleLabel?.font = UIFont(name: Constants.Font.gothamMedium,
                                                     size: Constants.Font.regular)
         transparentButton.setTitleColor(.black, for: .normal)
+        transparentButton.addTarget(self, action: #selector(transparentButtonTapped), for: .touchUpInside)
         
         transparentButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
@@ -192,8 +201,26 @@ extension LoginViewController {
 }
 
 // MARK: - Methods
-
-extension LoginViewController {
+extension LoginVC {
+    
+    private func subscribe() {
+        viewModel.state
+            .sink { state in
+                switch state {
+                case .initial:
+                    self.validatingLabel.text = ""
+                    self.validatingLabel.isHidden = true
+                    self.loginField.layer.borderColor = UIColor.clear.cgColor
+                    self.passwordField.layer.borderColor = UIColor.clear.cgColor
+                case .failure:
+                    self.validatingLabel.text = Constants.loginFailedMessage
+                    self.validatingLabel.isHidden = false
+                    self.loginField.layer.borderColor = UIColor.red.cgColor
+                    self.passwordField.layer.borderColor = UIColor.red.cgColor
+                }
+            }
+            .store(in: &cancellables)
+    }
     
     @objc private func loginDidChange(_ notification: Notification) {
         if let textField = notification.object as? UITextField {
@@ -201,6 +228,7 @@ extension LoginViewController {
             isLoginValid.send(validationResult)
             self.validatingLabel.text = validationResult ? "" : Constants.emailCheckFailed
             self.validatingLabel.isHidden = validationResult ? true : false
+            self.viewModel.sendEvent(.askedForReset)
         }
     }
     
@@ -210,31 +238,22 @@ extension LoginViewController {
             isPasswordValid.send(validationResult)
             self.validatingLabel.text = validationResult ? "" : Constants.passCheckFailed
             self.validatingLabel.isHidden = validationResult ? true : false
+            self.viewModel.sendEvent(.askedForReset)
         }
     }
     
-    @objc private func buttonTapped() {
-        print("sdsdsds")
+    @objc private func filledButtonTapped() {
+        guard let login = loginField.text,
+              let password = passwordField.text else { return }
+        viewModel.sendEvent(.askedForLogin(login: login, password: password))
+    }
+    
+    @objc private func transparentButtonTapped() {
+        viewModel.sendEvent(.askedForRecovery)
     }
 }
 
-extension LoginViewController {
-    
-    private func keyboardNotificationSetup() {
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(
-            self,
-            selector: #selector(keyboardDidDissappear),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-        notificationCenter.addObserver(
-            self, selector: #selector(keyboarDidAppear),
-            name: UIResponder.keyboardWillChangeFrameNotification,
-            object: nil
-        )
-    }
-    
+extension LoginVC {
     @objc func hidePassword() {
         let isSecure = passwordField.isSecureTextEntry
         passwordField.isSecureTextEntry.toggle()
@@ -263,15 +282,8 @@ fileprivate extension Constants {
     static var transparentButtonTop = 198.0
     static let transparentButtonBottom = 16.0
     
-    static let hidePasswordButtonTrailing = 12.0
-    static let hidePasswordButtonTop = 30.0
-    static let hidePasswordButtonBottom = 14.0
-    
     // Strings
     static let transparentButtonTitle = "Забыли пароль?"
-    
     static let filledButtonTitle = "Войти"
-    // Names
-    static let hidePasswordImage = "passHide"
-    static let hiddenPasswordImage = "passHidden"
+    static let loginFailedMessage = "Неверный логин или пароль"
 }

@@ -35,11 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         
-        guard let deepLink = DeepLinkParser.parseDeepLink(url) else {
-            print("fail")
-            return false
-        }
-        coordinator?.start(with: deepLink)
+        DeepLinkParser.shared.parseDeepLink(url)
+        
         return false
     }
 }

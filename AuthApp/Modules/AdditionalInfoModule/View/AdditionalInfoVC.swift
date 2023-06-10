@@ -13,19 +13,19 @@ import Combine
 final class AdditionalInfoVC: BaseViewController {
     
     // MARK: - Properties
-    private let firstNameField = BaseTextField(title: Constants.loginFieldText, type: .onlyLetters)
-    private let secondNameField = BaseTextField(title: Constants.loginFieldText, type: .onlyLetters)
-    private let dateOfBirthField = BaseTextField(title: Constants.loginFieldText, type: .date)
-    private let emailField = BaseTextField(title: "", type: .email)
+    private let firstNameField = BaseTextField(title: Constants.firstNameFieldTitle, type: .onlyLetters)
+    private let secondNameField = BaseTextField(title: Constants.lastNameFieldTitle, type: .onlyLetters)
+    private let dateOfBirthField = BaseTextField(title: Constants.dateOfBirthFieldTitle, type: .date)
+    private let mobilePhoneField = BaseTextField(title: Constants.mobilePhoneFieldTitle, type: .mobilePhone)
     private let filledButton = FilledButton(title: "Зарегистрироваться")
     private let viewModel: any AdditionalInfoVM
     private var isSubmitEnabled: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest4(firstNameField.isFilled,
                                   secondNameField.isFilled,
                                   dateOfBirthField.isFilled,
-                                  emailField.isFilled)
-            .map { return $0 && $1 && $2 && $3 }
-            .eraseToAnyPublisher()
+                                  mobilePhoneField.isFilled)
+        .map { return $0 && $1 && $2 && $3 }
+        .eraseToAnyPublisher()
     }
     private var cancellables = Set<AnyCancellable>()
     
@@ -46,6 +46,25 @@ final class AdditionalInfoVC: BaseViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.sendEvent(.viewDidLoad)
+        
+        viewModel.state
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] state in
+                guard let self else { return }
+                switch state {
+                case .initial:
+                    break
+                case let .success(email):
+                    self.mobilePhoneField.text = email
+                case let .failure(errorMessage):
+                    PresentationService.present(text: errorMessage, from: self, action: {
+                        self.presentedViewController?.dismiss(animated: false)
+                        self.viewModel.sendEvent(.modalClosed)
+                    })
+                }
+            }
+            .store(in: &cancellables)
     }
     
     override func setupUI() {
@@ -55,6 +74,12 @@ final class AdditionalInfoVC: BaseViewController {
         dateOfBirthFieldSetup()
         emailFieldSetup()
         filledButtonSetup()
+    }
+    
+    override func navigationSetup() {
+        super.navigationSetup()
+        navigationController?.isToolbarHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
 }
 
@@ -68,7 +93,7 @@ extension AdditionalInfoVC {
             make.horizontalEdges.equalToSuperview()
                 .inset(Constants.horizontalInsets)
             make.top.equalToSuperview()
-                .inset(40)
+                .inset(Constants.firstNameFieldTop)
         }
     }
     
@@ -79,7 +104,7 @@ extension AdditionalInfoVC {
             make.horizontalEdges.equalToSuperview()
                 .inset(Constants.horizontalInsets)
             make.top.equalTo(firstNameField.snp.bottom)
-                .offset(24)
+                .offset(Constants.textFieldTop)
         }
     }
     
@@ -90,35 +115,18 @@ extension AdditionalInfoVC {
             make.horizontalEdges.equalToSuperview()
                 .inset(Constants.horizontalInsets)
             make.top.equalTo(secondNameField.snp.bottom)
-                .offset(24)
+                .offset(Constants.textFieldTop)
         }
     }
     
     private func emailFieldSetup() {
-        contentView.addSubview(emailField)
-        
-        
-        emailField.isUserInteractionEnabled = false
-        emailField.text = "sdsds@gmail.com"
-        emailField.isFilled.send(true)
-        emailField.textColor = UIColor(hexString: "#C1C1C1")
-        
-        let label = UILabel()
-        label.text = Constants.loginFieldText
-        emailField.addSubview(label)
-        label.snp.makeConstraints { make in
-            make.leading.top.equalToSuperview()
-                .inset(10)
-        }
-        label.font = UIFont(name: Constants.Font.gothamMedium, size: Constants.Font.small)
-        label.textColor = UIColor(hexString: "#C1C1C1")
-        
-        
-        emailField.snp.makeConstraints { make in
+        contentView.addSubview(mobilePhoneField)
+                
+        mobilePhoneField.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
                 .inset(Constants.horizontalInsets)
             make.top.equalTo(dateOfBirthField.snp.bottom)
-                .offset(24)
+                .offset(Constants.textFieldTop)
         }
     }
     
@@ -136,16 +144,28 @@ extension AdditionalInfoVC {
         filledButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
                 .inset(Constants.horizontalInsets)
-            make.top.equalTo(emailField.snp.bottom)
-                .offset(24)
+            make.top.equalTo(mobilePhoneField.snp.bottom)
+                .offset(Constants.textFieldTop)
             make.bottom.equalToSuperview()
         }
     }
     
     @objc private func registerUser() {
-        viewModel.sendEvent(.registerUser(firstName: firstNameField.text ?? "",
-                                          secondName: secondNameField.text ?? "",
-                                          dateOfBirth: dateOfBirthField.text ?? "",
-                                          email: emailField.text ?? ""))
+        viewModel.sendEvent(.registerUser(.init(firstName: firstNameField.text ?? "",
+                                                secondName: secondNameField.text ?? "",
+                                                dateOfBirth: dateOfBirthField.text ?? "", phone: mobilePhoneField.text ?? "")))
     }
+}
+
+fileprivate extension Constants {
+    
+    // Strings
+    static let firstNameFieldTitle = "Имя"
+    static let lastNameFieldTitle = "Фамилия"
+    static let dateOfBirthFieldTitle = "Дата рождения"
+    static let mobilePhoneFieldTitle = "Номер телефона"
+    
+    // Constraints
+    static let textFieldTop: CGFloat = 24
+    static let firstNameFieldTop: CGFloat = 40
 }

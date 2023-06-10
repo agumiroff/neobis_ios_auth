@@ -8,17 +8,20 @@
 import Foundation
 import UIKit
 import Combine
+import Moya
 
-typealias LoginModule = (view: LoginViewController, output: AnyPublisher<LoginOutput, Never>)
+typealias LoginModule = (view: LoginVC, output: AnyPublisher<LoginOutput, Never>)
 
 enum LoginModuleAssembly {
     
-    struct Dependencies {}
+    struct Dependencies {
+        let networkServiceProvider: MoyaProvider<NetworkRequest>
+    }
     struct PayLoad {}
     
     static func buildModule(dependencies: Dependencies, payload: PayLoad) -> LoginModule {
-        let viewModel = LoginViewModelImpl(input: .init())
-        let view = LoginViewController(viewModel: viewModel)
+        let viewModel = LoginVMImpl(input: .init(), networkServiceProvider: dependencies.networkServiceProvider)
+        let view = LoginVC(viewModel: viewModel)
         return (view, viewModel.output)
     }
 }

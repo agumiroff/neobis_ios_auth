@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
     enum PasswordValidation {
-        private static let passwordRegex = "^[a-zA-Z0-9]{8,}$"
+        private static let passwordRegex = "^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{5,}$"
         static let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
     }
     
@@ -26,7 +26,7 @@ extension String {
         return EmailValidation.emailPredicate.evaluate(with: self)
     }
     
-    func dateMasking(pattern: String) -> String {
+    func textFieldMasking(pattern: String) -> String {
         var result = ""
         var index = self.startIndex
         for char in pattern where index < self.endIndex {

@@ -13,13 +13,11 @@ protocol Coordinator {
     var navigationController: UINavigationController { get set }
     var type: CoordinatorType { get }
     func start()
-    func start(with option: DeepLinkType)
 }
 
 enum CoordinatorType {
     case app
-    case registration
-    case login
+    case auth
     case main
 }
 

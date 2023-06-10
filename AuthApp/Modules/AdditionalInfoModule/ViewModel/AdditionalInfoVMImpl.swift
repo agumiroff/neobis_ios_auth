@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Moya
 
 class AdditionalInfoVMImpl: AdditionalInfoVM {
     
@@ -19,40 +20,45 @@ class AdditionalInfoVMImpl: AdditionalInfoVM {
     }
     private lazy var _output = PassthroughSubject<Output, Never>()
     private lazy var _state = CurrentValueSubject<State, Never>(.initial)
+    private let networkServiceProvider: MoyaProvider<NetworkRequest>
     var input: Input
     
     struct Input {}
     
     // MARK: - Init
-    init(input: Input) {
+    init(input: Input, networkServiceProvider: MoyaProvider<NetworkRequest>) {
         self.input = input
+        self.networkServiceProvider = networkServiceProvider
     }
 }
 
 extension AdditionalInfoVMImpl {
     
     enum Event {
-        case checkAllFilled
-        case registerUser(firstName: String, secondName: String, dateOfBirth: String, email: String)
+        case viewDidLoad
+        case registerUser(UserModelAPI)
+        case modalClosed
     }
     
     enum State {
         case initial
+        case success(email: String)
+        case failure(String)
     }
     
     enum Output {
-        case additionalInfoAdded(firstName: String, secondName: String, dateOfBirth: String, email: String)
+        case additionalInfoAdded(UserModelAPI)
+        case registerFailed
     }
     
     func sendEvent(_ event: AdditionalModuleEvent) {
         switch event {
-        case .checkAllFilled:
+        case let .registerUser(userModel):
+            _output.send(.additionalInfoAdded(userModel))
+        case .viewDidLoad:
             break
-        case let .registerUser(irstName, secondName, dateOfBirth, email):
-            _output.send(.additionalInfoAdded(firstName: irstName,
-                                              secondName: secondName,
-                                              dateOfBirth: dateOfBirth,
-                                              email: email))
+        case .modalClosed:
+            _output.send(.registerFailed)
         }
     }
 }

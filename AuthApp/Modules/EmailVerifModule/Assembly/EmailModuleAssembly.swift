@@ -13,14 +13,18 @@ typealias RegistrationModule = (view: UIViewController, output: AnyPublisher<Ema
 
 enum EmailModuleAssembly {
     
-    struct Dependencies {}
-    struct PayLoad {}
+    struct Dependencies {
+        let networkServiceProvider = MoyaProvider<NetworkRequest>()
+    }
+    
+    struct PayLoad {
+        let type: ViewControllerType
+    }
     
     static func buildModule(dependencies: Dependencies, payload: PayLoad) -> RegistrationModule {
-        let networkServiceProvider = MoyaProvider<NetworkRequest>()
         let viewModel = EmailViewModelImpl(input: .init(),
-                                                  networkServiceProvider: networkServiceProvider)
-        let view = EmailVerificationVC(viewModel: viewModel)
+                                           networkServiceProvider: dependencies.networkServiceProvider)
+        let view = EmailVerificationVC(viewModel: viewModel, type: payload.type)
         return (view, viewModel.output)
     }
 }

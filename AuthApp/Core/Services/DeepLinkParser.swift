@@ -7,29 +7,46 @@
 
 import Foundation
 import UIKit
+import Combine
 
-enum DeepLinkParser {
+typealias Parameters = [String: String]
+
+final class DeepLinkParser {
     
-    static func parseDeepLink(_ url: URL) -> DeepLinkType? {
-        print(url)
+    // MARK: - Properties
+    static let shared = DeepLinkParser()
+    var currentDeepLink: AnyPublisher<DeepLinkModel?, Never> {
+        currentDeepLinkTrigger.eraseToAnyPublisher()
+    }
+    private let currentDeepLinkTrigger = CurrentValueSubject<DeepLinkModel?, Never>(nil)
+    
+    // MARK: - Init
+    private init() {}
+    
+    func parseDeepLink(_ url: URL) {
         if let components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
-            let additionalInfo = components.host
-            return DeepLinkType.allCases.first { $0.rawValue == additionalInfo }
-        } else {
-            return nil
+            print(url.absoluteString)
+            var parameters = Parameters()
+            let host = components.host ?? ""
+            let components = url.pathComponents.filter({ $0.count > 1 })
+            if let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems {
+                for queryItem in queryItems {
+                    let name = queryItem.name
+                    let value = queryItem.value
+                    parameters[name] = value
+                }
+            }
+            
+            let model = DeepLinkModel(host: host, components: components, parameters: parameters)
+            print(model)
+            TokenStorage.shared.token = model.parameters["token"] ?? ""
+            currentDeepLinkTrigger.send(model)
         }
     }
 }
 
-enum DeepLinkType: String, CaseIterable {
-    case additionalInfo
-    case login
-    
-    static var allCases: [DeepLinkType] {
-        return [.additionalInfo, .login]
-    }
-}
-
-enum DeepLinkStructure {
-    static var baseURL = "authapp"
+struct DeepLinkModel {
+    let host: String
+    let components: [String]
+    let parameters: Parameters
 }

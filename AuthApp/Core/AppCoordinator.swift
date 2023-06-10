@@ -32,19 +32,6 @@ final class AppCoordinator: Coordinator {
         startAuthFlow()
     }
     
-    func deepLinkRedirect() {
-        startAuthFlow()
-    }
-    
-    func start(with option: DeepLinkType) {
-        switch option {
-        case .additionalInfo:
-            childCoordinators.last?.start(with: option)
-        case .login:
-            childCoordinators.last?.start(with: option)
-        }
-    }
-    
     // MARK: - private Methods
     
 }
@@ -53,6 +40,12 @@ final class AppCoordinator: Coordinator {
 extension AppCoordinator {
     private func startAuthFlow() {
         let coordinator = AuthFlowCoordinator(navigationController: navigationController, delegate: self)
+        childCoordinators.append(coordinator)
+        coordinator.start()
+    }
+    
+    private func startMainFlow() {
+        let coordinator = MainFlowCoordinator(navigationController: navigationController, delegate: self)
         childCoordinators.append(coordinator)
         coordinator.start()
     }
@@ -65,10 +58,9 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         switch childCoordinator.type {
         case .app:
             navigationController.viewControllers.removeAll()
-        case .registration:
+        case .auth:
             navigationController.viewControllers.removeAll()
-        case .login:
-            navigationController.viewControllers.removeAll()
+            startMainFlow()
         case .main:
             navigationController.viewControllers.removeAll()
         }

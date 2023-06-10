@@ -21,8 +21,13 @@ class BaseViewController: UIViewController {
         setupUI()
     }
     
-    func setupUI() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationSetup()
+    }
+    
+    func setupUI() {
+        
         scrollViewSetup()
         contentViewSetup()
         keyboardNotificationSetup()
