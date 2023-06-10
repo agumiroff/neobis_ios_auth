@@ -243,7 +243,9 @@ extension LoginVC {
     }
     
     @objc private func filledButtonTapped() {
-        viewModel.sendEvent(.askedForLogin)
+        guard let login = loginField.text,
+              let password = passwordField.text else { return }
+        viewModel.sendEvent(.askedForLogin(login: login, password: password))
     }
     
     @objc private func transparentButtonTapped() {

@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Moya
 
 class AdditionalInfoVMImpl: AdditionalInfoVM {
     
@@ -19,13 +20,15 @@ class AdditionalInfoVMImpl: AdditionalInfoVM {
     }
     private lazy var _output = PassthroughSubject<Output, Never>()
     private lazy var _state = CurrentValueSubject<State, Never>(.initial)
+    private let networkServiceProvider: MoyaProvider<NetworkRequest>
     var input: Input
     
     struct Input {}
     
     // MARK: - Init
-    init(input: Input) {
+    init(input: Input, networkServiceProvider: MoyaProvider<NetworkRequest>) {
         self.input = input
+        self.networkServiceProvider = networkServiceProvider
     }
 }
 

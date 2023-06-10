@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
     enum PasswordValidation {
-        private static let passwordRegex = "^[a-zA-Z0-9]{8,}$"
+        private static let passwordRegex = "^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{5,}$"
         static let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", passwordRegex)
     }
     

@@ -190,7 +190,7 @@ extension EmailVerificationVC {
             PresentationService.present(text: "На вашу почту \(String(describing: email)) было отправлено письмо",
                                         from: self, action: { self.viewModel.sendEvent(.closeModal) })
         case .resetError:
-            self.validatingLabel.text = Constants.validationError
+            self.validatingLabel.text = Constants.resetError
             self.validatingLabel.isHidden = false
             self.emailField.layer.borderColor = UIColor.red.cgColor
         }

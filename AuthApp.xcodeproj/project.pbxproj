@@ -29,6 +29,7 @@
 		C63511752A201FF600D5CDA6 /* gothampro_blackitalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C635116A2A201FF600D5CDA6 /* gothampro_blackitalic.ttf */; };
 		C63511762A201FF600D5CDA6 /* gothampro_bolditalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C635116B2A201FF600D5CDA6 /* gothampro_bolditalic.ttf */; };
 		C635117A2A20270E00D5CDA6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63511792A20270E00D5CDA6 /* Coordinator.swift */; };
+		C63CF88C2A32D6BE002B9C8E /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63CF88B2A32D6BE002B9C8E /* MainFlowCoordinator.swift */; };
 		C663BC912A202C3700431A64 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC902A202C3700431A64 /* WelcomeViewModel.swift */; };
 		C663BC932A202C5A00431A64 /* WelcomeViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC922A202C5A00431A64 /* WelcomeViewModelImpl.swift */; };
 		C663BC962A202E4000431A64 /* WelcomeModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C663BC952A202E4000431A64 /* WelcomeModuleAssembly.swift */; };
@@ -101,6 +102,7 @@
 		C635116A2A201FF600D5CDA6 /* gothampro_blackitalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_blackitalic.ttf; sourceTree = "<group>"; };
 		C635116B2A201FF600D5CDA6 /* gothampro_bolditalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gothampro_bolditalic.ttf; sourceTree = "<group>"; };
 		C63511792A20270E00D5CDA6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C63CF88B2A32D6BE002B9C8E /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
 		C663BC902A202C3700431A64 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		C663BC922A202C5A00431A64 /* WelcomeViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModelImpl.swift; sourceTree = "<group>"; };
 		C663BC952A202E4000431A64 /* WelcomeModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModuleAssembly.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 		C63511772A20260200D5CDA6 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				C63CF88A2A32D6B9002B9C8E /* MainFlow */,
 				C67549E02A2CC49100DC1F1F /* RegistrationFlow */,
 			);
 			path = Flows;
@@ -256,6 +259,14 @@
 				C663BC922A202C5A00431A64 /* WelcomeViewModelImpl.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C63CF88A2A32D6B9002B9C8E /* MainFlow */ = {
+			isa = PBXGroup;
+			children = (
+				C63CF88B2A32D6BE002B9C8E /* MainFlowCoordinator.swift */,
+			);
+			path = MainFlow;
 			sourceTree = "<group>";
 		};
 		C6457F892A2424F90011EC50 /* EmailVerifModule */ = {
@@ -784,6 +795,7 @@
 				C6BC51E32A2FFDF6005A480E /* PasswordVM.swift in Sources */,
 				C67D03BC2A1EA1AD0005132D /* UIColor+Extension.swift in Sources */,
 				C6BC51E52A2FFE0C005A480E /* PasswordVMImpl.swift in Sources */,
+				C63CF88C2A32D6BE002B9C8E /* MainFlowCoordinator.swift in Sources */,
 				C6A22CC92A1E439400189B2C /* AppDelegate.swift in Sources */,
 				C66D8B2C2A32971F00040D75 /* ViewControllerType.swift in Sources */,
 				C67D03902A1E5D620005132D /* Constants.swift in Sources */,

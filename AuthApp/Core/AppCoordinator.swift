@@ -43,6 +43,12 @@ extension AppCoordinator {
         childCoordinators.append(coordinator)
         coordinator.start()
     }
+    
+    private func startMainFlow() {
+        let coordinator = MainFlowCoordinator(navigationController: navigationController, delegate: self)
+        childCoordinators.append(coordinator)
+        coordinator.start()
+    }
 }
 
 extension AppCoordinator: CoordinatorFinishDelegate {
@@ -52,11 +58,9 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         switch childCoordinator.type {
         case .app:
             navigationController.viewControllers.removeAll()
-        case .registration:
+        case .auth:
             navigationController.viewControllers.removeAll()
-            startAuthFlow()
-        case .login:
-            navigationController.viewControllers.removeAll()
+            startMainFlow()
         case .main:
             navigationController.viewControllers.removeAll()
         }

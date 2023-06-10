@@ -23,6 +23,7 @@ class PasswordVMImpl: PasswordVM {
     var input: Input
     private let networkServiceProvider: MoyaProvider<NetworkRequest>
     
+    
     struct Input {
         let userModel: UserModelAPI
     }
@@ -34,16 +35,41 @@ class PasswordVMImpl: PasswordVM {
     }
     
     private func registerUser(password: String) {
-        var model = self.input.userModel
-        model.password = password
+        let model = self.input.userModel
         networkServiceProvider.request(.register(model)) { [weak self] result in
             guard let self else { return }
             switch result {
             case let .success(response):
-                print("success")
-                self._output.send(.userRegistered)
+                switch response.statusCode {
+                case 200:
+                    self.passwordSet(password: password) {result in
+                        if result {
+                            self._output.send(.userRegistered)
+                            print("registered")
+                        }
+                    }
+                default:
+                    print("data=========\(response.statusCode)")
+                }
             case let .failure(error):
                 print(error)
+            }
+        }
+    }
+    
+    private func passwordSet(password: String,
+                             completion: @escaping (Bool) -> Void) {
+        networkServiceProvider.request(.passwordSet(password)) { result in
+            switch result {
+            case let .success(response):
+                switch response.statusCode {
+                case 200:
+                    completion(true)
+                default:
+                    print("pass=========\(response)")
+                }
+            case .failure(_):
+                completion(false)
             }
         }
     }

@@ -25,6 +25,7 @@ final class DeepLinkParser {
     
     func parseDeepLink(_ url: URL) {
         if let components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+            print(url.absoluteString)
             var parameters = Parameters()
             let host = components.host ?? ""
             let components = url.pathComponents.filter({ $0.count > 1 })
@@ -38,6 +39,7 @@ final class DeepLinkParser {
             
             let model = DeepLinkModel(host: host, components: components, parameters: parameters)
             print(model)
+            TokenStorage.shared.token = model.parameters["token"] ?? ""
             currentDeepLinkTrigger.send(model)
         }
     }

@@ -8,6 +8,5 @@
 import Foundation
 
 struct TokenModel: Codable {
-    let deepLink: String
     let token: String
 }

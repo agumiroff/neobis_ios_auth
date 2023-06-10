@@ -144,7 +144,7 @@ extension AdditionalInfoVC {
         filledButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview()
                 .inset(Constants.horizontalInsets)
-            make.top.equalTo(        mobilePhoneField.snp.bottom)
+            make.top.equalTo(mobilePhoneField.snp.bottom)
                 .offset(Constants.textFieldTop)
             make.bottom.equalToSuperview()
         }
@@ -153,8 +153,7 @@ extension AdditionalInfoVC {
     @objc private func registerUser() {
         viewModel.sendEvent(.registerUser(.init(firstName: firstNameField.text ?? "",
                                                 secondName: secondNameField.text ?? "",
-                                                dateOfBirth: dateOfBirthField.text ?? "",
-                                                email: mobilePhoneField.text ?? "", password: "")))
+                                                dateOfBirth: dateOfBirthField.text ?? "", phone: mobilePhoneField.text ?? "")))
     }
 }
 

@@ -14,7 +14,7 @@ typealias PasswordModule = (view: PasswordVC, output: AnyPublisher<PasswordOutpu
 enum PasswordModuleAssembly {
         
     struct Dependencies {
-        let networkServiceProvider = MoyaProvider<NetworkRequest>()
+        let networkServiceProvider: MoyaProvider<NetworkRequest>
     }
     
     struct PayLoad {

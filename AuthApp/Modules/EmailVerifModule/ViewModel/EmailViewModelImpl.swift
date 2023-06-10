@@ -37,10 +37,11 @@ class EmailViewModelImpl: EmailViewModel {
     private func validateEmail(_ email: String,
                                completion: @escaping (Bool) -> Void) {
         networkServiceProvider.request(.emailCheck(email)) { result in
+            print(email)
             switch result {
             case let .success(response):
                 switch response.statusCode {
-                case 201:
+                case 200...201:
                     print("dssds")
                     completion(true)
                 case 400...410:
@@ -51,7 +52,7 @@ class EmailViewModelImpl: EmailViewModel {
                     completion(false)
                 }
             case let .failure(error):
-                print(error)
+                print("===============\(error)")
                 completion(false)
             }
         }
@@ -63,7 +64,7 @@ class EmailViewModelImpl: EmailViewModel {
             switch result {
             case let .success(response):
                 switch response.statusCode {
-                case 201:
+                case 200...201:
                     print("dssds")
                     completion(true)
                 case 400...410:
@@ -74,7 +75,7 @@ class EmailViewModelImpl: EmailViewModel {
                     completion(false)
                 }
             case let .failure(error):
-                print(error)
+                print("===============\(error)")
                 completion(false)
             }
         }
@@ -83,10 +84,8 @@ class EmailViewModelImpl: EmailViewModel {
 
 extension EmailViewModelImpl {
     enum Output {
-        case showPopUp(text: String)
         case popView
-        case finishFlow
-        case emailVerified(String)
+        case emailDidSend
     }
     
     enum State: Equatable {
@@ -111,29 +110,32 @@ extension EmailViewModelImpl {
     
     private func handleEvent(_ event: EmailEvent) {
         switch event {
+            
         case let .checkEmail(email):
             let result = email.isValidEmail()
             _state.send(.emailCheckResult(result))
+            
         case .routeBack:
             _output.send(.popView)
+            
+        case .closeModal:
+            _output.send(.emailDidSend)
+            
         case let .validateEmail(email):
             validateEmail(email, completion: { [weak self] result in
                 switch result {
                 case true:
                     self?._state.send(.success)
-                    self?._output.send(.emailVerified(email))
                 case false:
                     self?._state.send(.validationFailed)
                 }
             })
-        case .closeModal:
-            _output.send(.finishFlow)
+        
         case let .recoverPassword(email):
             recoverPassword(email, completion: { [weak self] result in
                 switch result {
                 case true:
                     self?._state.send(.success)
-                    self?._output.send(.emailVerified(email))
                 case false:
                     self?._state.send(.resetError)
                 }

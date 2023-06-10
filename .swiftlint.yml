@@ -82,6 +82,8 @@ file_length:
 function_body_length:
   warning: 80
   error: 200
+line_length:
+  error: 300
 type_body_length:
   warning: 400
   error: 500

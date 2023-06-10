@@ -17,8 +17,7 @@ protocol Coordinator {
 
 enum CoordinatorType {
     case app
-    case registration
-    case login
+    case auth
     case main
 }
 
