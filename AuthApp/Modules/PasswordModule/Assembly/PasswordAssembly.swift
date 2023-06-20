@@ -9,9 +9,9 @@ import Foundation
 import Combine
 import Moya
 
-typealias PasswordModule = (view: PasswordVC, output: AnyPublisher<PasswordOutput, Never>)
+typealias PasswordModule = (view: PasswordVC<PasswordVMImpl>, output: AnyPublisher<PasswordOutput, Never>)
 
-enum PasswordModuleAssembly {
+struct PasswordModuleAssembly {
         
     struct Dependencies {
         let networkServiceProvider: MoyaProvider<NetworkRequest>

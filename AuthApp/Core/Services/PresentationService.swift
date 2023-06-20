@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum PresentationService {
+struct PresentationService {
     
     static func present(text: String,
                         from presentingViewController: UIViewController, action: @escaping () -> Void) {

@@ -9,9 +9,8 @@ import UIKit
 import SnapKit
 import Combine
 
-class PasswordVC: BaseViewController {
-    
-    
+final class PasswordVC<PasswordViewModel: ViewModel>: BaseViewController where PasswordViewModel.State == PasswordState, PasswordViewModel.Event == PasswordEvent, PasswordViewModel.Output == PasswordOutput {
+        
     // MARK: - Properties
     private let passwordField = BaseTextField(title: Constants.passwordFieldTitle, type: .password)
     private let passwordConfirmField = BaseTextField(title: Constants.passwordFieldTitle, type: .password)
@@ -22,7 +21,7 @@ class PasswordVC: BaseViewController {
     private let specialSymbolLabel = UILabel()
     private let passwordsEqualLabel = UILabel()
     private let filledButton = FilledButton(title: Constants.filledButtonTitle)
-    private let viewModel: any PasswordVM
+    private let viewModel: PasswordViewModel
     private var isSubmitEnabled = CurrentValueSubject<Bool, Never>(false)
     private var cancellables = Set<AnyCancellable>()
     private let type: ViewControllerType
@@ -48,7 +47,7 @@ class PasswordVC: BaseViewController {
         filledButtonSetup()
     }
     
-    init(viewModel: any PasswordVM, type: ViewControllerType) {
+    init(viewModel: PasswordViewModel, type: ViewControllerType) {
         self.viewModel = viewModel
         self.type = type
         super.init(nibName: nil, bundle: nil)
@@ -70,9 +69,7 @@ class PasswordVC: BaseViewController {
                                          action: #selector(backAction))
         navigationItem.leftBarButtonItem = backButton
     }
-}
 
-extension PasswordVC {
     private func passwordFieldSetup() {
         contentView.addSubview(passwordField)
                

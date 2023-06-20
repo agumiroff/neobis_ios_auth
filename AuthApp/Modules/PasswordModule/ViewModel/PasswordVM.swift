@@ -19,3 +19,14 @@ protocol PasswordVM {
     var output: AnyPublisher<PasswordOutput, Never> { get }
     func sendEvent(_ event: PasswordEvent)
 }
+
+protocol ViewModel {
+    associatedtype InputType
+    associatedtype Event
+    associatedtype State
+    associatedtype Output
+    var input: InputType { get set }
+    var state: AnyPublisher<State, Never> { get }
+    var output: AnyPublisher<Output, Never> { get }
+    func sendEvent(_ event: Event)
+}

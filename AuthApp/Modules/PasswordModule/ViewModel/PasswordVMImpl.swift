@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import Moya
 
-class PasswordVMImpl: PasswordVM {
+class PasswordVMImpl: ViewModel {
     
     // MARK: - Properties
     var state: AnyPublisher<PasswordState, Never> {
